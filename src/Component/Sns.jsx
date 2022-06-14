@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const Sns = () => {
     return(
@@ -8,10 +8,10 @@ const Sns = () => {
             </Title>
             <ButtonWrap>
                 <Google>
-                    <Img src="./asset/google.png"></Img>
+                    <Img src="./assets/images/icons/google.png"></Img>
                 </Google>
                 <Kakao>
-                    <Img src="./asset/kakaotalk.png"></Img>
+                    <Img src="./assets/images/icons/kakaotalk.png"></Img>
                 </Kakao>
             </ButtonWrap>
         </Container>
@@ -20,16 +20,21 @@ const Sns = () => {
 export default Sns;
 
 const Container = styled.section`
-
+display: flex;
+flex-direction: column;
 `;
 
-const Title = styled.h3``;
+const Title = styled.div`
+font: ${({ theme }) => theme.fontSize.bigBold};
+margin:0 0 25px 10px `;
 
 const ButtonWrap = styled.div`
 display: flex;
 align-items:center;
 justify-content:center;
-flex-direction: column;`;
+flex-direction:column;
+gap: 15px;
+`;
 
 const Google = styled.button``;
 

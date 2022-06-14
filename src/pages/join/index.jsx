@@ -1,6 +1,8 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import Link from "next/link";
 import Sns from "../../Component/Sns";
+import Button from "../../Component/Button";
+
 
 export default function JoinPage (){
     return(<Container>
@@ -12,6 +14,7 @@ export default function JoinPage (){
         <Sns/>
         <SignUp>
             <JoinTitle>이메일 회원가입</JoinTitle>
+            <InputWrap>
             <InputBox>
                 <LabelBox htmlFor="email">
                     <LableText>이메일</LableText>
@@ -60,6 +63,7 @@ export default function JoinPage (){
                 <Select>
                 </Select>
             </InputBox>
+        </InputWrap>
         </SignUp>
         <PolicyDesc>
             <Link href="#">
@@ -71,7 +75,7 @@ export default function JoinPage (){
             </Link>
             에 동의하고, 회원가입합니다.
         </PolicyDesc>
-        <SignUpButton>가입하기</SignUpButton>
+        <Button />
         <LoginBox>
                 <LoginText>
                   이미 회원인가요?
@@ -81,7 +85,8 @@ export default function JoinPage (){
                 </Link>
         </LoginBox>
     </Container>)
-}
+};
+
 const Container = styled.section`
 display: flex;
 align-items:center;
@@ -89,27 +94,61 @@ justify-content:center;
 flex-direction: column;
 `;
 const Title = styled.h2`
+font: ${({ theme }) => theme.fontSize.h2};
+line-height: 42px;
 text-align:center;
+margin: 54px 0;
 `;
 
 // 회원 가입 틀
 const SignUp = styled.section`
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin-top: 56px;
 `;
-const JoinTitle = styled.h3``;
+const JoinTitle = styled.div`
+margin-bottom: 25px;
+font: ${({ theme }) => theme.fontSize.bigBold};
+`;
+const InputWrap = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap:48px;
+margin-bottom: 16px;
+`;
 const InputBox = styled.div`
-border: 1px solid #000;`;
+width: 420px;
+height: 80px;
+padding: 10px;
+box-sizing:border-box;
+border-radius: 10px;
+border: 1px solid #B7B7B7;
+`;
 const LabelBox = styled.label``;
-const LableText = styled.p``;
+const LableText = styled.p`
+color: ${({ theme }) => theme.color.textDeepGray};
+font: ${({ theme }) => theme.fontSize.middleRegular};
+`;
 const Input = styled.input`
-border:none`;
+width: 400px;
+height: 40px;
+border: none`;
 const SubTextBox=styled.div``;
 const Message = styled.p``;
 const Select = styled.select``;
-const PolicyDesc = styled.p``;
+const PolicyDesc = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+margin-bottom: 37px;`;
 
 // 가입하기 버튼
 const SignUpButton = styled.button``;
 
 // 로그인 
-const LoginBox = styled.div``;
+const LoginBox = styled.div`
+margin-top: 16px;
+display: flex;
+font: ${({ theme }) => theme.fontSize.middleRegular};
+`;
 const LoginText = styled.p``;

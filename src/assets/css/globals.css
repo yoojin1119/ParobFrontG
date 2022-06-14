@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+/* 새로운 버전 폰트 */
+
+/* Bold */
+@font-face {
+  font-family: 'IBMPlexSansKR-Bold';
+  font-display: swap; /*응답이 올때까지 무한정 기다리고 그 전 까진 바로 폴백폰트를 보여준다.*/
+  font-style: normal;
+  src: local('IBMPlexSansKR-Bold'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Bold.woff2) format('woff2'),
+    /* 모던 브라우저. 압축률이 가장 높음(30%) */
+      url(../../../public/assets/fonts/IBMPlexSansKR-Bold.woff) format('woff'),
+    /* 대부분 브라우저. 압축률이 좋음*/
+      url(../../../public/assets/fonts/IBMPlexSansKR-Bold.ttf)
+      format('truetype');
+  /* WOFF2 형식과 WOFF 형식을 모두 사용할 수 없을 때 TTF 형식을 폴백 폰트로 사용, 압축 x */
+}
+
+/* Medium */
+@font-face {
+  font-family: 'IBMPlexSansKR-Medium';
+  font-display: swap;
+  font-style: normal;
+  src: local('IBMPlexSansKR-Bold'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Medium.woff2) format('woff2'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Medium.woff) format('woff'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Medium.ttf)
+      format('truetype');
+}
+
+/* Regular */
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  font-display: swap;
+  font-style: normal;
+  src: local('IBMPlexSansKR-Regular'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Regular.woff2)
+      format('woff2'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Regular.woff) format('woff'),
+    url(../../../public/assets/fonts/IBMPlexSansKR-Regular.ttf)
+      format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+select {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  letter-spacing: normal;
+}
+
+/* 추가 */
+html {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  top: 0 !important;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  min-height: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+/* 추가 */
+button {
+  font-family: 'IBMPlexSansKR-Regular', 'Helvetica Neue', Arial, sans-serif;
+  cursor: pointer;
+  border-style: none;
+  background-color: transparent;
+}
+
+input,
+textarea {
+  font-family: 'IBMPlexSansKR-Regular', 'Helvetica Neue', Arial, sans-serif;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* 포커스 라운드 */
+input:focus {
+  outline: none;
+  border: 1.2px solid #ed6f1e;
+}
+
+div:focus,
+button:focus,
+a:focus,
+textarea:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #bcbcbc;
+  font-size: 1.1rem;
+  text-align: start;
+  margin-right: 8px;
+}
+
+.blind {
+  display: none;
+}
+
+/* input-search x버튼 커스텀 */
+input::-ms-clear,
+input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* 자동입력 background-color none */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-transition: background-color 9999s ease-out;
+  -webkit-text-fill-color: black !important;
+}
+
+select {
+  font-family: 'IBMPlexSansKR-Regular', 'Helvetica Neue', Arial, sans-serif;
+}
+
