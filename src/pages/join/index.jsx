@@ -2,9 +2,24 @@ import styled from "styled-components";
 import Link from "next/link";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
+import { useState } from "react";
 
 
 export default function JoinPage (){
+    const [passwordType,setPasswordType] = useState({
+        type:'password',
+        visible: false
+    })
+    const visiblePassword = (e) => {
+        setPasswordType(()=>{
+                return{type: 'text', visible: true}
+        })
+    }
+    const invisiblePassword = (e) => {
+        setPasswordType(()=>{
+                return{type: 'password', visible: false}
+        })
+    }
     return(
     <Container>
         <Title>
@@ -32,14 +47,22 @@ export default function JoinPage (){
                 </SubTextBox>
             </InputBox>
             <InputBox>
-                <LabelBox htmlFor="password">
-                    <LableText>비밀번호</LableText>
-                </LabelBox>
-                <Input 
-                  autoComplete="off"
-                  id="password"
-                  type="text"
-                ></Input>
+            <LabelBox htmlFor="password">
+                        <LableText>비밀번호</LableText>
+                    </LabelBox>
+                <PasswordWrap>
+                    <Input 
+                      autoComplete="off"
+                      id="password"
+                      type={passwordType.type}
+                    ></Input>
+                    <Btnwrap>
+                        <VisibleBtn onClick={visiblePassword}>
+                        </VisibleBtn>
+                        <InvisibleBtn onClick={invisiblePassword}>
+                        </InvisibleBtn>
+                    </Btnwrap>
+                </PasswordWrap>
                 <SubTextBox>
                     <Message></Message>
                 </SubTextBox>
@@ -136,6 +159,24 @@ const Input = styled.input`
 width: 400px;
 height: 40px;
 border: none`;
+const PasswordWrap= styled.div`
+display: flex;`;
+const Btnwrap = styled.div`
+display: flex;
+
+`;
+const VisibleBtn = styled.button`
+background: url('/assets/images/icons/visible.png') no-repeat;
+width: 30px;
+heght: 22px;
+margin-right: 13px;
+`;
+const InvisibleBtn = styled.button`
+background: url('/assets/images/icons/invisible.png') no-repeat;
+width: 30px;
+heght: 22px;
+margin-top: -2px;`;
+
 const SubTextBox=styled.div``;
 const Message = styled.p``;
 const Select = styled.select``;
