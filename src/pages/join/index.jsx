@@ -3,13 +3,22 @@ import Link from "next/link";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useState } from "react";
+import { useForm } from 'react-hook-form'
 
 
 export default function JoinPage (){
+    const [activeId, setActiveId] = useState(false)
+    const {register,watch} = useForm();
     const [passwordType,setPasswordType] = useState({
         type:'password',
         visible: false
     })
+
+    console.log(watch())
+
+
+
+    // 비밀번호 보여지기 버튼
     const visiblePassword = (e) => {
         setPasswordType(()=>{
                 return{type: 'text', visible: true}
@@ -33,7 +42,7 @@ export default function JoinPage (){
             <InputWrap>
             <InputBox>
                 <LabelBox htmlFor="email">
-                    <LableText>이메일</LableText>
+                {watch().id? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>}
                 </LabelBox>
                 <Input 
                   placeholder="example@gmail.com"
@@ -41,20 +50,22 @@ export default function JoinPage (){
                   id="email"
                   type="text"
                   maxLength={40}
+                  {...register("id")}
                 ></Input>
                 <SubTextBox>
                     <Message></Message>
                 </SubTextBox>
             </InputBox>
             <InputBox>
-            <LabelBox htmlFor="password">
-                        <LableText>비밀번호</LableText>
-                    </LabelBox>
+                <LabelBox htmlFor="password">
+                    {watch().password? <ActiveLableText>비밀번호</ActiveLableText> : <LableText>비밀번호</LableText>} 
+                </LabelBox>
                 <PasswordWrap>
                     <Input 
                       autoComplete="off"
                       id="password"
                       type={passwordType.type}
+                      {...register("password")}
                     ></Input>
                     <Btnwrap>
                         <VisibleBtn onClick={visiblePassword}>
@@ -69,12 +80,13 @@ export default function JoinPage (){
             </InputBox>
             <InputBox>
                 <LabelBox htmlFor="nickname">
-                    <LableText>별명</LableText>
+                    {watch().nickname? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
                 </LabelBox>
                 <Input 
                   autoComplete="off"
                   id="nickname"
                   type="text"
+                  {...register("nickname")}
                 ></Input>
                 <SubTextBox>
                     <Message></Message>
@@ -153,6 +165,10 @@ border: 1px solid #B7B7B7;
 const LabelBox = styled.label``;
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
+font: ${({ theme }) => theme.fontSize.middleRegular};
+`;
+const ActiveLableText = styled.p`
+color: ${({ theme }) => theme.color.primaryOrange};
 font: ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
