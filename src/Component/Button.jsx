@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const Button = ({value, onClick}) => {
     return(
     <Container>
-        <Name>가입 하기</Name>
+       <Name >{value}</Name>
     </Container>
     )
 }

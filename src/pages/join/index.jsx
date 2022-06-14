@@ -5,7 +5,8 @@ import Button from "../../Component/Button";
 
 
 export default function JoinPage (){
-    return(<Container>
+    return(
+    <Container>
         <Title>
             회원 가입 하고 나만의 로봇을
             <br/> 
@@ -75,7 +76,7 @@ export default function JoinPage (){
             </Link>
             에 동의하고, 회원가입합니다.
         </PolicyDesc>
-        <Button />
+        <Button value='가입하기'/>
         <LoginBox>
                 <LoginText>
                   이미 회원인가요?

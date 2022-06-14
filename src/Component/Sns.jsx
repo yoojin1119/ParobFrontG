@@ -1,19 +1,33 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const Sns = () => {
+    const router = useRouter();
+    const url = router.pathname;
     return(
         <Container>
-            <Title>
-                소셜 회원가입
-            </Title>
-            <ButtonWrap>
-                <Google>
-                    <Img src="./assets/images/icons/google.png"></Img>
-                </Google>
-                <Kakao>
-                    <Img src="./assets/images/icons/kakaotalk.png"></Img>
-                </Kakao>
-            </ButtonWrap>
+            {url === '/join' ?
+            <>
+                <Title>
+                    소셜 회원가입
+                </Title>
+                <ButtonWrap>
+                    <Google>
+                        <Img src="./assets/images/icons/googleJoin.png"></Img>
+                    </Google>
+                    <Kakao>
+                        <Img src="./assets/images/icons/kakaotalkJoin.png"></Img>
+                    </Kakao>
+                </ButtonWrap>  
+            </>: 
+                <ButtonWrap>
+                    <Google>
+                        <Img src="./assets/images/icons/googleLogin.png"></Img>
+                    </Google>
+                    <Kakao>
+                        <Img src="./assets/images/icons/kakaotalkLogin.png"></Img>
+                    </Kakao>
+                </ButtonWrap> }
         </Container>
     )
 }
