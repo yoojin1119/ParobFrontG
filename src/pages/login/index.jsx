@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
+import { useState } from "react";
 
 export default function LoginPage (){
+    const [loginKeep, setLoginKeep] = useState(true)
+    const LoginKeeping = () => {
+        setLoginKeep(!loginKeep)
+    }
 return(
     <Container>
         <Title>로그인</Title>
@@ -40,8 +45,8 @@ return(
                 </InputBox>
             </InputWrap>
             <LoginCheckWrap>
-                <LoginCheckBox>
-                    <LoginBtnImg src='./assets/images/icons/unchecked.png'></LoginBtnImg>
+                <LoginCheckBox onClick={LoginKeeping}>
+                    {loginKeep ? <LoginBtnImg src='./assets/images/icons/checked.svg'></LoginBtnImg> : <LoginBtnImg src='./assets/images/icons/unchecked.png'></LoginBtnImg>}
                     <LoginCheckText>로그인 유지</LoginCheckText>
                 </LoginCheckBox>
                 <FindPassword>비밀 번호 찾기</FindPassword>
