@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import helper from "../../utils/common/helper";
-import { set } from "react-hook-form";
 
 export default function JoinPage (){
   const [data, setData] = useState({});
@@ -42,6 +41,8 @@ export default function JoinPage (){
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [responseData, setResponseData] = useState()
+  const [country, setCountry] = useState('')
+  const countryList = [ '한국', '일본', '중국','인도','미국','캐나다','스페인','프랑스','독일', '포루투갈', '베트남', '인드네시아', '이란', '아랍', '미얀마', '태국', '러시아', '이탈리아', '해당없음']
 
     // 유효성검사
     const onSubmit = () => {
@@ -238,7 +239,19 @@ export default function JoinPage (){
                       <ActiveLableText>국가</ActiveLableText>
                   </LabelBox>
                   <Select>
-                    <Option></Option>
+                  {countryList?.map(
+                            (item, idx) => {
+                              return (
+                                  <Option
+                                    key={idx}
+                                    id={idx}
+                                    value={country}
+                                    onMouseDown={handleAutoEmail}
+                                  >
+                                    {item}
+                                  </Option>
+                                )
+                            })}
                   </Select>
               </SelectBox>
           </InputWrap>
