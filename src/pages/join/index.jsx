@@ -244,14 +244,14 @@ export default function JoinPage (){
                         <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message>
                     </SubTextBox>
                 </InputBox>
-                <InputBox>
+                <SelectBox>
                     <LabelBox>
                         <ActiveLableText>국가</ActiveLableText>
                     </LabelBox>
                     <Select>
                       <Option></Option>
                     </Select>
-                </InputBox>
+                </SelectBox>
             </InputWrap>
             <PolicyDesc>
                 <Link href="#">
@@ -405,11 +405,29 @@ const DropOption = styled.li`
   }
 `;
 
+// 국가 정보
+const SelectBox = styled.div`
+position: relative;
+width: 420px;
+height: 80px;
+padding: 10px;
+box-sizing:border-box;
+border-radius: 10px;
+border: 1px solid #B7B7B7
+`;
 const Select = styled.select`
+position:absolute;
+width: 400px;
+height: 50px;
+right: 10px;
+appearance: none;
+background:url(/assets/images/icons/polygon.png) no-repeat 95% 10%;
+background-size: 20px;
 `;
 const Option = styled.option`
-position:absolute;
-right: 0;
+background: #000000;
+color: #fff;
+padding: 3px 0;
 `;
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
