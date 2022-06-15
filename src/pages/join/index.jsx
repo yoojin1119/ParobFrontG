@@ -2,58 +2,113 @@ import styled from "styled-components";
 import Link from "next/link";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
-import { useState } from "react";
-import { useForm } from 'react-hook-form'
-import TextInput from 'react-autocomplete-input'
+import { useEffect, useState } from "react";
+import axios from "axios";
 
+import helper from "../../utils/common/helper";
+import { set } from "react-hook-form";
 
 export default function JoinPage (){
+  const [data, setData] = useState({});
+
+  // 이메일
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isAutoEmailClicked, setAutoEmailClicked] = useState(false);
+  const [isIsEmailAutoStarted, setIsEmailAutoStarted] = useState(false);
+  const [emailError, setEmailError] = useState(false)
+  const AutoEmailList = [
+      { id: 1, address: '@gmail.com' },
+      { id: 2, address: '@naver.com' },
+      { id: 3, address: '@daum.net' },
+    ];
+
+  // 비밀번호
+  const [passwordType,setPasswordType] = useState({
+    type:'password',
+    visible: false
+  })
+  const [isEngChecked, setIsEngChecked] = useState(false)
+  const [isNumChecked, setIsNumChecked] = useState(false)
+  const [isLimitChecked, setIsLimitChecked] = useState(false)
+  const [IsPasswordCorrected, setIsPasswordCorrected] = useState(false)
+  
+    // 닉네임
+  const [nickName, setNickName] = useState('')
+  const [isNicknameChanged, setIsNicknameChanged] = useState(false)
+
+
     // 유효성검사
-    const [data, setData] = useState(null);
-    const {
-        register,
-        watch,
-         handleSubmit,
-        formState: { errors },
-      } = useForm();
     const onSubmit = (data) => {
+      if (!!helper.emailValid(email)) {
+      setEmail(email)
+      }
+      else {
+        setEmailError(true)
+      }
+      completeData()
+
+    }
+    const completeData = () => {
+      data = {
+        id: email,
+        password: password,
+        nickName:nickName
+      }
         setData(data);
-    };
-
-    // 이메일 자동완성
-    const [email, setEmail] = useState('');
-    const [isAutoEmailClicked, setAutoEmailClicked] = useState(false);
-    const [isIsEmailAutoStarted, setIsEmailAutoStarted] = useState(false);
-    const AutoEmailList = [
-        { id: 1, address: '@gmail.com' },
-        { id: 2, address: '@naver.com' },
-        { id: 3, address: '@daum.net' },
-      ];
-
-    const handleEmailFocusOut = () => {
-      setIsEmailAutoStarted(false);
-    };
-    const handleKeyDown = () => {
-       watch().email.includes('@')
-        ? setIsEmailAutoStarted(true)
-        : setIsEmailAutoStarted(false);
-    };
-    const handleAutoEmail = (e) => {
-        setEmail(e.target.innerHTML);
-        setAutoEmailClicked(true);
-        setIsEmailAutoStarted(false)
-      };
-    const onChange = (e) => {
-        setEmail(e.target.value)
     }
 
+    // 임풋 유효성 검사
+    const handleInputChange = (e) => {
+      const { id, value } = e?.target;
+      switch (id) {
+        case 'email':
+          setEmail(value);
+          setAutoEmailClicked(false);
+          if (!!helper.emailValid(value)) {
+            setEmail(email)
+          } else {
+              setEmailError(true)
+          }
+          //@입력시 자동완성 이메일 생성
+          value?.includes('@')
+            ? setIsEmailAutoStarted(true)
+            : setIsEmailAutoStarted(false);
+          break;
+        case 'password':
+          !!value
+            setPassword(value)
+          !!helper.engValid(value)
+            ? setIsEngChecked(true)
+            : setIsEngChecked(false);
+          !!helper.numValid(value)
+            ? setIsNumChecked(true)
+            : setIsNumChecked(false);
+          !!helper.limitValid(value)
+            ? setIsLimitChecked(true)
+            : setIsLimitChecked(false);
+          !!isEngChecked &&
+            !!isNumChecked &&
+            !!isLimitChecked &&
+            setIsPasswordCorrected(true);
+          break;
+        case 'nickName':
+          setIsNicknameChanged(true);
+          setNickName(value);
+      }
+    };
+  
+
+    // 이메일 자동완성
+    const handleEmailFocusOut = () => {
+      setIsEmailAutoStarted(false);
+    }
+    const handleAutoEmail = (e) => { 
+      setEmail(e?.target?.innerHTML);
+      setAutoEmailClicked(true);
+    }; 
 
     // 비밀번호 보여지기 버튼
-    const [passwordType,setPasswordType] = useState({
-        type:'password',
-        visible: false
-    })
-
     const visiblePassword = (e) => {
         setPasswordType(()=>{
             return{type: 'text', visible: true}
@@ -61,9 +116,34 @@ export default function JoinPage (){
     }
     const invisiblePassword = (e) => {
         setPasswordType(()=>{
-                return{type: 'password', visible: false}
+            return{type: 'password', visible: false}
         })
     }
+
+    // 국가 설정
+    const [latitude, setLatitude] = useState(null);
+    const [longitude, setLongitude] = useState(null);
+    const [responseData, setResponseData] = useState()
+        // 접속국가 ip 확인
+        const API_endpoint = 'https://api.openweathermap.org/data/2.5/weather?';
+        const API_key='7343370acfb3698a06f563a12ecf5a6a';
+        useEffect (() => {
+          navigator.geolocation.getCurrentPosition((position)=>{
+            setLatitude(position.coords.latitude)
+            setLongitude(position.coords.longitude)
+            findLocation(latitude,longitude)
+          })
+        },[latitude,longitude])
+  
+        function findLocation() {
+          axios.get(`${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`)
+          .then((res) => {
+            setResponseData(res.data)
+            console.log(responseData)
+          })
+        }
+
+
     return(
     <Container>
         <Title>
@@ -72,48 +152,40 @@ export default function JoinPage (){
             직접 만들어요!
         </Title>
         <Sns/>
-        <SignUpForm onSubmit={handleSubmit(onSubmit)}>
+        <SignUpForm onSubmit={onSubmit}>
             <JoinTitle>이메일 회원가입</JoinTitle>
             <InputWrap>
                 <InputBox>
                     <LabelBox htmlFor="email">
-                    {watch().email? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>}
+                      {email? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>}
                     </LabelBox>
                     <Input 
                       placeholder="example@gmail.com"
                       autoComplete="off"
+                      type='text'
                       id="email"
-                      type="text"
-                      maxLength={40}
-                      onChange={onChange}
-                      required
+                      value={email}
+                      onChange={handleInputChange}
                       onBlur={handleEmailFocusOut}
-                      onKeyDown={handleKeyDown}
-                      {...register("email", {
-                        pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: "이메일 주소를 정확히 입력해주세요.",
-                        },
-                      })}
                     ></Input>
                     <SubTextBox>
                         <Message>이미 가입한 이메일이에요.</Message>
-                        <Message>{errors.email && errors.email.message}</Message>
+                        {emailError? <Message>이메일 주소를 정확히 입력해주세요.</Message> :null}
                     </SubTextBox>
-                    {isIsEmailAutoStarted ?                  
+                    {!!isIsEmailAutoStarted ?                  
                         <DropBox>
                             {AutoEmailList?.map(
                               (item, idx) => {
                                 return (
-                                  item?.address?.includes(watch().email.split('@')[1]) &&
-                                  !watch().email.includes(item?.address) && (
+                                  item?.address?.includes(email.split('@')[1]) &&
+                                  !email.includes(item?.address) && (
                                     <DropOption
                                       key={idx}
-                                      id="0"
+                                      id={idx}
                                       value={email}
-                                      onClick={handleAutoEmail}
+                                      onMouseDown={handleAutoEmail}
                                     >
-                                      {watch().email?.split('@')[0]}
+                                      {email?.split('@')[0]}
                                       {item?.address}
                                     </DropOption>
                                   )
@@ -124,14 +196,15 @@ export default function JoinPage (){
                 </InputBox>
                 <InputBox>
                     <LabelBox htmlFor="password">
-                        {watch().password? <ActiveLableText>비밀번호</ActiveLableText> : <LableText>비밀번호</LableText>} 
+                        {password? <ActiveLableText>비밀번호</ActiveLableText> : <LableText>비밀번호</LableText>} 
                     </LabelBox>
                     <PasswordWrap>
                         <Input 
                           autoComplete="off"
                           id="password"
+                          value={password}
+                          onChange={handleInputChange}
                           type={passwordType.type}
-                          {...register("password")}
                         >
                         </Input>
                         <Btnwrap>
@@ -142,18 +215,30 @@ export default function JoinPage (){
                         </Btnwrap>
                     </PasswordWrap>
                     <SubTextBox>
-                        <Message></Message>
+                        <ErrorEng>
+                          <ErrorImg src='./assets/images/icons/greyCheck.png'></ErrorImg> 
+                          문자
+                        </ErrorEng>
+                        <NumError>
+                          <ErrorImg src='./assets/images/icons/greyCheck.png'></ErrorImg>
+                          숫자
+                        </NumError>
+                        <LimitError>
+                          <ErrorImg src='./assets/images/icons/greyCheck.png'></ErrorImg>
+                          8글자
+                        </LimitError>
                     </SubTextBox>
                 </InputBox>
                 <InputBox>
-                    <LabelBox htmlFor="nickname">
-                        {watch().nickname? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
+                    <LabelBox htmlFor="nickName">
+                        {nickName? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
                     </LabelBox>
                     <Input 
                       autoComplete="off"
-                      id="nickname"
+                      id="nickName"
                       type="text"
-                      {...register("nickname")}
+                      value={nickName}
+                      onChange={handleInputChange}
                     ></Input>
                     <SubTextBox>
                         <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message>
@@ -164,6 +249,7 @@ export default function JoinPage (){
                         <ActiveLableText>국가</ActiveLableText>
                     </LabelBox>
                     <Select>
+                      <Option></Option>
                     </Select>
                 </InputBox>
             </InputWrap>
@@ -244,12 +330,12 @@ width: 400px;
 height: 40px;
 border: none`;
 
+
 // 비밀번호 보이게 안보이게
 const PasswordWrap= styled.div`
 display: flex;`;
 const Btnwrap = styled.div`
 display: flex;
-
 `;
 const VisibleBtn = styled.button`
 background: url('/assets/images/icons/visible.png') no-repeat;
@@ -274,6 +360,21 @@ const Message = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryRed};
 `;
+const ErrorEng = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.textGray};
+`;
+const NumError = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.textGray};
+`;
+const LimitError = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.textGray};
+`;
+const ErrorImg = styled.img`
+`;
+
 
 // 이메일 자동완성
 const DropBox = styled.ul`
@@ -304,7 +405,12 @@ const DropOption = styled.li`
   }
 `;
 
-const Select = styled.select``;
+const Select = styled.select`
+`;
+const Option = styled.option`
+position:absolute;
+right: 0;
+`;
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 margin-bottom: 37px;
