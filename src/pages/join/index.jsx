@@ -38,8 +38,13 @@ export default function JoinPage (){
   const [isNicknameChanged, setIsNicknameChanged] = useState(false)
 
 
+  // 국가 설정
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [responseData, setResponseData] = useState()
+
     // 유효성검사
-    const onSubmit = (data) => {
+    const onSubmit = () => {
       if (!!helper.emailValid(email)) {
       setEmail(email)
       }
@@ -47,7 +52,6 @@ export default function JoinPage (){
         setEmailError(true)
       }
       completeData()
-
     }
     const completeData = () => {
       data = {
@@ -65,11 +69,6 @@ export default function JoinPage (){
         case 'email':
           setEmail(value);
           setAutoEmailClicked(false);
-          if (!!helper.emailValid(value)) {
-            setEmail(email)
-          } else {
-              setEmailError(true)
-          }
           //@입력시 자동완성 이메일 생성
           value?.includes('@')
             ? setIsEmailAutoStarted(true)
@@ -96,184 +95,174 @@ export default function JoinPage (){
           setIsNicknameChanged(true);
           setNickName(value);
       }
-    };
+  };
+
+  // 이메일 자동완성
+  const handleEmailFocusOut = () => {
+    setIsEmailAutoStarted(false);
+  }
+  const handleAutoEmail = (e) => { 
+    setEmail(e?.target?.innerHTML);
+    setAutoEmailClicked(true);
+  }; 
+  // 비밀번호 보여지기 버튼
+  const visiblePassword = (e) => {
+      setPasswordType(()=>{
+          return{type: 'text', visible: true}
+      })
+  }
+  const invisiblePassword = (e) => {
+      setPasswordType(()=>{
+          return{type: 'password', visible: false}
+      })
+  }
   
-
-    // 이메일 자동완성
-    const handleEmailFocusOut = () => {
-      setIsEmailAutoStarted(false);
-    }
-    const handleAutoEmail = (e) => { 
-      setEmail(e?.target?.innerHTML);
-      setAutoEmailClicked(true);
-    }; 
-
-    // 비밀번호 보여지기 버튼
-    const visiblePassword = (e) => {
-        setPasswordType(()=>{
-            return{type: 'text', visible: true}
-        })
-    }
-    const invisiblePassword = (e) => {
-        setPasswordType(()=>{
-            return{type: 'password', visible: false}
-        })
-    }
-
-    // 국가 설정
-    const [latitude, setLatitude] = useState(null);
-    const [longitude, setLongitude] = useState(null);
-    const [responseData, setResponseData] = useState()
-        // 접속국가 ip 확인
-        const API_endpoint = 'https://api.openweathermap.org/data/2.5/weather?';
-        const API_key='7343370acfb3698a06f563a12ecf5a6a';
-        useEffect (() => {
-          navigator.geolocation.getCurrentPosition((position)=>{
-            setLatitude(position.coords.latitude)
-            setLongitude(position.coords.longitude)
-            findLocation(latitude,longitude)
-          })
-        },[latitude,longitude])
   
-        function findLocation() {
-          axios.get(`${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`)
-          .then((res) => {
-            setResponseData(res.data)
-            console.log(responseData)
-          })
-        }
+  // 접속국가 ip 확인
+      const API_endpoint = 'https://api.openweathermap.org/data/2.5/weather?';
+      const API_key='7343370acfb3698a06f563a12ecf5a6a';
+      useEffect (() => {
+        navigator.geolocation.getCurrentPosition((position)=>{
+          setLatitude(position.coords.latitude)
+          setLongitude(position.coords.longitude)
+          findLocation(latitude,longitude)
+        })
+      },[latitude,longitude])
 
-
-    return(
-    <Container>
-        <Title>
-            회원 가입 하고 나만의 로봇을
-            <br/> 
-            직접 만들어요!
-        </Title>
-        <Sns/>
-        <SignUpForm onSubmit={onSubmit}>
-            <JoinTitle>이메일 회원가입</JoinTitle>
-            <InputWrap>
-                <InputBox>
-                    <LabelBox htmlFor="email">
-                      {email? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>}
-                    </LabelBox>
-                    <Input 
-                      placeholder="example@gmail.com"
-                      autoComplete="off"
-                      type='text'
-                      id="email"
-                      value={email}
-                      onChange={handleInputChange}
-                      onBlur={handleEmailFocusOut}
-                    ></Input>
-                    <SubTextBox>
-                        <Message>이미 가입한 이메일이에요.</Message>
-                        {emailError? <Message>이메일 주소를 정확히 입력해주세요.</Message> :null}
-                    </SubTextBox>
-                    {!!isIsEmailAutoStarted ?                  
-                        <DropBox>
-                            {AutoEmailList?.map(
-                              (item, idx) => {
-                                return (
-                                  item?.address?.includes(email.split('@')[1]) &&
-                                  !email.includes(item?.address) && (
-                                    <DropOption
-                                      key={idx}
-                                      id={idx}
-                                      value={email}
-                                      onMouseDown={handleAutoEmail}
-                                    >
-                                      {email?.split('@')[0]}
-                                      {item?.address}
-                                    </DropOption>
-                                  )
-                                );
-                              }
-                            )}
-                        </DropBox>: null}
-                </InputBox>
-                <InputBox>
-                    <LabelBox htmlFor="password">
-                        {password? <ActiveLableText>비밀번호</ActiveLableText> : <LableText>비밀번호</LableText>} 
-                    </LabelBox>
-                    <PasswordWrap>
-                        <Input 
-                          autoComplete="off"
-                          id="password"
-                          value={password}
-                          onChange={handleInputChange}
-                          type={passwordType.type}
-                        >
-                        </Input>
-                        <Btnwrap>
-                            <VisibleBtn onClick={visiblePassword}>
-                            </VisibleBtn>
-                            <InvisibleBtn onClick={invisiblePassword}>
-                            </InvisibleBtn>
-                        </Btnwrap>
-                    </PasswordWrap>
-                    <SubTextBox>
-                        <ErrorEng>
-                          <ErrorImg src='./assets/images/icons/greyCheck.png'></ErrorImg> 
-                          문자
-                        </ErrorEng>
-                        <NumError>
-                          <ErrorImg src='./assets/images/icons/greyCheck.png'></ErrorImg>
-                          숫자
-                        </NumError>
-                        <LimitError>
-                          <ErrorImg src='./assets/images/icons/greyCheck.png'></ErrorImg>
-                          8글자
-                        </LimitError>
-                    </SubTextBox>
-                </InputBox>
-                <InputBox>
-                    <LabelBox htmlFor="nickName">
-                        {nickName? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
-                    </LabelBox>
-                    <Input 
-                      autoComplete="off"
-                      id="nickName"
-                      type="text"
-                      value={nickName}
-                      onChange={handleInputChange}
-                    ></Input>
-                    <SubTextBox>
-                        <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message>
-                    </SubTextBox>
-                </InputBox>
-                <SelectBox>
-                    <LabelBox>
-                        <ActiveLableText>국가</ActiveLableText>
-                    </LabelBox>
-                    <Select>
-                      <Option></Option>
-                    </Select>
-                </SelectBox>
-            </InputWrap>
-            <PolicyDesc>
-                <Link href="#">
-                    이용약관
-                </Link>
-                및
-                <Link href="#">
-                    개인정보 처리 방침
-                </Link>
-                에 동의하고, 회원가입합니다.
-            </PolicyDesc>
-            <Button type="submit" value='가입하기'/>
-        </SignUpForm>
-        <LoginBox>
-                <LoginText>
-                  이미 회원인가요?
-                </LoginText>
-                <Link href="/login">
-                  <P>로그인</P>
-                </Link>
-        </LoginBox>
-    </Container>)
+      function findLocation() {
+        axios.get(`${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`)
+        .then((res) => {
+          setResponseData(res.data)
+          console.log(responseData)
+        })
+      }
+  return(
+  <Container>
+      <Title>
+          회원 가입 하고 나만의 로봇을
+          <br/> 
+          직접 만들어요!
+      </Title>
+      <Sns/>
+      <SignUpForm onSubmit={onSubmit}>
+          <JoinTitle>이메일 회원가입</JoinTitle>
+          <InputWrap>
+              <InputBox>
+                  <LabelBox htmlFor="email">
+                    {email? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>}
+                  </LabelBox>
+                  <Input 
+                    placeholder="example@gmail.com"
+                    autoComplete="off"
+                    type='text'
+                    id="email"
+                    value={email}
+                    onChange={handleInputChange}
+                    onBlur={handleEmailFocusOut}
+                  ></Input>
+                  <SubTextBox>
+                      <Message>이미 가입한 이메일이에요.</Message>
+                      {emailError? <Message>이메일 주소를 정확히 입력해주세요.</Message> :null}
+                  </SubTextBox>
+                  {!!isIsEmailAutoStarted ?                  
+                      <DropBox>
+                          {AutoEmailList?.map(
+                            (item, idx) => {
+                              return (
+                                item?.address?.includes(email.split('@')[1]) &&
+                                !email.includes(item?.address) && (
+                                  <DropOption
+                                    key={idx}
+                                    id={idx}
+                                    value={email}
+                                    onMouseDown={handleAutoEmail}
+                                  >
+                                    {email?.split('@')[0]}
+                                    {item?.address}
+                                  </DropOption>
+                                )
+                              );
+                            }
+                          )}
+                      </DropBox>: null}
+              </InputBox>
+              <InputBox>
+                  <LabelBox htmlFor="password">
+                      {password? <ActiveLableText>비밀번호</ActiveLableText> : <LableText>비밀번호</LableText>} 
+                  </LabelBox>
+                  <PasswordWrap>
+                      <Input 
+                        autoComplete="off"
+                        id="password"
+                        value={password}
+                        onChange={handleInputChange}
+                        type={passwordType.type}
+                      >
+                      </Input>
+                      <Btnwrap>
+                          <VisibleBtn onClick={visiblePassword}>
+                          </VisibleBtn>
+                          <InvisibleBtn onClick={invisiblePassword}>
+                          </InvisibleBtn>
+                      </Btnwrap>
+                  </PasswordWrap>
+                  <SubTextBox>
+                    {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>문자</SubMsg> 
+                    : isEngChecked ? <PassMsg><Img src='./assets/images/icons/blueCheck.png'></Img>문자</PassMsg>
+                    : <ErrorMsg><Img src='./assets/images/icons/redCheck.svg'></Img>문자</ErrorMsg>}
+                    {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>숫자</SubMsg> 
+                    : isNumChecked ? <PassMsg><Img src='./assets/images/icons/blueCheck.png'></Img>숫자</PassMsg>
+                    : <ErrorMsg><Img src='./assets/images/icons/redCheck.svg'></Img>숫자</ErrorMsg>}
+                    {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>8글자</SubMsg> 
+                    : isLimitChecked ? <PassMsg><Img src='./assets/images/icons/blueCheck.png'></Img>8글자</PassMsg>
+                    : <ErrorMsg><Img src='./assets/images/icons/redCheck.svg'></Img>8글자</ErrorMsg>}
+                  </SubTextBox>
+              </InputBox>
+              <InputBox>
+                  <LabelBox htmlFor="nickName">
+                      {nickName? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
+                  </LabelBox>
+                  <Input 
+                    autoComplete="off"
+                    id="nickName"
+                    type="text"
+                    value={nickName}
+                    onChange={handleInputChange}
+                  ></Input>
+                  <SubTextBox>
+                      <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message>
+                  </SubTextBox>
+              </InputBox>
+              <SelectBox>
+                  <LabelBox>
+                      <ActiveLableText>국가</ActiveLableText>
+                  </LabelBox>
+                  <Select>
+                    <Option></Option>
+                  </Select>
+              </SelectBox>
+          </InputWrap>
+          <PolicyDesc>
+              <Link href="#">
+                  이용약관
+              </Link>
+              및
+              <Link href="#">
+                  개인정보 처리 방침
+              </Link>
+              에 동의하고, 회원가입합니다.
+          </PolicyDesc>
+          <Button type="submit" value='가입하기'/>
+      </SignUpForm>
+      <LoginBox>
+              <LoginText>
+                이미 회원인가요?
+              </LoginText>
+              <Link href="/login">
+                <P>로그인</P>
+              </Link>
+      </LoginBox>
+  </Container>)
 };
 
 const Container = styled.section`
@@ -360,9 +349,17 @@ const Message = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryRed};
 `;
-const ErrorEng = styled.p`
+const SubMsg = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};
+`;
+const PassMsg = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.primaryBlue};
+`;
+const ErrorMsg = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.primaryRed};
 `;
 const NumError = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
@@ -372,9 +369,8 @@ const LimitError = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
-const ErrorImg = styled.img`
+const Img = styled.img`
 `;
-
 
 // 이메일 자동완성
 const DropBox = styled.ul`
