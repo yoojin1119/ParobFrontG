@@ -41,6 +41,8 @@ export default function JoinPage (){
   // 국가 설정
   const [country, setCountry] = useState('')
   const [countryMap, setCountryMap] = useState([])
+  const [countryOpenBtn, setCountryOpenBtn] = useState(false)
+  const [search, setSearch] = useState('')
 
     // 유효성검사
     const onSubmit = (e) => {
@@ -146,6 +148,19 @@ export default function JoinPage (){
     }
     setCountryMap(arr)
   }
+  const countryOpen = () =>{
+    setCountryOpenBtn(!countryOpenBtn)
+    console.log(countryOpenBtn)
+  }
+  const handleCountry = (e) => {
+    setCountry(e?.target?.innerHTML)
+  }
+
+  // 국가 검색 기능
+  const onChangeSearch =(e) =>{
+    e.preventDefault();
+    setSearch(e.target.value)
+  }
   return(
   <Container>
       <Title>
@@ -185,7 +200,7 @@ export default function JoinPage (){
                                     key={idx}
                                     id={idx}
                                     value={email}
-                                    onMouseDown={handleCountry}
+                                    onMouseDown={ handleAutoEmail}
                                   >
                                     {email?.split('@')[0]}
                                     {item?.address}
@@ -210,9 +225,9 @@ export default function JoinPage (){
                       >
                       </Input>
                       <Btnwrap>
-                          <VisibleBtn onClick={visiblePassword}>
+                          <VisibleBtn onMouseDown={visiblePassword}>
                           </VisibleBtn>
-                          <InvisibleBtn onClick={invisiblePassword}>
+                          <InvisibleBtn onMouseDown={invisiblePassword}>
                           </InvisibleBtn>
                       </Btnwrap>
                   </PasswordWrap>
@@ -247,23 +262,42 @@ export default function JoinPage (){
                   <LabelBox>
                       <ActiveLableText>국가</ActiveLableText>
                   </LabelBox>
-                  <Select
-                  defaultValue={country}
-                  >
-                  {countryMap.map(
-                            (item, idx) => {
-                              return (
-                                  <Option
-                                    key={idx}
-                                    id={idx}
-                                    value={country}
-                                    onMouseDown={handleInputChange}
-                                  >
-                                    {item}
-                                  </Option>
-                                )
-                            })}
+                  <Select>
+                    <CountrySelected>{country}</CountrySelected>
+                   {search ?   
+                   <SelectDropBox>
+                      <SelectInput 
+                      type= 'text'
+                      value={search} 
+                      onChange={onChangeSearch} 
+                      placeholder="국가 리스트">
+                      </SelectInput>
+                      {countryMap.filter((item) => {
+                        if(item.includes(search)){
+                          return item
+                        }}).map((item, idx) => (<SelectDropOption key={idx}>{item}</SelectDropOption>))}
+                    </SelectDropBox> : countryOpenBtn ?
+                    <SelectDropBox>
+                    <SelectInput 
+                      type='text'
+                      value={search} 
+                      onChange={onChangeSearch} 
+                      placeholder="국가 리스트">
+                      </SelectInput>
+                      {countryMap.map((item, idx) => {
+                        return(
+                          <SelectDropOption
+                            key={idx}
+                            id={idx}
+                            value={country}
+                            onMouseDown={handleCountry}
+                          >
+                            {item}
+                          </SelectDropOption>
+                          )})}
+                   </SelectDropBox>: null}
                   </Select>
+                  <SelectButton onClick={countryOpen}></SelectButton>
               </SelectBox>
           </InputWrap>
           <PolicyDesc>
@@ -427,7 +461,7 @@ const DropOption = styled.li`
 
 // 국가 정보
 const SelectBox = styled.div`
-position: relative;
+position:relative;
 width: 420px;
 height: 80px;
 padding: 10px;
@@ -435,20 +469,61 @@ box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7
 `;
-const Select = styled.select`
+const Select = styled.div`
+`;
+const CountrySelected = styled.p`
+margin-top: 10px`;
+const SelectDropBox =styled.ul`
+position: absolute;
+top: 85px;
+left: 0;
+width: 420px;
+height: 207px;
+overflow: scroll;
+border-radius: 10px;
+box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+background: #fff;
+z-index: 100;
+`;
+const SelectDropOption = styled.li`
+height: 3.2rem;
+padding: 0.7rem 1.1rem;
+&:hover {
+  background-color: rgb(255, 215, 191);
+  cursor: pointer;
+}
+&:hover: first-child {
+  background-color: rgb(255, 215, 191);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+&:hover:last-child {
+  background-color: rgb(255, 215, 191);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+`;
+const SelectButton = styled.button`
 position:absolute;
-width: 400px;
+top:29px;
+right: 26px;
+background:url(/assets/images/icons/polygon.png) no-repeat;
+width: 30px;
+height: 25px;
+`;
+const SelectInput = styled.input`
+width: 420px;
 height: 50px;
-right: 10px;
-appearance: none;
-background:url(/assets/images/icons/polygon.png) no-repeat 95% 10%;
-background-size: 20px;
+border:none;
+border-bottom: 1px solid #EDEDED;
+background-image:url(/assets/images/icons/search.png);
+background-position: 13px center;
+background-size: 32px;
+background-repeat: no-repeat;
+padding: 5px 5px;
+text-indent: 45px;
 `;
-const Option = styled.option`
-background: #000000;
-color: #fff;
-padding: 3px 0;
-`;
+// 정책 연결
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 margin-bottom: 37px;
