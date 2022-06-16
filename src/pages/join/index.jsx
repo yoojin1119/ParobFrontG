@@ -4,6 +4,7 @@ import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import countryList from '../../data/country.json'
 
 import helper from "../../utils/common/helper";
 
@@ -38,21 +39,25 @@ export default function JoinPage (){
 
 
   // 국가 설정
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-  const [responseData, setResponseData] = useState()
   const [country, setCountry] = useState('')
-  const countryList = [ '한국', '일본', '중국','인도','미국','캐나다','스페인','프랑스','독일', '포루투갈', '베트남', '인드네시아', '이란', '아랍', '미얀마', '태국', '러시아', '이탈리아', '해당없음']
+  const [countryMap, setCountryMap] = useState([])
 
     // 유효성검사
-    const onSubmit = () => {
+    const onSubmit = (e) => {
       if (!!helper.emailValid(email)) {
       setEmail(email)
+      completeData()
       }
       else {
         setEmailError(true)
+        e.preventDefault()
       }
-      completeData()
+      if ( !!isEngChecked && !!isNumChecked && !!isLimitChecked) {
+        setPassword(password)
+      }
+      else {
+        e.preventDefault()
+      }
     }
     const completeData = () => {
       data = {
@@ -120,23 +125,27 @@ export default function JoinPage (){
   
   
   // 접속국가 ip 확인
-      const API_endpoint = 'https://api.openweathermap.org/data/2.5/weather?';
-      const API_key='7343370acfb3698a06f563a12ecf5a6a';
+  const API_key = 'key=Km3pTLz60yRpssZeS4f9';
+  const API_endPoint = 'https://extreme-ip-lookup.com/json/?'
       useEffect (() => {
-        navigator.geolocation.getCurrentPosition((position)=>{
-          setLatitude(position.coords.latitude)
-          setLongitude(position.coords.longitude)
-          findLocation(latitude,longitude)
+          getIpClient()
         })
-      },[latitude,longitude])
-
-      function findLocation() {
-        axios.get(`${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`)
-        .then((res) => {
-          setResponseData(res.data)
-          console.log(responseData)
-        })
-      }
+  async function getIpClient() {
+    try {
+      const response = await axios.get(`${API_endPoint}${API_key}`);
+      setCountry(response.data.country.toUpperCase())
+      countryCheck()
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const countryCheck = () => {
+    let arr = []
+    for(const value in countryList) {
+      arr.push(countryList[value].CountryNameEN);
+    }
+    setCountryMap(arr)
+  }
   return(
   <Container>
       <Title>
@@ -176,7 +185,7 @@ export default function JoinPage (){
                                     key={idx}
                                     id={idx}
                                     value={email}
-                                    onMouseDown={handleAutoEmail}
+                                    onMouseDown={handleCountry}
                                   >
                                     {email?.split('@')[0]}
                                     {item?.address}
@@ -238,15 +247,17 @@ export default function JoinPage (){
                   <LabelBox>
                       <ActiveLableText>국가</ActiveLableText>
                   </LabelBox>
-                  <Select>
-                  {countryList?.map(
+                  <Select
+                  defaultValue={country}
+                  >
+                  {countryMap.map(
                             (item, idx) => {
                               return (
                                   <Option
                                     key={idx}
                                     id={idx}
                                     value={country}
-                                    onMouseDown={handleAutoEmail}
+                                    onMouseDown={handleInputChange}
                                   >
                                     {item}
                                   </Option>
