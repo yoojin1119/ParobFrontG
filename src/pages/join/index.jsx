@@ -273,7 +273,7 @@ export default function JoinPage (){
                       placeholder="국가 리스트">
                       </SelectInput>
                       {countryMap.filter((item) => {
-                        if(item.includes(search)){
+                        if(item.includes(search.toUpperCase())){
                           return item
                         }}).map((item, idx) => (<SelectDropOption key={idx}>{item}</SelectDropOption>))}
                     </SelectDropBox> : countryOpenBtn ?
@@ -512,8 +512,9 @@ width: 30px;
 height: 25px;
 `;
 const SelectInput = styled.input`
-width: 420px;
+width: 408px;
 height: 50px;
+border-radius: 10px;
 border:none;
 border-bottom: 1px solid #EDEDED;
 background-image:url(/assets/images/icons/search.png);
