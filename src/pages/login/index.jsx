@@ -3,6 +3,7 @@ import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useState } from "react";
 import Link from "next/link";
+import Header from "../../Component/layout/header";
 
 export default function LoginPage (){
     const [loginKeep, setLoginKeep] = useState(true)

@@ -170,7 +170,7 @@ export default function JoinPage (){
   }
   return(
   <Container>
-      <Header/>
+    <Header/>
       <Title>
           회원 가입 하고 나만의 로봇을
           <br/> 
@@ -337,9 +337,8 @@ export default function JoinPage (){
 
 const Container = styled.section`
 display: flex;
-align-items:center;
-justify-content:center;
 flex-direction: column;
+align-items: center;
 `;
 const Title = styled.h2`
 font: ${({ theme }) => theme.fontSize.h2};
