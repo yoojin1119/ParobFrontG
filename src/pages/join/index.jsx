@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import countryList from '../../data/country.json'
 import Header from "../../Component/layout/header";
+import Footer from "../../Component/layout/Footer";
 
 import helper from "../../utils/common/helper";
 
@@ -332,6 +333,7 @@ export default function JoinPage (){
                 <P>로그인</P>
               </Link>
       </LoginBox>
+      <Footer/>
   </Container>)
 };
 
@@ -491,7 +493,7 @@ top: 85px;
 left: 0;
 width: 420px;
 height: 207px;
-overflow: scroll;
+overflow-y: scroll;
 border-radius: 10px;
 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
 background: #fff;
@@ -548,7 +550,7 @@ const SignUpButton = styled.button``;
 
 // 로그인 
 const LoginBox = styled.div`
-margin-top: 16px;
+margin: 16px 0 78px;
 display: flex;
 font: ${({ theme }) => theme.fontSize.middleRegular};
 `;

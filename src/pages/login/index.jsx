@@ -12,6 +12,7 @@ export default function LoginPage (){
     }
 return(
     <Container>
+        <Header/>
         <Title>로그인</Title>
         <Sns/>
         <Looin>
@@ -61,7 +62,6 @@ return(
                     <LinkP>회원가입</LinkP>
                 </Link>
             </MoveJoin>
-
         </Looin>
     </Container>
 )

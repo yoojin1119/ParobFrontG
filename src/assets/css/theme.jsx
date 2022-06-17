@@ -19,8 +19,8 @@ const color = {
     lineGray: '#B7B7B7',
     lineLightGray: '#D3D3D3',
     Select: '#FFF4D8',
-    BackGray: '#EDEDED',
-    BackLight: '#F9F9F9'
+    backGray: '#EDEDED',
+    backLight: '#F9F9F9'
 };
 
 const fontSize = {
@@ -82,7 +82,7 @@ const theme = {
     fontSize,
     logos,
     check,
-    line
+    line,
 };
 
 export default theme;
