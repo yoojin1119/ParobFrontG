@@ -43,6 +43,7 @@ export default function JoinPage (){
   const [countryMap, setCountryMap] = useState([])
   const [countryOpenBtn, setCountryOpenBtn] = useState(false)
   const [search, setSearch] = useState('')
+  const [ip, setIp] = useState('')
 
     // 유효성검사
     const onSubmit = (e) => {
@@ -115,32 +116,34 @@ export default function JoinPage (){
   }; 
   // 비밀번호 보여지기 버튼
   const visiblePassword = (e) => {
+      e.preventDefault();
       setPasswordType(()=>{
           return{type: 'text', visible: true}
       })
   }
   const invisiblePassword = (e) => {
+      e.preventDefault();
       setPasswordType(()=>{
           return{type: 'password', visible: false}
       })
   }
-  
   
   // 접속국가 ip 확인
   const API_key = 'key=Km3pTLz60yRpssZeS4f9';
   const API_endPoint = 'https://extreme-ip-lookup.com/json/?'
       useEffect (() => {
           getIpClient()
-        })
+        },)
   async function getIpClient() {
     try {
       const response = await axios.get(`${API_endPoint}${API_key}`);
-      setCountry(response.data.country.toUpperCase())
+      setIp(response.data.country)
       countryCheck()
     } catch (error) {
       console.error(error);
     }
   }
+    
   const countryCheck = () => {
     let arr = []
     for(const value in countryList) {
@@ -148,12 +151,15 @@ export default function JoinPage (){
     }
     setCountryMap(arr)
   }
-  const countryOpen = () =>{
+  const countryOpen = (e) =>{
+    e.preventDefault();
+    setCountry(ip.toUpperCase())
     setCountryOpenBtn(!countryOpenBtn)
-    console.log(countryOpenBtn)
   }
   const handleCountry = (e) => {
-    setCountry(e?.target?.innerHTML)
+  setCountry(e.target.innerHTML)
+  setCountryOpenBtn(!countryOpenBtn)
+  setSearch('')
   }
 
   // 국가 검색 기능
@@ -200,7 +206,7 @@ export default function JoinPage (){
                                     key={idx}
                                     id={idx}
                                     value={email}
-                                    onMouseDown={ handleAutoEmail}
+                                    onMouseDown={handleAutoEmail}
                                   >
                                     {email?.split('@')[0]}
                                     {item?.address}
@@ -225,9 +231,9 @@ export default function JoinPage (){
                       >
                       </Input>
                       <Btnwrap>
-                          <VisibleBtn onMouseDown={visiblePassword}>
+                          <VisibleBtn onClick={visiblePassword}>
                           </VisibleBtn>
-                          <InvisibleBtn onMouseDown={invisiblePassword}>
+                          <InvisibleBtn onClick={invisiblePassword}>
                           </InvisibleBtn>
                       </Btnwrap>
                   </PasswordWrap>
@@ -263,7 +269,7 @@ export default function JoinPage (){
                       <ActiveLableText>국가</ActiveLableText>
                   </LabelBox>
                   <Select>
-                    <CountrySelected>{country}</CountrySelected>
+                    <CountrySelected >{country}</CountrySelected>
                    {search ?   
                    <SelectDropBox>
                       <SelectInput 
@@ -275,7 +281,11 @@ export default function JoinPage (){
                       {countryMap.filter((item) => {
                         if(item.includes(search.toUpperCase())){
                           return item
-                        }}).map((item, idx) => (<SelectDropOption key={idx}>{item}</SelectDropOption>))}
+                        }}).map((item, idx) => (<SelectDropOption 
+                          key={idx} 
+                          id={idx}
+                          value={country}
+                          onMouseDown={handleCountry}>{item}</SelectDropOption>))}
                     </SelectDropBox> : countryOpenBtn ?
                     <SelectDropBox>
                     <SelectInput 
@@ -310,7 +320,7 @@ export default function JoinPage (){
               </Link>
               에 동의하고, 회원가입합니다.
           </PolicyDesc>
-          <Button type="submit" value='가입하기'/>
+          <Button type="submit" value='가입하기' onClick={onSubmit}/>
       </SignUpForm>
       <LoginBox>
               <LoginText>
@@ -373,7 +383,8 @@ color: ${({ theme }) => theme.color.primaryOrange};
 font: ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
-width: 400px;
+width: 300px;
+padding-right: 100px;
 height: 40px;
 border: none`;
 

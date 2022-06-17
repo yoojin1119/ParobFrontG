@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function LoginPage (){
     const [loginKeep, setLoginKeep] = useState(true)
@@ -37,10 +38,11 @@ return(
                     <Input 
                       autoComplete="off"
                       id="password"
-                      type="text"
+                      type= 'password'
+                      visible='false'
                     ></Input>
                     <SubTextBox>
-                        <Message></Message>
+                        <Message>가입하지 않은 이메일이거나, 비밀번호가 일치하지  않아요.</Message>
                     </SubTextBox>
                 </InputBox>
             </InputWrap>
@@ -52,6 +54,13 @@ return(
                 <FindPassword>비밀 번호 찾기</FindPassword>
             </LoginCheckWrap>
             <Button value='로그인'/>
+            <MoveJoin>
+                아직 회원이 아닌가요?
+                <Link href="/join">
+                    <LinkP>회원가입</LinkP>
+                </Link>
+            </MoveJoin>
+
         </Looin>
     </Container>
 )
@@ -102,8 +111,15 @@ width: 400px;
 height: 40px;
 border: none
 `;
-const SubTextBox = styled.div``;
-const Message = styled.p``;
+const SubTextBox=styled.div`
+margin-top: 10px;
+display: flex;
+gap: 35px;
+`;
+const Message = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.primaryRed};
+`;
 
 // 로그인 유지 및, 비밀번호 찾기
 const LoginCheckWrap = styled.div`
@@ -127,3 +143,16 @@ color: ${({ theme }) => theme.color.textGray};
 const FindPassword = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};`;
+const MoveJoin = styled.div`
+display: flex;
+margin-top: 26px;
+justify-content:center;
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.textDeepGray};
+`;
+const LinkP = styled.p`
+font: ${({ theme }) => theme.fontSize.middleRegular};
+color: ${({ theme }) => theme.color.primaryOrange};
+text-decoration: underline;
+cursor: pointer;
+`;

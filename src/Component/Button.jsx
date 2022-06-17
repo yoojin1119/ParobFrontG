@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
 
-const Button = ({value, onClick}) => {
+const Button = ({value}) => {
     return(
     <Container>
        <Name >{value}</Name>

@@ -26,27 +26,27 @@ const color = {
 const fontSize = {
     h1 :`font-family: IBMPlexSansKR-Bold;
     font-size: 36px;
-    font-weoght: bold;`,
+    font-weight: bold;`,
     h2:`font-family: IBMPlexSansKR-Bold;
     font-size: 28px;
-    font-weoght: bold;`,
+    font-weight: bold;`,
     h3 :`font-family: IBMPlexSansKR-Medium;
     font-size: 20px;
-    font-weoght: 500;`,
+    font-weight: 500;`,
     h4 :`font-family: IBMPlexSansKR-Regular;
     font-size: 18px;
-    font-weoght: 400;`,
+    font-weight: 400;`,
     bigRegular :`font-family:IBMPlexSansKR-Regular;
     font-size: 16px;
     font-weoght: 400;
     line-height:24px`,
     bigBold :`font-family: IBMPlexSansKR-Bold;
     font-size: 16px;
-    font-weoght: 600;
+    font-weight: 600;
     line-height:24px;`,
     middleRegular :`font-family: IBMPlexSansKR-Regular;
     font-size: 14px;
-    font-weoght: 400;
+    font-weight: 400;
     line-height:20px`,
     middleBold :`font-family: IBMPlexSansKR-Bold;
     font-size: 14px;
@@ -54,11 +54,11 @@ const fontSize = {
     line-height:20px;`,
     smallRegular :`font-family: IBMPlexSansKR-Regular;
     font-size: 12px;
-    font-weoght: 400;
+    font-weight: 400;
     line-height:18px`,
     Message :`font-family:  IBMPlexSansKR-Regular;
     font-size: 10px;
-    font-weoght: 400;
+    font-weight: 400;
     line-height:16px`,
 };
 
