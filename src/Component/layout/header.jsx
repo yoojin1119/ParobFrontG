@@ -45,7 +45,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 margin: 0 320px;
-@media only screen and (min-device-width : 960px) and (max-device-width : 1080px) and (orientation : landscape) {
+@media only screen and (min-device-width : 960px) and (max-device-width : 1920px) and (orientation : landscape) {
     margin: 0 20px;
 }
 @media only screen and (max-device-width : 960px) and (orientation : portrait) {

@@ -44,7 +44,10 @@ const Footer = () => {
                         ©Robotry. All Rights Reserved.<br/>
                     </CompanyDes>
                 </CompanyInfo>
-                <LanSelect></LanSelect>
+                <LanSelect>
+                    <SelectTxt>한국어</SelectTxt>
+                    <SelectBtn></SelectBtn>
+                </LanSelect>
             </Info>
         </FooterWrap>
     </Container>)
@@ -61,6 +64,12 @@ const FooterWrap = styled.div`
 display: flex;
 flex-direction:column;
 margin: 0 320px;
+@media only screen and (min-device-width : 960px) and (max-device-width : 1080px) and (orientation : landscape) {
+    margin: 0 20px;
+};
+@media only screen and (max-device-width : 960px) and (orientation : portrait) {
+    margin: 0 20px;
+}
 `;
 const Contact = styled.div`
 display: flex;
@@ -71,7 +80,11 @@ border-bottom: 1px solid #D3D3D3;
 `;
 const SnsContact = styled.ul`
 display: flex;
-gap: 30px;`;
+gap: 30px;
+@media only screen and (max-device-width : 960px) and (orientation : portrait) {
+    gap: 10px;
+}
+`;
 const Sns = styled.button``;
 const SnsImg = styled.img``;
 const PolicyDes = styled.ul`
@@ -79,6 +92,9 @@ display: flex;
 align-items:center;
 gap: 50px;
 font: ${({ theme }) => theme.fontSize.smallRegular};
+@media only screen and (max-device-width : 960px) and (orientation : portrait) {
+    gap: 20px;
+}
 `;
 const P = styled.p`
 color: ${({ theme }) => theme.color.textGray};`;
@@ -96,4 +112,25 @@ const CompanyDes = styled.p`
 font: ${({ theme }) => theme.fontSize.smallRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
-const LanSelect = styled.select``;
+const LanSelect = styled.div`
+align-self: start;
+position: relative;
+width: 130px;
+height: 30px;
+border-radius: 13px;
+background-color: #ffffff;
+`;
+const SelectTxt = styled.p`
+position: absolute;
+top: 6px;
+left: 20px;
+font: ${({ theme }) => theme.fontSize.smallRegular};
+color: ${({ theme }) => theme.color.textGray};
+`;
+const SelectBtn = styled.button`
+position: absolute;
+top: 9px;
+right: 14px;
+width:12px;
+height: 12px;
+background: url('/assets/images/icons/smallPolygon.png') no-repeat`;
