@@ -5,6 +5,7 @@ import Button from "../../Component/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import countryList from '../../data/country.json'
+import Header from "../../Component/layout/header";
 
 import helper from "../../utils/common/helper";
 
@@ -169,6 +170,7 @@ export default function JoinPage (){
   }
   return(
   <Container>
+      <Header/>
       <Title>
           회원 가입 하고 나만의 로봇을
           <br/> 

@@ -38,7 +38,7 @@ const fontSize = {
     font-weight: 400;`,
     bigRegular :`font-family:IBMPlexSansKR-Regular;
     font-size: 16px;
-    font-weoght: 400;
+    font-weight: 400;
     line-height:24px`,
     bigBold :`font-family: IBMPlexSansKR-Bold;
     font-size: 16px;
@@ -50,7 +50,7 @@ const fontSize = {
     line-height:20px`,
     middleBold :`font-family: IBMPlexSansKR-Bold;
     font-size: 14px;
-    font-weoght: 600;
+    font-weight: 600;
     line-height:20px;`,
     smallRegular :`font-family: IBMPlexSansKR-Regular;
     font-size: 12px;
