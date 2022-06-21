@@ -45,18 +45,6 @@ const HeaderWrap = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-<<<<<<< HEAD
-margin: 0 20rem;
-=======
-margin: 0 320px;
-@media only screen and (min-device-width : 960px) and (max-device-width : 1920px) and (orientation : landscape) {
-    margin: 0 20px;
-}
-@media only screen and (max-device-width : 960px) and (orientation : portrait) {
-    margin: 0 20px;
-}
-
->>>>>>> 603ece71c60c69bb86803ec4d955b10e4e19f260
 `;
 const Logo = styled.button``;
 const LogoImg = styled.img`

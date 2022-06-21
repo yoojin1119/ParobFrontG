@@ -169,7 +169,6 @@ left: 1.25rem;
 ${({ theme }) => theme.fontSize.smallRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
-<<<<<<< HEAD
 const SelectBtn = styled.button`
 position: absolute;
 top: 0.563rem;
@@ -178,27 +177,3 @@ width:0.75rem;
 height: 0.75rem;
 background: url('/assets/images/icons/smallPolygon.png') no-repeat;
 `;
-=======
-const LanSelect = styled.div`
-align-self: start;
-position: relative;
-width: 130px;
-height: 30px;
-border-radius: 13px;
-background-color: #ffffff;
-`;
-const SelectTxt = styled.p`
-position: absolute;
-top: 6px;
-left: 20px;
-font: ${({ theme }) => theme.fontSize.smallRegular};
-color: ${({ theme }) => theme.color.textGray};
-`;
-const SelectBtn = styled.button`
-position: absolute;
-top: 9px;
-right: 14px;
-width:12px;
-height: 12px;
-background: url('/assets/images/icons/smallPolygon.png') no-repeat`;
->>>>>>> 603ece71c60c69bb86803ec4d955b10e4e19f260
