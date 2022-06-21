@@ -40,7 +40,10 @@ flex-direction: column;
 
 const Title = styled.div`
 font: ${({ theme }) => theme.fontSize.bigBold};
-margin:0 0 25px 10px `;
+margin:0 0 25px 10px;
+@media all and (max-width : 528px){
+    margin-bottom:10px;
+} `;
 
 const ButtonWrap = styled.div`
 display: flex;
@@ -50,8 +53,22 @@ flex-direction:column;
 gap: 15px;
 `;
 
-const Google = styled.button``;
+const Google = styled.button`
+width: 420px;
+@media all and (max-width : 528px){
+    width: 224px;
+    
+}`;
 
-const Kakao = styled.button``;
+const Kakao = styled.button`
+width: 420px;
+@media all and (max-width : 528px){
+    width: 224px;
+}`;
 
-const Img= styled.img``;
+const Img= styled.img`
+width: 420px;
+@media all and (max-width : 528px){
+    width: 224px;
+    height:53px;
+}`;

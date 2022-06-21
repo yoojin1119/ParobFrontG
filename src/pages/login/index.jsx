@@ -4,6 +4,7 @@ import Button from "../../Component/Button";
 import { useState } from "react";
 import Link from "next/link";
 import Header from "../../Component/layout/header";
+import Footer from "../../Component/layout/Footer";
 
 export default function LoginPage (){
     const [loginKeep, setLoginKeep] = useState(true)
@@ -63,6 +64,7 @@ return(
                 </Link>
             </MoveJoin>
         </Looin>
+        <Footer/>
     </Container>
 )
 
@@ -72,9 +74,10 @@ display: flex;
 align-items:center;
 justify-content:center;
 flex-direction: column;
+width: 100vw;
 `;
 const Title = styled.h2`
-font: ${({ theme }) => theme.fontSize.h2};
+${({ theme }) => theme.fontSize.h2};
 line-height: 42px;
 text-align:center;
 margin: 54px 0;
@@ -85,7 +88,7 @@ const Looin = styled.section`
 `;
 const LoginTitle = styled.p`
 margin: 61px 0 41px;
-font: ${({ theme }) => theme.fontSize.bigBold};
+${({ theme }) => theme.fontSize.bigBold};
 `;
 const InputWrap = styled.div`
 display: flex;
@@ -101,16 +104,24 @@ padding: 10px;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
+@media all and (max-width : 528px){
+    width: 224px;
+    height: 53px
+}
 `;
 const LabelBox = styled.label``;
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
 width: 400px;
 height: 40px;
-border: none
+border: none;
+@media all and (max-width : 528px){
+    width: 180px;
+    height: 20px;
+}
 `;
 const SubTextBox=styled.div`
 margin-top: 10px;
@@ -118,7 +129,7 @@ display: flex;
 gap: 35px;
 `;
 const Message = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryRed};
 `;
 
@@ -138,21 +149,21 @@ height: 30px;
 margin-right: 10px;
 `;
 const LoginCheckText = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
 const FindPassword = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};`;
 const MoveJoin = styled.div`
 display: flex;
-margin-top: 26px;
+margin: 26px 0 53px;
 justify-content:center;
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textDeepGray};
 `;
 const LinkP = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryOrange};
 text-decoration: underline;
 cursor: pointer;

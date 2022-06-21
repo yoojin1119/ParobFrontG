@@ -26,7 +26,8 @@ const color = {
 const fontSize = {
     h1 :`font-family: IBMPlexSansKR-Bold;
     font-size: 36px;
-    font-weight: bold;`,
+    font-weight: bold;
+    line-height: 44px;`,
     h2:`font-family: IBMPlexSansKR-Bold;
     font-size: 28px;
     font-weight: bold;`,

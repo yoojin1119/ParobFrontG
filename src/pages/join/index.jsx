@@ -343,7 +343,7 @@ flex-direction: column;
 align-items: center;
 `;
 const Title = styled.h2`
-font: ${({ theme }) => theme.fontSize.h2};
+${({ theme }) => theme.fontSize.h2};
 line-height: 42px;
 text-align:center;
 margin: 54px 0;
@@ -354,11 +354,12 @@ const SignUpForm = styled.form`
 display: flex;
 flex-direction: column;
 justify-content: center;
+align-items:center;
 margin-top: 56px;
 `;
 const JoinTitle = styled.div`
 margin-bottom: 25px;
-font: ${({ theme }) => theme.fontSize.bigBold};
+${({ theme }) => theme.fontSize.bigBold};
 `;
 const InputWrap = styled.div`
 display: flex;
@@ -375,26 +376,37 @@ padding: 10px;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
+@media all and (max-width : 528px){
+  width: 224px;
+  height: 53px
+}
 `;
 const LabelBox = styled.label``;
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 `;
 const ActiveLableText = styled.p`
 color: ${({ theme }) => theme.color.primaryOrange};
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
 width: 300px;
 padding-right: 100px;
 height: 40px;
-border: none`;
+border: none;
+@media all and (max-width : 528px){
+  padding-right: 0px;
+  width: 200px;
+  height: 20px;
+}`;
 
 
 // 비밀번호 보이게 안보이게
 const PasswordWrap= styled.div`
-display: flex;`;
+display: flex;
+position:relative;
+`;
 const Btnwrap = styled.div`
 display: flex;
 `;
@@ -403,12 +415,17 @@ background: url('/assets/images/icons/visible.png') no-repeat;
 width: 30px;
 heght: 22px;
 margin-right: 13px;
-`;
+@media all and (max-width : 528px){
+  display: none;
+}`;
 const InvisibleBtn = styled.button`
 background: url('/assets/images/icons/invisible.png') no-repeat;
 width: 30px;
 heght: 22px;
-margin-top: -2px;`;
+margin-top: -2px;
+@media all and (max-width : 528px){
+  display: none;
+}`;
 
 
 // 오류 내용
@@ -418,19 +435,19 @@ display: flex;
 gap: 35px;
 `;
 const Message = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryRed};
 `;
 const SubMsg = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
 const PassMsg = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryBlue};
 `;
 const ErrorMsg = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryRed};
 `;
 const NumError = styled.p`
@@ -453,7 +470,10 @@ const DropBox = styled.ul`
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
   background: #fff;
   z-index: 100;
-`;
+  @media all and (max-width : 528px){
+    width: 224px;
+    left: 0;
+  }`;
 const DropOption = styled.li`
   height: 3.2rem;
   padding: 0.7rem 1.1rem;
@@ -481,12 +501,18 @@ height: 80px;
 padding: 10px;
 box-sizing:border-box;
 border-radius: 10px;
-border: 1px solid #B7B7B7
-`;
+border: 1px solid #B7B7B7;
+@media all and (max-width : 528px){
+  width: 224px;
+  height: 53px
+}`;
 const Select = styled.div`
 `;
 const CountrySelected = styled.p`
-margin-top: 10px`;
+margin-top: 10px;
+@media all and (max-width : 528px){
+  margin-top: 0px;
+}`;
 const SelectDropBox =styled.ul`
 position: absolute;
 top: 85px;
@@ -498,7 +524,10 @@ border-radius: 10px;
 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
 background: #fff;
 z-index: 100;
-`;
+@media all and (max-width : 528px){
+  width: 224px;
+  top: 60px;
+}`;
 const SelectDropOption = styled.li`
 height: 3.2rem;
 padding: 0.7rem 1.1rem;
@@ -516,6 +545,9 @@ padding: 0.7rem 1.1rem;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+@media all and (max-width : 528px){
+  width: 224px;
+}
 `;
 const SelectButton = styled.button`
 position:absolute;
@@ -524,6 +556,10 @@ right: 26px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
 width: 30px;
 height: 25px;
+@media all and (max-width : 528px){
+  top: 18px;
+  right: 8px;
+}
 `;
 const SelectInput = styled.input`
 width: 408px;
@@ -537,7 +573,9 @@ background-size: 32px;
 background-repeat: no-repeat;
 padding: 5px 5px;
 text-indent: 45px;
-`;
+@media all and (max-width : 528px){
+  width: 200px;
+}`;
 // 정책 연결
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
@@ -552,11 +590,11 @@ const SignUpButton = styled.button``;
 const LoginBox = styled.div`
 margin: 16px 0 78px;
 display: flex;
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 `;
 const LoginText = styled.p``;
 const P = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryOrange};
 text-decoration: underline;
 cursor: pointer;
