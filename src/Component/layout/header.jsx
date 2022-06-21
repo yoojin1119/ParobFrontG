@@ -35,9 +35,10 @@ const Header = () => {
 export default Header;
 
 const Container = styled.section`
-hieght: 6.563rem;
-margin-top: 1.875rem;
+hieght: 5.6253rem;
+padding-top: 1.875rem;
 background-color: transparent;
+box-size:border-box;
 width: 100vw;
 `;
 const HeaderWrap = styled.div`
