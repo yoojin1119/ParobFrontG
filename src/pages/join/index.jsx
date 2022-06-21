@@ -174,7 +174,6 @@ export default function JoinPage (){
     <Header/>
       <Title>
           회원 가입 하고 나만의 로봇을
-          <br/> 
           직접 만들어요!
       </Title>
       <Sns/>
@@ -344,9 +343,8 @@ align-items: center;
 `;
 const Title = styled.h2`
 ${({ theme }) => theme.fontSize.h2};
-line-height: 42px;
 text-align:center;
-margin: 54px 0;
+margin: 3.375rem 0;
 `;
 
 // 회원 가입 틀
@@ -355,31 +353,27 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items:center;
-margin-top: 56px;
+margin-top: 3.5rem;
 `;
 const JoinTitle = styled.div`
-margin-bottom: 25px;
+margin-bottom: 1.563rem;
 ${({ theme }) => theme.fontSize.bigBold};
 `;
 const InputWrap = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-gap:48px;
-margin-bottom: 16px;
+gap:3rem;
+margin-bottom: 1rem;
 `;
 const InputBox = styled.div`
 position: relative;
-width: 420px;
-height: 80px;
-padding: 10px;
+width: 26.25rem;
+height: 5rem;
+padding: 0.625rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
-@media all and (max-width : 528px){
-  width: 224px;
-  height: 53px
-}
 `;
 const LabelBox = styled.label``;
 const LableText = styled.p`
@@ -391,14 +385,10 @@ color: ${({ theme }) => theme.color.primaryOrange};
 ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
-width: 300px;
-padding-right: 100px;
-height: 40px;
+width: 18.75rem;
+padding-right: 6.25rem;
+height: 2.5rem;
 border: none;
-@media all and (max-width : 528px){
-  padding-right: 0px;
-  width: 200px;
-  height: 20px;
 }`;
 
 
@@ -412,27 +402,23 @@ display: flex;
 `;
 const VisibleBtn = styled.button`
 background: url('/assets/images/icons/visible.png') no-repeat;
-width: 30px;
-heght: 22px;
-margin-right: 13px;
-@media all and (max-width : 528px){
-  display: none;
-}`;
+width: 1.875rem;
+heght: 1.375rem;
+margin-right: 0.813rem;
+`;
 const InvisibleBtn = styled.button`
 background: url('/assets/images/icons/invisible.png') no-repeat;
-width: 30px;
-heght: 22px;
+width: 1.875rem;
+heght: 1.375rem;
 margin-top: -2px;
-@media all and (max-width : 528px){
-  display: none;
-}`;
+`;
 
 
 // 오류 내용
 const SubTextBox=styled.div`
-margin-top: 10px;
+margin-top: 0.625rem;
 display: flex;
-gap: 35px;
+gap: 2.188rem;
 `;
 const Message = styled.p`
 ${({ theme }) => theme.fontSize.middleRegular};
@@ -465,15 +451,12 @@ const Img = styled.img`
 const DropBox = styled.ul`
   position: absolute;
   top: 85px;
-  width: 400px;
+  width: 25rem;
   border-radius: 6px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
   background: #fff;
   z-index: 100;
-  @media all and (max-width : 528px){
-    width: 224px;
-    left: 0;
-  }`;
+ `;
 const DropOption = styled.li`
   height: 3.2rem;
   padding: 0.7rem 1.1rem;
@@ -496,38 +479,32 @@ const DropOption = styled.li`
 // 국가 정보
 const SelectBox = styled.div`
 position:relative;
-width: 420px;
-height: 80px;
-padding: 10px;
+width: 26.25rem;
+height:5rem;
+padding:0.625rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
-@media all and (max-width : 528px){
-  width: 224px;
-  height: 53px
-}`;
+`;
 const Select = styled.div`
 `;
 const CountrySelected = styled.p`
-margin-top: 10px;
+margin-top: 0.625rem;
 @media all and (max-width : 528px){
-  margin-top: 0px;
+  margin-top: 0;
 }`;
 const SelectDropBox =styled.ul`
 position: absolute;
 top: 85px;
 left: 0;
-width: 420px;
-height: 207px;
+width: 26.25rem;
+height:12.938rem;
 overflow-y: scroll;
 border-radius: 10px;
 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
 background: #fff;
 z-index: 100;
-@media all and (max-width : 528px){
-  width: 224px;
-  top: 60px;
-}`;
+`;
 const SelectDropOption = styled.li`
 height: 3.2rem;
 padding: 0.7rem 1.1rem;
@@ -545,25 +522,22 @@ padding: 0.7rem 1.1rem;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
-@media all and (max-width : 528px){
-  width: 224px;
-}
 `;
 const SelectButton = styled.button`
 position:absolute;
 top:29px;
 right: 26px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
-width: 30px;
-height: 25px;
+width: 1.875rem;
+height: 1.563rem;
 @media all and (max-width : 528px){
   top: 18px;
   right: 8px;
 }
 `;
 const SelectInput = styled.input`
-width: 408px;
-height: 50px;
+width: 25.5rem;
+height: 3.125rem;
 border-radius: 10px;
 border:none;
 border-bottom: 1px solid #EDEDED;
@@ -572,14 +546,12 @@ background-position: 13px center;
 background-size: 32px;
 background-repeat: no-repeat;
 padding: 5px 5px;
-text-indent: 45px;
-@media all and (max-width : 528px){
-  width: 200px;
-}`;
+text-indent: 2.813rem;
+`;
 // 정책 연결
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
-margin-bottom: 37px;
+margin-bottom: 2.313rem;
 text-align: center;
 `;
 
@@ -588,7 +560,7 @@ const SignUpButton = styled.button``;
 
 // 로그인 
 const LoginBox = styled.div`
-margin: 16px 0 78px;
+margin: 1rem 0 4.875rem;
 display: flex;
 ${({ theme }) => theme.fontSize.middleRegular};
 `;

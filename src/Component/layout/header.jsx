@@ -35,50 +35,25 @@ const Header = () => {
 export default Header;
 
 const Container = styled.section`
-hieght: 105px;
-margin-top: 30px;
+hieght: 6.563rem;
+margin-top: 1.875rem;
 background-color: transparent;
+width: 100vw;
 `;
 const HeaderWrap = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-margin: 0 320px;
-@media all and (min-width : 540px) and (max-width : 960px) and (orientation : landscape) {
-    margin: 0 20px;
-}
-@media all and (min-width : 540px) and (max-width : 960px) and (orientation : portrait) {
-    margin: 0 20px;
-}
-@media all and (max-width : 528px){
-    margin: 0 10px;
-}
+margin: 0 20rem;
 `;
 const Logo = styled.button``;
 const LogoImg = styled.img`
-width: 162px;
-height: 48px;
-@media all and (min-width : 540px) and (max-width : 960px) and (orientation : landscape) {
-    width: 120px;
-    height: 35px;
-};
-@media all and (max-width : 528px){
-    width: 110px;
-    height: 30px;
-}
+width: 10.125rem;
+height: 3rem;
 `;
 const MenuWrap = styled.ul`
 display: flex;
-gap: 90px;
-@media all and (min-width : 540px) and (max-device-width : 960px) and (orientation : portrait) {
-    display: none;
-}
-@media all and (min-device-width : 540px) and (max-device-width : 960px) and (orientation : landscape) {
-    gap: 50px;
-}
-@media all and (max-width : 528px){
-    display: none;
-}
+gap: 5.625rem;
 `;
 const Menu = styled.li`
 ${({ theme }) => theme.fontSize.bigRegular};
@@ -88,44 +63,27 @@ cursor: pointer;
 const UserInfo = styled.div`
 display: flex;
 align-items:center;
-gap: 40px;
-@media all and (min-width : 540px) and (max-device-width : 960px) and (orientation : portrait) {
-    display: none;
-}
-@media all and (max-width : 528px){
-    display: none;
-}`;
+gap: 2.5rem;
+`;
 
 const Login = styled.a`
 ${({ theme }) => theme.fontSize.bigRegular};
 color: ${({ theme }) => theme.color.textGray};`;
 const Join = styled.a`
-width:147px;
-height:50px;
+width: 9.188rem;
+height:3.125rem;
 background-color: ${({ theme }) => theme.color.primaryOrange};
 border-radius: 14.3px;
 ${({ theme }) => theme.fontSize.bigRegular};
 color: ${({ theme }) => theme.color.textWhite};
 text-align:center;
-padding-top: 16px;
+padding-top: 1rem;
 cursor: pointer;
-@media all screen and (min-device-width : 540px) and (max-device-width : 960px) and (orientation : landscape){
-    width: 100px;
-    height: 38px;
-    padding-top: 10px;
-}
 `;
 
 const MenuBtn = styled.button`
 background:url('/assets/images/icons/menuBar.png') no-repeat;
-width: 41px;
-height: 35px;
+width: 2.563rem;
+height: 2.188rem;
 display: none;
-@media all and (min-width : 540px) and (max-device-width : 960px) and (orientation : portrait){
-    display: block;
-}
-@media all and (max-width : 528px){
-    display: block;
-    width: 31px;
-    height: 35px;
-}`;
+`;

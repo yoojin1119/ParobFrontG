@@ -1,10 +1,11 @@
-import styled from "@emotion/styled"
-
-
+import styled from "styled-components";
+import Header from "../Component/layout/header";
+import Footer from "../Component/layout/Footer";
 export default function MainPage (){
  return(
     <Container>
-        <p>안녕하세요.</p>
+        <Header/>
+        <Footer/>
     </Container>
  )
 }

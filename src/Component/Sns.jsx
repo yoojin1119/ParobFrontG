@@ -40,35 +40,24 @@ flex-direction: column;
 
 const Title = styled.div`
 font: ${({ theme }) => theme.fontSize.bigBold};
-margin:0 0 25px 10px;
-@media all and (max-width : 528px){
-    margin-bottom:10px;
-} `;
+margin:0 0 1.563rem 0.62rem;
+`;
 
 const ButtonWrap = styled.div`
 display: flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-gap: 15px;
+gap: 0.938rem;
 `;
 
 const Google = styled.button`
-width: 420px;
-@media all and (max-width : 528px){
-    width: 224px;
-    
-}`;
-
+width:26.25rem;
+`;
 const Kakao = styled.button`
-width: 420px;
-@media all and (max-width : 528px){
-    width: 224px;
-}`;
+width:26.25rem;
+`;
 
 const Img= styled.img`
-width: 420px;
-@media all and (max-width : 528px){
-    width: 224px;
-    height:53px;
-}`;
+width:26.25rem;
+`;

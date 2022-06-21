@@ -56,46 +56,47 @@ export default Footer;
 
 const Container = styled.section`
 width: 100vw;
-padding: 40px 0 53px;
+padding: 2.5rem 0 3.313rem;
 box-sizing: border-box;
 background-color:${({ theme }) => theme.color.backGray};
 @media all and (max-width : 528px){
-    padding: 40px 0;
-}
-`;
+    padding: 25px 0;
+}`;
 
 const FooterWrap = styled.div`
 display: flex;
 flex-direction:column;
-margin: 0 320px;
+margin: 0 20rem;
 @media all and (min-width : 540px) and (max-width : 960px) and (orientation : landscape)  {
-    margin: 0 20px;
+    margin: 0 1.25rem;
 };
 @media all and (min-width : 540px) and (max-width : 960px) and (orientation : portrait) {
-    margin: 0 20px;
+    margin: 0 1.25rem;
 }
 @media all and (max-width : 528px){
-    margin: 0 10px;
+    margin: 0 1.25rem;
 }
 `;
 const Contact = styled.div`
 display: flex;
 align-items:center;
 justify-content: space-between;
-padding-bottom: 23px;
+padding-bottom: 1.438rem;
 border-bottom: 1px solid #D3D3D3;
 @media all and (max-width : 528px){ 
     flex-direction: column;
+    align-items: start;
+    gap: 1rem;
 }
 `;
 const SnsContact = styled.ul`
 display: flex;
-gap: 30px;
+gap: 1.875rem;
 @media all and (min-width : 540px) and (max-width : 960px) and (orientation : portrait) {
-    gap: 10px;
+    gap: 0.625rem;
 }
 @media all and (max-width : 528px){
-    gap: 2px;
+    gap: 0.625rem;
 }
 `;
 const Sns = styled.button``;
@@ -103,13 +104,13 @@ const SnsImg = styled.img``;
 const PolicyDes = styled.ul`
 display: flex;
 align-items:center;
-gap: 50px;
+gap: 3.125rem;  
 ${({ theme }) => theme.fontSize.smallRegular};
 @media all and (min-width : 540px) and (max-width : 960px) and (orientation : portrait) {
-    gap: 20px;
+    gap: 1.25rem;
 }
 @media all and (max-width : 528px){
-    gap: 20px;
+    gap: 0.625rem;
 }
 `;
 const P = styled.p`
@@ -118,11 +119,14 @@ const Info = styled.div`
 display: flex;
 align-items:center;
 justify-content: space-between;
-margin-top: 23px;
+margin-top: 1.438rem;
+@media all and (max-width : 528px){
+    position:relative;
+}
 `;
 const CompanyInfo = styled.div``;
 const Logo = styled.img`
-margin-bottom:16px
+margin-bottom:1rem;
 `;
 const CompanyDes = styled.p`
 ${({ theme }) => theme.fontSize.smallRegular};
@@ -131,26 +135,23 @@ color: ${({ theme }) => theme.color.textGray};
 const LanSelect = styled.div`
 align-self: start;
 position: relative;
-width: 130px;
-height: 30px;
-border-radius: 13px;
+width: 8.125rem;
+height: 1.875rem;
+border-radius: 0.813rem;
 background-color: #ffffff;
 `;
 const SelectTxt = styled.p`
 position: absolute;
-top: 6px;
-left: 20px;
+top: 0.375rem;
+left: 1.25rem;
 ${({ theme }) => theme.fontSize.smallRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
 const SelectBtn = styled.button`
 position: absolute;
-top: 9px;
-right: 14px;
-width:12px;
-height: 12px;
+top: 0.563rem;
+right: 0.875rem;
+width:0.75rem;
+height: 0.75rem;
 background: url('/assets/images/icons/smallPolygon.png') no-repeat;
-@media all and (max-width : 528px){
-    left: 6px;
-    top: 11px;
-}`;
+`;

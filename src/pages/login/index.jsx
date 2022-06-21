@@ -78,36 +78,31 @@ width: 100vw;
 `;
 const Title = styled.h2`
 ${({ theme }) => theme.fontSize.h2};
-line-height: 42px;
 text-align:center;
-margin: 54px 0;
+margin: 3.375rem 0;
 `;
 
 // 로그인 박스
 const Looin = styled.section`
 `;
 const LoginTitle = styled.p`
-margin: 61px 0 41px;
+margin: 3.813rem 0 2.563rem;
 ${({ theme }) => theme.fontSize.bigBold};
 `;
 const InputWrap = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-gap:21px;
-margin-bottom: 16px;
+gap: 1.313rem;
+margin-bottom: 1rem;
 `;
 const InputBox = styled.div`
-width: 420px;
-height: 80px;
-padding: 10px;
+width: 26.25rem;
+height: 5rem;
+padding: 0.625rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
-@media all and (max-width : 528px){
-    width: 224px;
-    height: 53px
-}
 `;
 const LabelBox = styled.label``;
 const LableText = styled.p`
@@ -115,18 +110,14 @@ color: ${({ theme }) => theme.color.textDeepGray};
 ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
-width: 400px;
-height: 40px;
+width: 25rem;
+height: 2.5rem;
 border: none;
-@media all and (max-width : 528px){
-    width: 180px;
-    height: 20px;
-}
 `;
 const SubTextBox=styled.div`
-margin-top: 10px;
+margin-top: 0.625rem;
 display: flex;
-gap: 35px;
+gap: 2.188rem;
 `;
 const Message = styled.p`
 ${({ theme }) => theme.fontSize.middleRegular};
@@ -138,15 +129,15 @@ const LoginCheckWrap = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-margin: 51px 0 33px;`;
+margin:3.188rem 0 2.063rem;`;
 const LoginCheckBox = styled.button`
 display: flex;
 align-items: center;
 justify-contenr:space-between`;
 const LoginBtnImg = styled.img`
-width: 30px;
-height: 30px;
-margin-right: 10px;
+width: 1.875rem;
+height: 1.875rem;
+margin-right: 0.625rem;
 `;
 const LoginCheckText = styled.p`
 ${({ theme }) => theme.fontSize.middleRegular};
@@ -157,7 +148,7 @@ ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};`;
 const MoveJoin = styled.div`
 display: flex;
-margin: 26px 0 53px;
+margin: 1.625rem 0 3.313rem;
 justify-content:center;
 ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textDeepGray};
