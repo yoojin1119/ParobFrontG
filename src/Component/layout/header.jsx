@@ -35,8 +35,8 @@ const Header = () => {
 export default Header;
 
 const Container = styled.section`
-hieght: 7.5rem;
-padding-top: 2.5rem;
+hieght: 5.833rem;
+padding: 1.917rem 0;
 background-color: transparent;
 box-size:border-box;
 width: 100vw;

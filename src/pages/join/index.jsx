@@ -500,7 +500,7 @@ const Select = styled.div`
 `;
 const CountrySelected = styled.p`
 margin-top: 0.833rem;
-@media all and (max-width : 528px){
+@media all and (max-width : 540px){
   margin-top: 0;
 }`;
 const SelectDropBox =styled.ul`
@@ -540,7 +540,7 @@ right: 26px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
 width: 2.5rem;
 height: 2.083rem;
-@media all and (max-width : 528px){
+@media all and (max-width : 540px){
   top: 18px;
   right: 8px;
 }
