@@ -40,7 +40,7 @@ padding-top: 2.5rem;
 background-color: transparent;
 box-size:border-box;
 width: 100vw;
-display: flrex;
+display: flex;
 justify-content:center;
 `;
 const HeaderWrap = styled.div`
@@ -48,15 +48,27 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 width: 80rem;
+padding: 0 1.667rem;
+box-sizing: border-box;
+@media all and (max-width: 540px) {
+    width: 45rem;
+}
 `;
 const Logo = styled.button``;
 const LogoImg = styled.img`
 width: 10rem;
 height: 2.917rem;
+@media all and (max-width: 540px) {
+    width: 11.333rem;
+    height: 4rem;
+}
 `;
 const MenuWrap = styled.ul`
 display: flex;
 gap: 7.5rem;
+@media all and (max-width: 540px) {
+    display: none;
+}
 `;
 const Menu = styled.li`
 ${({ theme }) => theme.fontSize.bigRegular};
@@ -67,20 +79,24 @@ const UserInfo = styled.div`
 display: flex;
 align-items:center;
 gap: 3.333rem;
+@media all and (max-width: 540px) {
+    display: none;
+}
 `;
 
 const Login = styled.a`
 ${({ theme }) => theme.fontSize.bigRegular};
-color: ${({ theme }) => theme.color.textGray};`;
+color: ${({ theme }) => theme.color.textGray};
+`;
 const Join = styled.a`
 width: 8.333rem;
 height:3.167rem;
 background-color: ${({ theme }) => theme.color.primaryOrange};
 border-radius: 14.3px;
-${({ theme }) => theme.fontSize.bigRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textWhite};
 text-align:center;
-padding-top: 1.333em;
+padding-top: 0.667rem;
 cursor: pointer;
 `;
 
@@ -89,4 +105,7 @@ background:url('/assets/images/icons/menuBar.png') no-repeat;
 width: 3.417rem;
 height: 2.917rem;
 display: none;
+@media all and (max-width: 540px) {
+    display: block;
+}
 `;

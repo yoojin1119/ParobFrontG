@@ -13,6 +13,7 @@ export default function LoginPage (){
     }
 return(
     <Container>
+        <LoginWrap>
         <Header/>
         <Title>로그인</Title>
         <Sns/>
@@ -65,6 +66,7 @@ return(
             </MoveJoin>
         </Looin>
         <Footer/>
+        </LoginWrap>
     </Container>
 )
 
@@ -72,9 +74,16 @@ return(
 const Container = styled.section`
 display: flex;
 align-items:center;
+flex-direction: column;
+align-items:center;
+width: 100vw;
+`;
+const LoginWrap=styled.section`
+display: flex;
+align-items:center;
 justify-content:center;
 flex-direction: column;
-width: 100vw;
+width: 45rem;
 `;
 const Title = styled.h2`
 ${({ theme }) => theme.fontSize.h2};

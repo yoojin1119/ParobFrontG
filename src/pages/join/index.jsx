@@ -171,6 +171,7 @@ export default function JoinPage (){
   }
   return(
   <Container>
+    <JoinWrap>
     <Header/>
       <Title>
           회원 가입 하고 나만의 로봇을
@@ -333,6 +334,7 @@ export default function JoinPage (){
               </Link>
       </LoginBox>
       <Footer/>
+      </JoinWrap>
   </Container>)
 };
 
@@ -340,11 +342,19 @@ const Container = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
+width: 100vw;
+`;
+const JoinWrap = styled.section`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 45rem;
 `;
 const Title = styled.h2`
 ${({ theme }) => theme.fontSize.h2};
 text-align:center;
 margin: 4.5rem 0;
+width: 28.333rem;
 `;
 
 // 회원 가입 틀

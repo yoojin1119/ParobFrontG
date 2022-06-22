@@ -42,19 +42,26 @@
       format('truetype');
 }
 
+/* 반응형 브레이킹 포인트 */
 * {
   box-sizing: border-box;
 }
 html {
   font-size: 12px;
 }
-@media all and (max-width: 1280px) and (min-width: 960px) {
+@media all and (min-width:1280px) {
   html {
     font-size: 16px;
   }
 }
-@media all and (max-width: 539px) {
-  html {font-size: 10px
+@media all and (max-width: 1280px) and (min-width: 960px){
+  html {
+    font-size: calc((100vw/960px)*12px);
+  }
+}
+@media all and (max-width: 540px) and (min-width: 315px) {
+  html {
+    font-size: calc((100vw/960px)*12px);
   }
 }
 html,

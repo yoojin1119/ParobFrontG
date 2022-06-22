@@ -30,7 +30,8 @@ const fontSize = {
     line-height: 3.667rem`,
     h2:`font-family: IBMPlexSansKR-Bold;
     font-size: 2.333rem;
-    font-weight: bold;`,
+    font-weight: bold;
+    line-height: 3.5rem;`,
     h3 :`font-family: IBMPlexSansKR-Medium;
     font-size: 1.667rem;
     font-weight: 500;`,

@@ -56,13 +56,19 @@ export default Footer;
 
 const Container = styled.section`
 width: 100vw;
+display: flex;
+justify-content: center;
 padding: 3.333rem 0;
-box-sizing: border-box;
 background-color:${({ theme }) => theme.color.backGray};
 `;
 const FooterWrap = styled.div`
 display: flex;
 flex-direction:column;
+width: 80rem;
+padding: 0 1.667rem;
+@media all and (max-width: 540px) {
+    width: 45rem;
+}
 `;
 const Contact = styled.div`
 display: flex;
@@ -73,23 +79,23 @@ border-bottom: 1px solid #D3D3D3;
 `;
 const SnsContact = styled.ul`
 display: flex;
+margin-left: -0.417rem;
 `;
 const Sns = styled.button``;
 const SnsImg = styled.img``;
 const PolicyDes = styled.ul`
 display: flex;
 align-items:center;
+gap: 4.167rem;
 `;
 const P = styled.p`
-color: ${({ theme }) => theme.color.textGray};`;
+color: ${({ theme }) => theme.color.textGray};
+`;
 const Info = styled.div`
 display: flex;
 align-items:center;
 justify-content: space-between;
 margin-top: 1.667rem;
-@media all and (max-width : 528px){
-    position:relative;
-}
 `;
 const CompanyInfo = styled.div``;
 const Logo = styled.img`
