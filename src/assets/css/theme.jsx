@@ -25,42 +25,42 @@ const color = {
 
 const fontSize = {
     h1 :`font-family: IBMPlexSansKR-Bold;
-    font-size: 2.25rem;
+    font-size: 3rem;
     font-weight: bold;
-    line-height: 2.75rem`,
+    line-height: 3.667rem`,
     h2:`font-family: IBMPlexSansKR-Bold;
-    font-size: 1.75rem;
+    font-size: 2.333rem;
     font-weight: bold;`,
     h3 :`font-family: IBMPlexSansKR-Medium;
-    font-size: 1.25rem;
+    font-size: 1.667rem;
     font-weight: 500;`,
     h4 :`font-family: IBMPlexSansKR-Regular;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 400;`,
     bigRegular :`font-family:IBMPlexSansKR-Regular;
-    font-size: 1rem;
+    font-size: 1.333rem;
     font-weight: 400;
-    line-height:1.5rem`,
+    line-height:2rem`,
     bigBold :`font-family: IBMPlexSansKR-Bold;
-    font-size: 1rem;
+    font-size:1.333rem;
     font-weight: 600;
-    line-height:1.5rem`,
+    line-height:2rem`,
     middleRegular :`font-family: IBMPlexSansKR-Regular;
-    font-size: 0.875rem
+    font-size: 1.167rem;
+    font-weight: 400;
+    line-height:2rem`,
+    middleBold :`font-family: IBMPlexSansKR-Bold;
+    font-size: 1.167rem
+    font-weight: 600;
+    line-height:1.667rem`,
+    smallRegular :`font-family: IBMPlexSansKR-Regular;
+    font-size: 1rem;
     font-weight: 400;
     line-height:1.5rem`,
-    middleBold :`font-family: IBMPlexSansKR-Bold;
-    font-size: 0.875rem
-    font-weight: 600;
-    line-height:1.25rem`,
-    smallRegular :`font-family: IBMPlexSansKR-Regular;
-    font-size: 0.75rem;
-    font-weight: 400;
-    line-height:1.125rem`,
     Message :`font-family:  IBMPlexSansKR-Regular;
-    font-size: 0.625rem;
+    font-size: 0.833rem;
     font-weight: 400;
-    line-height:1rem`,
+    line-height:1.333rem`,
 };
 
 const logos = {

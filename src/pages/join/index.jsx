@@ -344,7 +344,7 @@ align-items: center;
 const Title = styled.h2`
 ${({ theme }) => theme.fontSize.h2};
 text-align:center;
-margin: 3.375rem 0;
+margin: 4.5rem 0;
 `;
 
 // 회원 가입 틀
@@ -353,24 +353,24 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items:center;
-margin-top: 3.5rem;
+margin-top: 4.667rem;
 `;
 const JoinTitle = styled.div`
-margin-bottom: 1.563rem;
+margin-bottom: 2.083rem;
 ${({ theme }) => theme.fontSize.bigBold};
 `;
 const InputWrap = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-gap:3rem;
-margin-bottom: 1rem;
+gap:4rem;
+margin-bottom: 1.333rem;
 `;
 const InputBox = styled.div`
 position: relative;
-width: 26.25rem;
-height: 5rem;
-padding: 0.625rem;
+width: 35rem;
+height: 6.667rem;
+padding: 0.833rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
@@ -385,9 +385,9 @@ color: ${({ theme }) => theme.color.primaryOrange};
 ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
-width: 18.75rem;
-padding-right: 6.25rem;
-height: 2.5rem;
+width: 25rem;
+padding-right: 8.333rem;
+height: 3.333rem;
 border: none;
 }`;
 
@@ -402,23 +402,23 @@ display: flex;
 `;
 const VisibleBtn = styled.button`
 background: url('/assets/images/icons/visible.png') no-repeat;
-width: 1.875rem;
-heght: 1.375rem;
-margin-right: 0.813rem;
+width: 2.5rem;
+heght: 1.833rem;
+margin-right: 1.083rem;
 `;
 const InvisibleBtn = styled.button`
 background: url('/assets/images/icons/invisible.png') no-repeat;
-width: 1.875rem;
-heght: 1.375rem;
-margin-top: -2px;
+width: 2.5rem;
+heght: 1.833rem;
+margin-top: -0.167rem;
 `;
 
 
 // 오류 내용
 const SubTextBox=styled.div`
-margin-top: 0.625rem;
+margin-top: 0.833rem;
 display: flex;
-gap: 2.188rem;
+gap: 2.917rem;
 `;
 const Message = styled.p`
 ${({ theme }) => theme.fontSize.middleRegular};
@@ -450,16 +450,16 @@ const Img = styled.img`
 // 이메일 자동완성
 const DropBox = styled.ul`
   position: absolute;
-  top: 85px;
-  width: 25rem;
+  top: 7.083rem;
+  width: 33.333rem;
   border-radius: 6px;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
   background: #fff;
   z-index: 100;
  `;
 const DropOption = styled.li`
-  height: 3.2rem;
-  padding: 0.7rem 1.1rem;
+  height: 4.25rem;
+  padding: 0.833rem 1.667rem;
   &:hover {
     background-color: rgb(255, 215, 191);
     cursor: pointer;
@@ -479,9 +479,9 @@ const DropOption = styled.li`
 // 국가 정보
 const SelectBox = styled.div`
 position:relative;
-width: 26.25rem;
-height:5rem;
-padding:0.625rem;
+width: 35rem;
+height:6.667rem;
+padding:0.833rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
@@ -489,7 +489,7 @@ border: 1px solid #B7B7B7;
 const Select = styled.div`
 `;
 const CountrySelected = styled.p`
-margin-top: 0.625rem;
+margin-top: 0.833rem;
 @media all and (max-width : 528px){
   margin-top: 0;
 }`;
@@ -497,8 +497,8 @@ const SelectDropBox =styled.ul`
 position: absolute;
 top: 85px;
 left: 0;
-width: 26.25rem;
-height:12.938rem;
+width: 35rem;
+height:17.25rem;
 overflow-y: scroll;
 border-radius: 10px;
 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
@@ -506,8 +506,8 @@ background: #fff;
 z-index: 100;
 `;
 const SelectDropOption = styled.li`
-height: 3.2rem;
-padding: 0.7rem 1.1rem;
+height: 4.25rem;
+padding: 0.917rem 1.5rem;
 &:hover {
   background-color: rgb(255, 215, 191);
   cursor: pointer;
@@ -528,16 +528,16 @@ position:absolute;
 top:29px;
 right: 26px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
-width: 1.875rem;
-height: 1.563rem;
+width: 2.5rem;
+height: 2.083rem;
 @media all and (max-width : 528px){
   top: 18px;
   right: 8px;
 }
 `;
 const SelectInput = styled.input`
-width: 25.5rem;
-height: 3.125rem;
+width: 34rem;
+height: 4.167rem;
 border-radius: 10px;
 border:none;
 border-bottom: 1px solid #EDEDED;
@@ -546,12 +546,12 @@ background-position: 13px center;
 background-size: 32px;
 background-repeat: no-repeat;
 padding: 5px 5px;
-text-indent: 2.813rem;
+text-indent: 3.75rem;
 `;
 // 정책 연결
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
-margin-bottom: 2.313rem;
+margin-bottom: 3.083rem;
 text-align: center;
 `;
 
@@ -560,7 +560,7 @@ const SignUpButton = styled.button``;
 
 // 로그인 
 const LoginBox = styled.div`
-margin: 1rem 0 4.875rem;
+margin: 1.333rem 0 6.5em;
 display: flex;
 ${({ theme }) => theme.fontSize.middleRegular};
 `;

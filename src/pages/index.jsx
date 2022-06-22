@@ -27,12 +27,12 @@ width: 80rem;
 `;
 const Title = styled.h1`
 font: ${({ theme }) => theme.fontSize.h1};
-margin-top: 5.438rem;
+margin-top: 3.333rem;
 `;
 const StartBtn = styled.button`
-width: 15.5rem;
-height: 4.375rem;
-margin-top:2.375rem;
+width: 17.5rem;
+height: 4.167rem;
+margin-top:2rem;
 background-color: ${({ theme }) => theme.color.primaryOrange};
 border-radius: 20px;
 font: ${({ theme }) => theme.fontSize.h2};

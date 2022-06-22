@@ -35,25 +35,28 @@ const Header = () => {
 export default Header;
 
 const Container = styled.section`
-hieght: 5.6253rem;
-padding-top: 1.875rem;
+hieght: 7.5rem;
+padding-top: 2.5rem;
 background-color: transparent;
 box-size:border-box;
 width: 100vw;
+display: flrex;
+justify-content:center;
 `;
 const HeaderWrap = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
+width: 80rem;
 `;
 const Logo = styled.button``;
 const LogoImg = styled.img`
-width: 10.125rem;
-height: 3rem;
+width: 10rem;
+height: 2.917rem;
 `;
 const MenuWrap = styled.ul`
 display: flex;
-gap: 5.625rem;
+gap: 7.5rem;
 `;
 const Menu = styled.li`
 ${({ theme }) => theme.fontSize.bigRegular};
@@ -63,27 +66,27 @@ cursor: pointer;
 const UserInfo = styled.div`
 display: flex;
 align-items:center;
-gap: 2.5rem;
+gap: 3.333rem;
 `;
 
 const Login = styled.a`
 ${({ theme }) => theme.fontSize.bigRegular};
 color: ${({ theme }) => theme.color.textGray};`;
 const Join = styled.a`
-width: 9.188rem;
-height:3.125rem;
+width: 8.333rem;
+height:3.167rem;
 background-color: ${({ theme }) => theme.color.primaryOrange};
 border-radius: 14.3px;
 ${({ theme }) => theme.fontSize.bigRegular};
 color: ${({ theme }) => theme.color.textWhite};
 text-align:center;
-padding-top: 1rem;
+padding-top: 1.333em;
 cursor: pointer;
 `;
 
 const MenuBtn = styled.button`
 background:url('/assets/images/icons/menuBar.png') no-repeat;
-width: 2.563rem;
-height: 2.188rem;
+width: 3.417rem;
+height: 2.917rem;
 display: none;
 `;

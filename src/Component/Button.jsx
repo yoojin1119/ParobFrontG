@@ -11,8 +11,8 @@ const Button = ({value}) => {
 export default Button;
 
 const Container = styled.button`
-width: 26.25rem;
-height: 4.375rem;
+width: 35rem;
+height: 5.833rem;
 background-color: ${({ theme }) => theme.color.primaryOrange};
 border-radius: 20px;
 `;
