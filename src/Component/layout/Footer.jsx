@@ -27,7 +27,7 @@ const Footer = () => {
                     <Link href="/terms">
                         <P>이용약관</P>
                     </Link>
-                    <Link href="#">
+                    <Link href="/privacy">
                         <P>개인정보처리방침</P>
                     </Link>
                 </PolicyDes>
