@@ -10,9 +10,11 @@ const Header = () => {
     return(
         <Container>
             <HeaderWrap>
-                <Logo>
-                    <LogoImg src="/assets/images/logos/smallLogo.png"></LogoImg>
-                </Logo>
+                <Link href='/'>
+                    <Logo>
+                        <LogoImg src="/assets/images/logos/smallLogo.png"></LogoImg>
+                    </Logo>
+                </Link>
                 <MenuWrap>
                     <Menu>만들기</Menu>
                     <Menu>내 갤러리</Menu>

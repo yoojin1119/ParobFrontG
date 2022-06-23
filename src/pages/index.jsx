@@ -3,17 +3,12 @@ import Header from "../Component/layout/header";
 import Footer from "../Component/layout/Footer";
 import { useEffect,useState } from "react";
 export default function MainPage (){
-    const [width, setWidth] = useState(0)
-    useEffect (()=>{
-        setWidth(window.innerWidth)
-    })
-    console.log(width)
  return(
     <Container>
         <Header/>
         <Title>세상에 단 하나뿐인 나만의 로봇을 만들어보세요!</Title>
         <StartBtn>지금 만들러 가기</StartBtn>
-        {width > 540 ? <DeskImg src='/assets/images/backGround/desk.png'></DeskImg> : <MiniDeskImg src='/assets/images/backGround/miniDesk.png'></MiniDeskImg>} 
+        <DeskImg></DeskImg>
         <Footer/>
     </Container>
  )
@@ -27,15 +22,21 @@ justify-content:center;
 align-items:center;
 width: 100vw;
 `;
-const DeskImg = styled.img`
+const DeskImg = styled.div`
 width: 80rem;
-height:27.833rem;
-`;
-const MiniDeskImg = styled.img`
-width: 45rem;
+height: 27.833rem;
+background: url('/assets/images/backGround/desk.png');
+background-size: 80rem 27.833rem;
+@media all and (max-width: 540px) {
+    width: 45rem;
+    height:30.833rem;
+    background: url('/assets/images/backGround/miniDesk.png') no-repeat;
+    background-size: 100% 100%;
+}
+
 `;
 const Title = styled.h1`
-font: ${({ theme }) => theme.fontSize.h2};
+${({ theme }) => theme.fontSize.h2};
 margin-top: 3.333rem;
 text-align: center;
 @media all and (max-width: 540px) {
