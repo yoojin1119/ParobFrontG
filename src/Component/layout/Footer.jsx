@@ -24,7 +24,7 @@ const Footer = () => {
                     <Link href="/qna">
                         <P>고객 센터</P>
                     </Link>
-                    <Link href="#">
+                    <Link href="/terms">
                         <P>이용약관</P>
                     </Link>
                     <Link href="#">

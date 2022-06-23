@@ -308,7 +308,7 @@ justify-content: center;
 `;
 const ContactWrap = styled.div`
 width: 80rem;
-height: 10.083rem;
+padding: 2rem 0;
 margin-bottom: 6.833rem;
 background-color: ${({ theme }) => theme.color.backLight};
 display: flex;

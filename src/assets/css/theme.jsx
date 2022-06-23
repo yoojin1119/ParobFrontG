@@ -50,7 +50,7 @@ const fontSize = {
     middleRegular :`font-family: IBMPlexSansKR-Regular;
     font-size: 1.167rem;
     font-weight: 400;
-    line-height:2rem`,
+    line-height:1.667rem`,
     middleBold :`font-family: IBMPlexSansKR-Bold;
     font-size: 1.167rem
     font-weight: 600;

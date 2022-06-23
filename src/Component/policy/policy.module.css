@@ -1,0 +1,37 @@
+.tableBox {
+    width: 30rem;
+    height: 8rem;
+  }
+  .table {
+    width: 10rem;
+    padding: 0.5rem;
+    border: 0.1px solid gray;
+    text-align: left;
+  }
+  .th {
+    width: 10rem;
+    background-color: #f0f0f0;
+    border: 0.1px solid gray;
+  }
+  
+  .p {
+    margin-top:2.583px;
+    line-height: 1.58;
+    font-family: IBMPlexSansKR-Regular;
+    font-size: 1.167rem;
+    font-weight: 400;
+    line-height:1.667rem;
+    color: #7B7B7B;
+  }
+  
+  .indent5 {
+    text-indent: 5px;
+  }
+  
+  .indent10 {
+    text-indent: 10px;
+  }
+  
+  .indent15 {
+    text-indent: 15px;
+  }
