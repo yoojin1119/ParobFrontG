@@ -34,7 +34,8 @@ const fontSize = {
     line-height: 3.5rem;`,
     h3 :`font-family: IBMPlexSansKR-Medium;
     font-size: 1.667rem;
-    font-weight: 500;`,
+    font-weight: 500;
+    line-height:2.5rem`,
     h4 :`font-family: IBMPlexSansKR-Regular;
     font-size: 1.5rem;
     font-weight: 400;`,
