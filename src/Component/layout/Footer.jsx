@@ -74,8 +74,12 @@ const Contact = styled.div`
 display: flex;
 align-items:center;
 justify-content: space-between;
-padding-bottom: 1.667rem
+flex-direction: row;
+padding-bottom: 1.667rem;
 border-bottom: 1px solid #D3D3D3;
+@media all and (max-width: 315px) {
+   flex-direction: column;
+   align-items: start;
 `;
 const SnsContact = styled.ul`
 display: flex;
@@ -87,6 +91,9 @@ const PolicyDes = styled.ul`
 display: flex;
 align-items:center;
 gap: 4.167rem;
+@media all and (max-width: 315px) {
+    gap: 0.625rem;
+}
 `;
 const P = styled.p`
 color: ${({ theme }) => theme.color.textGray};

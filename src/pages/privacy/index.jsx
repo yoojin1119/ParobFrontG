@@ -81,6 +81,9 @@ const TermsWrap = styled.div`
     flex-direction: column;
     align-items:center;
     margin: 0 2.5rem 17.083rem;
+    @media all and (max-width: 540px) {
+        width: 45rem;
+      }
 `;
 const Title = styled.h2`
     margin:6.667rem 0;
@@ -98,13 +101,16 @@ const PrivacyBox = styled.div`
     color: ${({ theme }) => theme.color.textGray};
 `;
 const AllTermsDropboxWrapper = styled.div`
-margin-top: 4.083rem;
+    margin-top: 4.083rem;
     width: 80rem;
     display: flex;
     flex-direction:column;
     align-items:end;
     justify-content:center;
     box-sizing:border-box;
+    @media all and (max-width: 540px) {
+        width: 45rem;
+      }
 `;
 
 const DropBoxWrap= styled.div`
@@ -151,6 +157,9 @@ const DropBox = styled.li`
     border-bottom: solid 1px #a8a8a8;
     ${({ theme }) => theme.fontSize.h4};
     color: ${({ theme }) => theme.color.textGray};
+    :last-child {
+        border-bottom: none;
+    }
 `;
 const BoxCheck = styled.img`
     width:1.417rem;

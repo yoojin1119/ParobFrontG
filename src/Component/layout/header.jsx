@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
+import MenuBar from "../menu/MenuBar";
 
 const Header = () => {
     const [menu, setMenu] = useState(false)
     const openMenu = () =>{
         setMenu(!menu)
+        console.log(menu)
     }
     return(
         <Container>
@@ -29,6 +31,7 @@ const Header = () => {
                     </Link>
                 </UserInfo>
                 <MenuBtn onClick={openMenu}></MenuBtn>
+                {menu ? <MenuBar/> : null}
             </HeaderWrap>
         </Container>
     )
@@ -59,7 +62,7 @@ box-sizing: border-box;
 const Logo = styled.button``;
 const LogoImg = styled.img`
 width: 10rem;
-height: 2.917rem;
+height: 3rem;
 @media all and (max-width: 540px) {
     width: 11.333rem;
     height: 4rem;
@@ -103,11 +106,13 @@ cursor: pointer;
 `;
 
 const MenuBtn = styled.button`
-background:url('/assets/images/icons/menuBar.png') no-repeat;
 width: 3.417rem;
 height: 2.917rem;
 display: none;
+z-index: 999;
 @media all and (max-width: 540px) {
     display: block;
+    background-image: url(${(props)=> (props.menu ? '/assets/images/icons/close.png'  : '/assets/images/icons/menuBar.png')});
+    background-repeat: no-repeat;
 }
 `;

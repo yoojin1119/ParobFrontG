@@ -20,21 +20,21 @@ export default function QnaPage (){
           index: '1',
           category: '서비스',
           question: '파로브는 어떤 서비스인가요?',
-          answer: `파로브는 내가 원하는 장난감을 스스로 만들고 직접 종이 로봇으로 조립하는 서비스입니다. 파로브에서 원하는 종이 로봇을 마음껏 만들어보세요!`,
+          answer: `PAROB는 내가 원하는 장난감을 스스로 만들고 직접 종이 로봇으로 조립하는 서비스입니다. PAROB에서 원하는 종이 로봇을 마음껏 만들어보세요!`,
         },
         {
           index: '2',
           category: '회원',
           question: '어린이도 이용할 수 있나요?',
           answer:
-            '네, 파로브는 어린이 이용자를 환영해요! 단, 안전한 이용을 위해서 보호자의 동의 및 인증이 필요해요.',
+            '네, 우리는 어린이 이용자를 환영해요!'
         },
         {
           index: '3',
           category: '에디터',
           question: '로봇을 어떻게 만드는건가요?',
           answer:
-            '홈페이지 오른쪽 상단에 [로봇 만들기] 버튼을 클릭하면 로봇을 만들러 갈 수 있어요. 마음에 드는 로봇을 선택해서 시작해보세요.',
+            '홈페이지 상단의 [만들기] 버튼을 클릭하면 로봇을 만들러 갈 수 있어요.마음에 드는 로봇을 선택해서 시작해보세요.',
         },
         {
           index: '4',
@@ -69,35 +69,34 @@ export default function QnaPage (){
           category: '에디터',
           question: '로봇을 직접 만들기가 어려워요',
           answer:
-            '파로브 기본 템플릿이나 커뮤니티에 올라온 친구들의 로봇을 편집하는 것부터 시작할 수 있어요. 커뮤니티에서 친구들이 만든 템플릿을 구경해보세요. 멋진 로봇들을 발견할 수 있을거에요.',
+            '먼저 기본으로 제공되는 템플릿을 편집하는 것 부터 시작해보세요. 금방 멋진 로봇을 만들 수 있을거에요.',
         },
         {
           index: '9',
           category: '결제',
           question: '내가 만든 로봇을 주문할 수 있나요?',
           answer:
-            '네, 내가 만든 로봇을 집으로 주문할 수 있어요. 배송받은 종이 도면을 뜯어서 조립하면 내가 만든 하나뿐인 로봇이 완성돼요. 직접 만든 종이 로봇으로 재미있게 놀아보세요!',
+            '네, 내가 만든 로봇을 집으로 주문할 수 있어요. 배송받은 종이 도면을 조립하면 내가 만든 하나뿐인 로봇이 완성돼요.직접 만든 종이 로봇으로 재미있게 놀아보세요!',
         },
         {
           index: '10',
           category: '결제',
           question: '결제는 어떻게 하나요?',
-          answer: `주문하고 싶은 로봇을 선택한 후 [주문하기] 버튼을 클릭해주세요. 주문 정보를 입력하고 결제하면 내가 만든 로봇의 종이도면을 집으로 주문할 수 있어요! 
-          * 만 19세 미만의 청소년은 "결제 조르기"로 보호자에게 결제를 요청해주세요.`,
+          answer: `에디터에서 [주문하기] 버튼을 클릭해주세요.주문 정보를 입력하고 결제하면 내가 만든 로봇의 종이도면을 집으로 주문할 수 있어요!.`,
         },
         {
           index: '11',
           category: '결제',
-          question: '결제 요청 문자를 받았습니다',
+          question: '선물 요청 메시지를 받았어요.',
           answer:
-            '만 19세 미만의 청소년이 결제를 요청한 경우에만 결제요청 문자가 발송됩니다. 주문 상품을 확인 후 결제를 완료해서 종이 로봇을 선물해주세요. 집으로 배송된 로봇을 직접 조립할 수 있어요!',
+            '미성년 이용자가 보호자에게 상품 결제를 요청한 경우 메시지가 발송돼요. 요청 내용을 확인 후 결제를 완료하면 아이에게 로봇을 선물할 수 있어요!',
         },
         {
           index: '12',
           category: '결제',
           question: '회원에 탈퇴하고 싶어요',
           answer:
-            '회원 탈퇴는 고객센터 help@parob.io 로 요청해주세요. 탈퇴 후에는 이전에 작성한 게시글과 댓글을 삭제할 수 없으니 미리 확인해주세요.',
+            '[프로필] > [회원정보] 에서 회원에 탈퇴할 수 있어요.회원에 탈퇴하게 되면 그동안 만든 로봇들과 나의 프로필, 회원 정보가 모두 즉시 삭제 되니 신중하게 결정해주세요.탈퇴 후에는 이전에 작성한 게시글과 댓글을 삭제할 수 없으니 미리 확인해주세요.',
         },
       ];
     return(
@@ -146,9 +145,9 @@ export default function QnaPage (){
                           
                           {faqTogglIndex === item?.index ? (
                             <AnswerBox>
-                              {item?.answer?.split('\n').map((answer) => {
+                              {item?.answer?.split('\n').map((answer,index) => {
                                 return (
-                                  <AnswerText>
+                                  <AnswerText key={index}>
                                       <AnsweImg src='/assets/images/icons/A.png' />
                                     {answer}
                                   </AnswerText>
@@ -243,6 +242,9 @@ align-items:center;
 justify-content: space-between;
 cursor: pointer;
 border-bottom: 1px solid #D3D3D3;
+@media all and (max-width: 540px) {
+  width: 45rem;
+}
 `;
 const QeustionText= styled.p`
 display: flex;
@@ -258,11 +260,9 @@ const BodyImg = styled.img`
 // 클릭 오픈 내용
 const open = keyframes`
   0% {
-    width: 100%;
     padding: 0 5rem;
   }
   100% {
-    width: 100%;
   padding: 2rem 5rem;
   }
 `;
@@ -274,15 +274,19 @@ const close = keyframes`
   }
   100% {
     width: 100%;
-  padding: 0rem 5rem;
+    padding: 0rem 5rem;
   }
 `;
 const AnswerBox = styled.div`
+  width: 80rem; 
   list-style: none;
   padding: 2rem 5rem;
   animation: ${open} 0.1s linear;
   background-color: ${({ theme }) => theme.color.backLight};  
   border-bottom: 1px solid #D3D3D3;
+  @media all and (max-width: 540px) {
+    width: 45rem;
+  }
 `;
 const ClosedAnswerBox = styled.li`
   list-style: none;
