@@ -60,6 +60,10 @@ display: flex;
 justify-content: center;
 padding: 3.333rem 0;
 background-color:${({ theme }) => theme.color.backGray};
+@media all and (max-width: 540px) {
+    display: block;
+    width: 100vw;
+}
 `;
 const FooterWrap = styled.div`
 display: flex;
@@ -77,7 +81,7 @@ justify-content: space-between;
 flex-direction: row;
 padding-bottom: 1.667rem;
 border-bottom: 1px solid #D3D3D3;
-@media all and (max-width: 315px) {
+@media all and (max-width: 460px) {
    flex-direction: column;
    align-items: start;
 `;
@@ -91,7 +95,7 @@ const PolicyDes = styled.ul`
 display: flex;
 align-items:center;
 gap: 4.167rem;
-@media all and (max-width: 315px) {
+@media all and (max-width: 460px) {
     gap: 0.625rem;
 }
 `;

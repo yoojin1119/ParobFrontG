@@ -72,11 +72,12 @@ return(
 
 }
 const Container = styled.section`
-display: flex;
-align-items:center;
-flex-direction: column;
-align-items:center;
 width: 100vw;
+display: flex;
+align-item:center;
+justify-content:center;
+@media all and (max-width: 540px) {
+    display: block
 `;
 const LoginWrap=styled.section`
 display: flex;

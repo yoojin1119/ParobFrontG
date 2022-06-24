@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useRouter } from "next/router";
-
 const Sns = () => {
     const router = useRouter();
     const url = router.pathname;
@@ -12,7 +11,7 @@ const Sns = () => {
                     소셜 회원가입
                 </Title>
                 <ButtonWrap>
-                    <Google>
+                    <Google href='#'>
                         <Img src="./assets/images/icons/googleJoin.png"></Img>
                     </Google>
                     <Kakao>

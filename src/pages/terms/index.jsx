@@ -67,6 +67,9 @@ const Container = styled.section`
     justify-content: center;
     flex-direction: column;
     align-items:center;
+    @media all and (max-width: 540px) {
+        display: block
+    }
 `;
 const TermsWrap = styled.div`
     width: 80rem;

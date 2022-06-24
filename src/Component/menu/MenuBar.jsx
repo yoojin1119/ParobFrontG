@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { useState } from "react";
+
 
 const MenuBar = () => {
     return(
@@ -25,8 +25,12 @@ const MenuBar = () => {
                     </Menu>
                 </MenuList>
                 <JoinWrap>
-                    <LoginBtn>로그인</LoginBtn>
-                    <JoinBtn>회원가입</JoinBtn>
+                    <Link href='/login'>
+                        <LoginBtn>로그인</LoginBtn>
+                    </Link>
+                    <Link href='/join'>
+                        <JoinBtn>회원가입</JoinBtn>
+                    </Link>
                 </JoinWrap>
             </MenuWrap>
         </Container>
@@ -41,6 +45,7 @@ left: 0;
 background-color: #fff;
 width: 100%;
 height: 100vh;
+z-index: 10;
 `;
 const MenuWrap = styled.div``;
 

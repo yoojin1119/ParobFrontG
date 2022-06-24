@@ -127,7 +127,7 @@ export default function QnaPage (){
                         <div key={idx} id={item?.index}>
                           <QeustionBox id={item?.index} onClick={handleFaqToggle}>
                             <QeustionText id={item?.index}>
-                              <BodyImg src='/assets/images/icons/Q.png' id={item?.index} />
+                              <BodyImg src='/assets/images/icons/Q.svg' id={item?.index} />
                               {item?.question}
                             </QeustionText>
                             <Image
@@ -148,7 +148,7 @@ export default function QnaPage (){
                               {item?.answer?.split('\n').map((answer,index) => {
                                 return (
                                   <AnswerText key={index}>
-                                      <AnsweImg src='/assets/images/icons/A.png' />
+                                      <AnsweImg src='/assets/images/icons/A.svg' />
                                     {answer}
                                   </AnswerText>
                                 );
@@ -197,6 +197,9 @@ box-sizing: border-box;
 display: flex;
 justify-content: space-between;
 align-items:center;
+@media all and (max-width: 540px) {
+=
+}
 `;
 const BannerAir = styled.img`
 width: 10.417rem;
@@ -301,9 +304,10 @@ const AnswerText = styled.p`
   gap: 0.833rem;
 `;
 const AnsweImg = styled.img`
-width: 2.417rem;
-height: 2rem;`;
-
+width: 2.167rem;
+height: 1.667rem;
+margin-top:0.5rem;
+`;
 
 // 고객 센터 연락처
 const Contact = styled.section`

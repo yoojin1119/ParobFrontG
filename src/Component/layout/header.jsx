@@ -14,7 +14,7 @@ const Header = () => {
             <HeaderWrap>
                 <Link href='/'>
                     <Logo>
-                        <LogoImg src="/assets/images/logos/smallLogo.png"></LogoImg>
+                        <LogoImg src="/assets/images/logos/smallLogo.svg"></LogoImg>
                     </Logo>
                 </Link>
                 <MenuWrap>
@@ -40,14 +40,17 @@ const Header = () => {
 export default Header;
 
 const Container = styled.section`
-hieght: 5.833rem;
+hieght: 4.375rem;
 padding: 1.917rem 0;
 background-color: transparent;
 box-size:border-box;
-width: 100vw;
 display: flex;
 justify-content:center;
-`;
+width: 100vw;
+@media all and (max-width: 540px) {
+    display: block;
+    width: 100%;
+}`;
 const HeaderWrap = styled.div`
 display: flex;
 align-items: center;
@@ -109,7 +112,7 @@ const MenuBtn = styled.button`
 width: 3.417rem;
 height: 2.917rem;
 display: none;
-z-index: 999;
+z-index: 20;
 @media all and (max-width: 540px) {
     display: block;
     background-image: url(${(props)=> (props.menu ? '/assets/images/icons/close.png'  : '/assets/images/icons/menuBar.png')});

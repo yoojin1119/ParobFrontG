@@ -314,12 +314,12 @@ export default function JoinPage (){
               </SelectBox>
           </InputWrap>
           <PolicyDesc>
-              <Link href="#">
-                  이용약관
+              <Link href="/terms">
+                  <LinkBtn>이용약관</LinkBtn>
               </Link>
               및
-              <Link href="#">
-                  개인정보 처리 방침
+              <Link href="privacy">
+                  <LinkBtn>개인정보 처리 방침</LinkBtn>
               </Link>
               에 동의하고, 회원가입합니다.
           </PolicyDesc>
@@ -343,6 +343,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 width: 100vw;
+@media all and (max-width: 540px) {
+  display: block
 `;
 const JoinWrap = styled.section`
 display: flex;
@@ -558,11 +560,18 @@ background-repeat: no-repeat;
 padding: 5px 5px;
 text-indent: 3.75rem;
 `;
+
 // 정책 연결
 const PolicyDesc = styled.p`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 margin-bottom: 3.083rem;
 text-align: center;
+display: flex;
+gap: 0.5rem;
+`;
+const LinkBtn = styled.p`
+color: ${({ theme }) => theme.color.primaryBlue};
+text-decoration: underline;
 `;
 
 // 가입하기 버튼
