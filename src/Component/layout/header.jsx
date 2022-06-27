@@ -63,7 +63,6 @@ justify-content:center;
 width: 100vw;
 @media all and (max-width: 540px) {
     display: block;
-    width: 100%;
 }`;
 const HeaderWrap = styled.div`
 display: flex;
@@ -73,7 +72,7 @@ width: 80rem;
 padding: 0 1.667rem;
 box-sizing: border-box;
 @media all and (max-width: 540px) {
-    width: 45rem;
+    width: 100vw;
 }
 `;
 const Logo = styled.button``;

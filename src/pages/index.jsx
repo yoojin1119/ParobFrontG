@@ -9,7 +9,7 @@ export default function MainPage (){
         <Header/>
             <Title>세상에 단 하나뿐인 나만의 로봇을 만들어보세요!</Title>
             <StartBtn>지금 만들러 가기</StartBtn>
-            {width < 960 ? <MiniDesk src='/assets/images/backGround/miniDesk.png'></MiniDesk> : <DeskImg src='/assets/images/backGround/desk.png'></DeskImg> }
+            {width > 1280 ? <BigDesk src='/assets/images/backGround/bigDesk.png'></BigDesk> : width > 540 ?  <DeskImg src='/assets/images/backGround/desk.png'></DeskImg>: <MiniDesk src='/assets/images/backGround/miniDesk.png'></MiniDesk> }
         <Footer/>
     </Container>
  )
@@ -24,22 +24,27 @@ align-items:center;
 background: url('/assets/images/backGround/mainBack.svg');
 @media all and (max-width: 540px) {
     background: url('/assets/images/backGround/miniBack.png');
-    width: 100%;
+    widht: 100vww;
 }`;
 const DeskImg = styled.img`
 width: 80rem;
 height: 29.375rem;
 `;
+const BigDesk = styled.img`
+width: 80rem;
+`;
 const MiniDesk = styled.img`
-width:45rem;
-height: 53.333rem;
+width: 45rem;
+height: 54.333rem;
 `;
 const Title = styled.h1`
 ${({ theme }) => theme.fontSize.h2};
 margin-top: 2.5rem;
 text-align: center;
+display: flex;
+align-items:center;
 @media all and (max-width: 540px) {
-    width: 26.833rem;
+    width:26.833rem;
 }
 `;
 const StartBtn = styled.button`

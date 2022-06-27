@@ -62,7 +62,7 @@ padding: 3.333rem 0;
 background-color:${({ theme }) => theme.color.backGray};
 @media all and (max-width: 540px) {
     display: block;
-    width: 100vw;
+    width: 100%;
 }
 `;
 const FooterWrap = styled.div`
@@ -71,7 +71,7 @@ flex-direction:column;
 width: 80rem;
 padding: 0 1.667rem;
 @media all and (max-width: 540px) {
-    width: 45rem;
+    width: 100vw;
 }
 `;
 const Contact = styled.div`

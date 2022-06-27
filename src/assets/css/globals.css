@@ -56,14 +56,16 @@ html {
 }
 @media all and (max-width: 1280px) and (min-width: 960px){
   html {
-    font-size: calc((100vw/960px)*12px);
+    font-size: calc((100vw/960)*12);
+    /*calc((100vw/960)*12px);*/
   }
 }
 @media all and (max-width: 540px) and (min-width: 315px) {
   html {
-    font-size: calc((100vw/960px)*12px);
+    font-size: calc((100vw/540)*12);
   }
 }
+
 html,
 body,
 div,

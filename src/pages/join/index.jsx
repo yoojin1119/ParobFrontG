@@ -134,8 +134,10 @@ export default function JoinPage (){
   const API_key = 'key=Km3pTLz60yRpssZeS4f9';
   const API_endPoint = 'https://extreme-ip-lookup.com/json/?'
       useEffect (() => {
+        if(typeof window !== 'undefined'){
           getIpClient()
-        },)
+        }
+        },[])
   async function getIpClient() {
     try {
       const response = await axios.get(`${API_endPoint}${API_key}`);
