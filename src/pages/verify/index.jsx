@@ -17,6 +17,14 @@ export default function VerifiyPage (){
                     <VerifyTxt>메일을 열어서 확인 버튼을 클릭해주세요.</VerifyTxt>
                 </VerifyTxtWrap>
                 <Email>{email}</Email>
+                <VerifyDes>
+                    <VerifyDesList>
+                        <VerifyDesTit>이메일을 인증하면</VerifyDesTit>
+                        <VerifyDesTxt>비밀번호를 잊어버렸을 때 찾을 수 있어요.</VerifyDesTxt>
+                        <VerifyDesTxt>결제 내역이 있는 경우 전송해드려요.</VerifyDesTxt>
+                        <VerifyDesTxt>계정을 분실했을 때 찾을 수 있어요.</VerifyDesTxt>
+                    </VerifyDesList>
+                </VerifyDes>
             </VerifyWrap>
             <Footer />
         </Container>
@@ -53,4 +61,18 @@ text-align: center;
 const Email = styled.p`
 ${({ theme }) => theme.fontSize.h3};
 color: ${({ theme }) => theme.color.primaryBlue};
+margin-bottom: 1.625rem;
 `;
+const VerifyDes = styled.div`
+width: 26.25rem;
+height: 14rem;
+background-color: ${({ theme }) => theme.color.Select};
+border-radius: 10px;
+`;
+const VerifyDesList = styled.ul`
+display: flex;
+flex-direction: column;
+justify-content:center;
+`;
+const VerifyDesTit = styled.p``;
+const VerifyDesTxt = styled.li``;

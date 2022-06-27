@@ -2,12 +2,24 @@ import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
 import MenuBar from "../menu/MenuBar";
+import Modal from "../modal/Modal";
 
 const Header = () => {
-    const [menu, setMenu] = useState(false)
+    const [menu, setMenu] = useState(false);
+    const [notice, setNotice] = useState(false);
+    const [making, setMaking] = useState(false)
     const openMenu = () =>{
         setMenu(!menu)
-        console.log(menu)
+    }
+    const noticeModal = () => {
+        setNotice(!notice)
+    }
+    const getData = () => {
+        setNotice(false)
+        setMaking(false)
+    }
+    const makingModal = () =>{
+        setMaking(!making)
     }
     return(
         <Container>
@@ -18,9 +30,11 @@ const Header = () => {
                     </Logo>
                 </Link>
                 <MenuWrap>
-                    <Menu>만들기</Menu>
+                    <Menu onClick={makingModal} >만들기</Menu>
+                    {making ? <Modal getData={getData} value='만들기 최대 개수를 초과했어요' msg='이전에 만든 로봇을 삭제 또는 수정만 가능해요.'/> : null}
                     <Menu>내 갤러리</Menu>
-                    <Menu>공지사항</Menu>
+                    <Menu onClick={noticeModal} >공지사항</Menu>
+                    {notice ? <Modal getData={getData} value='준비중입니다.' />: null}
                 </MenuWrap>
                 <UserInfo>
                     <Link href='/login'>
