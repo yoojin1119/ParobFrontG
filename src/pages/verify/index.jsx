@@ -25,6 +25,7 @@ export default function VerifiyPage (){
                         <VerifyDesTxt>계정을 분실했을 때 찾을 수 있어요.</VerifyDesTxt>
                     </VerifyDesList>
                 </VerifyDes>
+                <MailBtn>인증메일 재발송</MailBtn>
             </VerifyWrap>
             <Footer />
         </Container>
@@ -36,6 +37,7 @@ display: flex;
 flex-direction: column;
 align-items:center;
 justify-content: center;
+margin: 6.667rem 0;
 `;
 const Title = styled.div`
 display: flex;
@@ -64,8 +66,10 @@ color: ${({ theme }) => theme.color.primaryBlue};
 margin-bottom: 1.625rem;
 `;
 const VerifyDes = styled.div`
-width: 26.25rem;
-height: 14rem;
+width: 35rem;
+height: 18.667rem;
+padding: 2.833rem 2.167rem;
+margin-bottom: 4.167rem;
 background-color: ${({ theme }) => theme.color.Select};
 border-radius: 10px;
 `;
@@ -73,6 +77,42 @@ const VerifyDesList = styled.ul`
 display: flex;
 flex-direction: column;
 justify-content:center;
+
 `;
-const VerifyDesTit = styled.p``;
-const VerifyDesTxt = styled.li``;
+const VerifyDesTit = styled.h4`
+display: flex;
+gap: 1rem;
+margin-bottom: 2rem;
+${({ theme }) => theme.fontSize.h4};
+color: ${({ theme }) => theme.color.textDeepGray};
+&::before{
+    content:'';
+    display: block;
+    background: url('assets/images/icons/verify.png');
+    width: 1.5rem;
+    height:  1.5rem;
+}
+`;
+const VerifyDesTxt = styled.li`
+display: flex;
+align-items:center;
+gap: 0.75rem;
+margin-bottom: 1rem;
+${({ theme }) => theme.fontSize. bigRegular};
+color: ${({ theme }) => theme.color.textGray};
+&::before{
+    content:'';
+    display: block;
+    background: url('assets/images/icons/orangeCheck.svg');
+    width: 1.167rem;
+    height:  0.833rem;
+}
+`;
+const MailBtn = styled.button`
+    ${({ theme }) => theme.fontSize. h2};
+    color: ${({ theme }) => theme.color.primaryOrange};
+    width:35rem;
+    height: 5.833rem;
+    border: 1px solid #ED6F1E;
+    border-radius: 20px;
+`;
