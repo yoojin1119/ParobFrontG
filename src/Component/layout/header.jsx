@@ -72,9 +72,6 @@ box-sizing: border-box;
 @media all and (max-width: 959px) {
     width: 100vw;
 }
-@media all and (min-width: 540px) and (max-width: 959px) {
-    width: 45rem;
-}
 `;
 const Logo = styled.button``;
 const LogoImg = styled.img`
