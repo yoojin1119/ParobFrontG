@@ -59,4 +59,5 @@ height: 5.833rem;
 ${({ theme }) => theme.fontSize.h2};
 color:${({ theme }) => theme.color.textWhite};
 background-color:${({ theme }) => theme.color.primaryOrange}; 
-border-radius: 20px;`;
+border-radius: 20px;
+`;
