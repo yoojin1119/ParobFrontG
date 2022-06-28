@@ -564,7 +564,7 @@ text-indent: 3.75rem;
 `;
 
 // 정책 연결
-const PolicyDesc = styled.p`
+const PolicyDesc = styled.div`
 font: ${({ theme }) => theme.fontSize.middleRegular};
 margin-bottom: 3.083rem;
 text-align: center;

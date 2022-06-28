@@ -61,9 +61,7 @@ box-size:border-box;
 display: flex;
 justify-content:center;
 width: 100vw;
-@media all and (max-width: 540px) {
-    display: block;
-}`;
+`;
 const HeaderWrap = styled.div`
 display: flex;
 align-items: center;
@@ -71,8 +69,11 @@ justify-content: space-between;
 width: 80rem;
 padding: 0 1.667rem;
 box-sizing: border-box;
-@media all and (max-width: 540px) {
+@media all and (max-width: 959px) {
     width: 100vw;
+}
+@media all and (min-width: 540px) and (max-width: 959px) {
+    width: 45rem;
 }
 `;
 const Logo = styled.button``;
@@ -87,7 +88,7 @@ height: 3rem;
 const MenuWrap = styled.ul`
 display: flex;
 gap: 7.5rem;
-@media all and (max-width: 540px) {
+@media all and (max-width: 959px) {
     display: none;
 }
 `;
@@ -100,7 +101,7 @@ const UserInfo = styled.div`
 display: flex;
 align-items:center;
 gap: 3.333rem;
-@media all and (max-width: 540px) {
+@media all and (max-width: 959px) {
     display: none;
 }
 `;
@@ -126,9 +127,10 @@ width: 3.417rem;
 height: 2.917rem;
 display: none;
 z-index: 20;
-@media all and (max-width: 540px) {
+@media all and (max-width: 959px) {
     display: block;
     background-image: url(${(props)=> (props.menu ? '/assets/images/icons/close.png'  : '/assets/images/icons/menuBar.png')});
     background-repeat: no-repeat;
+    background-size: contain;
 }
 `;

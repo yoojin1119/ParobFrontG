@@ -197,8 +197,8 @@ box-sizing: border-box;
 display: flex;
 justify-content: space-between;
 align-items:center;
-@media all and (max-width: 540px) {
-=
+@media all and (min-width: 540px) and (max-width: 959px) {
+    width:45rem;
 }
 `;
 const BannerAir = styled.img`
@@ -230,6 +230,9 @@ const ContentWrap = styled.div`
 display: flex;
 justify-content:center;
 margin-bottom: 4.5rem;
+@media all and(max-width: 959px) {
+  width:100vw;
+}
 `;
 const FaqInner = styled.ul`
 display: flex;
@@ -245,8 +248,8 @@ align-items:center;
 justify-content: space-between;
 cursor: pointer;
 border-bottom: 1px solid #D3D3D3;
-@media all and (max-width: 540px) {
-  width: 45rem;
+@media all and (max-width: 959px) {
+  width:45rem;
 }
 `;
 const QeustionText= styled.p`
@@ -255,7 +258,6 @@ align-items: center;
 gap: 0.833rem;
 ${({ theme }) => theme.fontSize.h3};
 color: ${({ theme }) => theme.color.textDeepGray};
-
 `;
 const BodyImg = styled.img`
 `;
@@ -287,7 +289,7 @@ const AnswerBox = styled.div`
   animation: ${open} 0.1s linear;
   background-color: ${({ theme }) => theme.color.backLight};  
   border-bottom: 1px solid #D3D3D3;
-  @media all and (max-width: 540px) {
+  @media all and (max-width: 959px) {
     width: 45rem;
   }
 `;
@@ -323,6 +325,9 @@ display: flex;
 align-items:center;
 gap: 4.5rem;
 box-sizing: border-box;
+@media all and (max-width: 959px) {
+  width: 45rem;
+}
 `;
 const ContactImgWrap = styled.div`
 margin-left: 4.25rem;

@@ -64,6 +64,9 @@ background-color:${({ theme }) => theme.color.backGray};
     display: block;
     width: 100%;
 }
+@media all and (min-width: 540px) and (max-width: 959px) {
+    width: 100vw;
+}
 `;
 const FooterWrap = styled.div`
 display: flex;
@@ -72,6 +75,9 @@ width: 80rem;
 padding: 0 1.667rem;
 @media all and (max-width: 540px) {
     width: 100vw;
+}
+@media all and (min-width: 540px) and (max-width: 959px) {
+    width: 45rem;
 }
 `;
 const Contact = styled.div`
@@ -101,6 +107,7 @@ gap: 4.167rem;
 `;
 const P = styled.p`
 color: ${({ theme }) => theme.color.textGray};
+cursor:pointer;
 `;
 const Info = styled.div`
 display: flex;

@@ -70,6 +70,9 @@ const Container = styled.section`
     @media all and (max-width: 540px) {
         display: block
     }
+    @media all and (min-width: 540px) and (max-width: 959px) {
+
+    }
 `;
 const TermsWrap = styled.div`
     width: 80rem;
@@ -78,9 +81,9 @@ const TermsWrap = styled.div`
     flex-direction: column;
     align-items:center;
     margin: 0 2.5rem 17.083rem;
-    @media all and (max-width: 540px) {
-        width: 45rem;
-      }
+    @media all  and (max-width: 959px) {
+        width:45rem;
+    }
 `;
 const Title = styled.h2`
     margin:6.667rem 0;
@@ -105,9 +108,9 @@ const AllTermsDropboxWrapper = styled.div`
     align-items:end;
     justify-content:center;
     box-sizing:border-box;
-    @media all and (max-width: 540px) {
-        width: 45rem;
-      }
+    @media all  and (max-width: 959px) {
+        width:45rem;
+    }
 `;
 
 const DropBoxWrap= styled.div`

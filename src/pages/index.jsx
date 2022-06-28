@@ -24,11 +24,13 @@ align-items:center;
 background: url('/assets/images/backGround/mainBack.svg');
 @media all and (max-width: 540px) {
     background: url('/assets/images/backGround/miniBack.png');
-    widht: 100vww;
 }`;
 const DeskImg = styled.img`
 width: 80rem;
 height: 29.375rem;
+@media all and (min-width: 540px) and (max-width: 959px) {
+    width: 45rem;
+}
 `;
 const BigDesk = styled.img`
 width: 80rem;
@@ -36,6 +38,7 @@ width: 80rem;
 const MiniDesk = styled.img`
 width: 45rem;
 height: 54.333rem;
+
 `;
 const Title = styled.h1`
 ${({ theme }) => theme.fontSize.h2};
@@ -44,6 +47,9 @@ text-align: center;
 display: flex;
 align-items:center;
 @media all and (max-width: 540px) {
+    width:26.833rem;
+}
+@media all and (min-width: 540px) and (max-width: 959px) {
     width:26.833rem;
 }
 `;

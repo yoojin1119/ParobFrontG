@@ -84,7 +84,7 @@ const TermsWrap = styled.div`
     flex-direction: column;
     align-items:center;
     margin: 0 2.5rem 17.083rem;
-    @media all and (max-width: 540px) {
+    @media all and (max-width: 959px) {
         width: 45rem;
       }
 `;
@@ -111,7 +111,7 @@ const AllTermsDropboxWrapper = styled.div`
     align-items:end;
     justify-content:center;
     box-sizing:border-box;
-    @media all and (max-width: 540px) {
+    @media all and (max-width: 959px) {
         width: 45rem;
       }
 `;
