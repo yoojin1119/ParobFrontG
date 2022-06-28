@@ -16,7 +16,7 @@ const PrivacyVersion2 = dynamic(
 );
   
 
-export default function TermsPage (){
+export default function PrivacyPage (){
     const [open, setOpen] = useState(false)
     const [clickedPrivacyTerms, setClickedPrivacyTerms] = useState(2);
     const termsOpen = () => {
