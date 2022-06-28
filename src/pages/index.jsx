@@ -24,12 +24,17 @@ align-items:center;
 background: url('/assets/images/backGround/mainBack.svg');
 @media all and (max-width: 540px) {
     background: url('/assets/images/backGround/miniBack.png');
-}`;
+};
+@media all and (min-width: 540px) and (max-width: 960px) {
+    overflow: hidden;
+}
+`;
+
 const DeskImg = styled.img`
 width: 80rem;
 height: 29.375rem;
-@media all and (min-width: 540px) and (max-width: 959px) {
-    width: 45rem;
+@media all and (min-width: 540px) and (max-width: 960px) {
+    width: 960px;
 }
 `;
 const BigDesk = styled.img`

@@ -114,6 +114,9 @@ display: flex;
 align-items:center;
 justify-content: space-between;
 margin-top: 1.667rem;
+@media all and (max-width: 460px) {
+    position:relative;
+}
 `;
 const CompanyInfo = styled.div``;
 const Logo = styled.img`
@@ -130,6 +133,13 @@ width: 10.833rem;
 height: 2.5rem;
 border-radius: 0.813rem;
 background-color: #ffffff;
+@media all and (max-width: 460px) {
+    position:absolute;
+    top:0;
+    right:0;
+    width: 71px;
+    height: 17px;
+}
 `;
 const SelectTxt = styled.p`
 position: absolute;
@@ -137,6 +147,10 @@ top: 0.5rem;
 left: 1.667rem;
 ${({ theme }) => theme.fontSize.smallRegular};
 color: ${({ theme }) => theme.color.textGray};
+@media all and (max-width: 460px) {
+    top: 2px;
+    left:8px;
+    ${({ theme }) => theme.fontSize.Message};
 `;
 const SelectBtn = styled.button`
 position: absolute;
@@ -145,4 +159,9 @@ right: 0.75rem;
 width:1rem;
 height: 1rem;
 background: url('/assets/images/icons/smallPolygon.png') no-repeat;
+@media all and (max-width: 460px) {
+    width: 8px;
+    height: 8px;
+    top: 4px;
+    right: 4px;
 `;
