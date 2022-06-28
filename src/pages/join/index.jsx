@@ -36,7 +36,6 @@ export default function JoinPage (){
   
     // 닉네임
   const [nickName, setNickName] = useState('')
-  const [isNicknameChanged, setIsNicknameChanged] = useState(false)
 
 
   // 국가 설정
