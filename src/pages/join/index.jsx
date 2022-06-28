@@ -33,7 +33,6 @@ export default function JoinPage (){
   const [isEngChecked, setIsEngChecked] = useState(false)
   const [isNumChecked, setIsNumChecked] = useState(false)
   const [isLimitChecked, setIsLimitChecked] = useState(false)
-  const [IsPasswordCorrected, setIsPasswordCorrected] = useState(false)
   
     // 닉네임
   const [nickName, setNickName] = useState('')
