@@ -45,6 +45,10 @@ const invisiblePassword = (e) => {
         return{type: 'password', visible: false}
     })
 }
+const onSubmit = () => {
+  setPassword(password)
+  console.log(password)
+}
     return(
         <Container>
             <Header/>
@@ -82,7 +86,7 @@ const invisiblePassword = (e) => {
                     : <ErrorMsg><Img src='/assets/images/icons/redCheck.svg'></Img>8글자</ErrorMsg>}
                   </SubTextBox>
               </InputBox>
-              <ModifyBtn>비밀번호 재설정</ModifyBtn>
+              <ModifyBtn onClick={onSubmit}>비밀번호 재설정</ModifyBtn>
                 </ModifyWrap>
             <Footer/>
         </Container>
