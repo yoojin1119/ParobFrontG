@@ -88,7 +88,7 @@ color: ${({ theme }) => theme.color.textDeepGray};
 &::before{
     content:'';
     display: block;
-    background: url('assets/images/icons/verify.png');
+    background: url('/assets/images/icons/verify.png') no-repeat;
     width: 1.5rem;
     height:  1.5rem;
 }
@@ -103,7 +103,7 @@ color: ${({ theme }) => theme.color.textGray};
 &::before{
     content:'';
     display: block;
-    background: url('assets/images/icons/orangeCheck.svg');
+    background: url('/assets/images/icons/orangeCheck.svg') no-repeat;
     width: 1.167rem;
     height:  0.833rem;
 }

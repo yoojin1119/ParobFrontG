@@ -5,18 +5,20 @@ import Header from "../../Component/layout/header";
 import Footer from "../../Component/layout/Footer"
 
 // dinamic import
-const TermVersion0 = dynamic(
-    () => import('../../Component/policy/TermVersion/TermVersion0')
+const PrivacyVersion0 = dynamic(
+    () => import('../../Component/policy/Privacy/PrivacyVersion0')
     );
-const TermVersion1 = dynamic(
-        () => import('../../Component/policy/TermVersion/TermVersion1')
+const PrivacyVersion1 = dynamic(
+        () => import('../../Component/policy/Privacy/PrivacyVersion1')
     );
-
+const PrivacyVersion2 = dynamic(
+    () => import('../../Component/policy/Privacy/PrivacyVersion2')
+);
   
 
-export default function TermsPage (){
+export default function PrivacyPage (){
     const [open, setOpen] = useState(false)
-    const [clickedPrivacyTerms, setClickedPrivacyTerms] = useState(1);
+    const [clickedPrivacyTerms, setClickedPrivacyTerms] = useState(2);
     const termsOpen = () => {
         setOpen(!open)
     }
@@ -30,9 +32,9 @@ export default function TermsPage (){
         <Container>
             <Header />
             <TermsWrap>
-                <Title>서비스이용약관</Title>
+                <Title>개인정보처리방침</Title>
                 <PrivacyBox>
-                    {clickedPrivacyTerms === 1 ? <TermVersion1 /> : <TermVersion0 />}
+                    {clickedPrivacyTerms === 0 ? <PrivacyVersion0 /> : clickedPrivacyTerms === 1 ? <PrivacyVersion1/> : <PrivacyVersion2 />}
                 </PrivacyBox>
                 <AllTermsDropboxWrapper>
                     <DropBoxWrap>
@@ -45,12 +47,16 @@ export default function TermsPage (){
                         </AllTermsDropbox>
                         { open ? 
                          <OptionWrap>
-                            <DropBox onMouseUp={handlePrivacyTermsClick}  value="1" defaultValue="true">
-                                {clickedPrivacyTerms === 1  ? <BoxCheck src='assets/images/icons/blueCheck.png' /> : null}
+                            <DropBox onMouseUp={handlePrivacyTermsClick}  value="2" defaultValue="true">
+                                {clickedPrivacyTerms === 2  ? <BoxCheck src='/assets/images/icons/blueCheck.png' /> : null}
                               시행일자 : 2022년 5월 30일
                             </DropBox>
+                            <DropBox   onMouseUp={handlePrivacyTermsClick} value="1">
+                                {clickedPrivacyTerms === 1  ? <BoxCheck src='/assets/images/icons/blueCheck.png' />: null}
+                              시행일자 : 2021년 12월 26일
+                            </DropBox>
                             <DropBox   onMouseUp={handlePrivacyTermsClick} value="0">
-                                {clickedPrivacyTerms === 0  ? <BoxCheck src='assets/images/icons/blueCheck.png' />: null}
+                                {clickedPrivacyTerms === 0  ? <BoxCheck src='/assets/images/icons/blueCheck.png' />: null}
                               시행일자 : 2021년 8월 30일
                             </DropBox>
                         </OptionWrap> : null}
@@ -70,9 +76,6 @@ const Container = styled.section`
     @media all and (max-width: 540px) {
         display: block
     }
-    @media all and (min-width: 540px) and (max-width: 959px) {
-
-    }
 `;
 const TermsWrap = styled.div`
     width: 80rem;
@@ -81,9 +84,9 @@ const TermsWrap = styled.div`
     flex-direction: column;
     align-items:center;
     margin: 0 2.5rem 17.083rem;
-    @media all  and (max-width: 959px) {
-        width:45rem;
-    }
+    @media all and (max-width: 959px) {
+        width: 45rem;
+      }
 `;
 const Title = styled.h2`
     margin:6.667rem 0;
@@ -108,9 +111,9 @@ const AllTermsDropboxWrapper = styled.div`
     align-items:end;
     justify-content:center;
     box-sizing:border-box;
-    @media all  and (max-width: 959px) {
-        width:45rem;
-    }
+    @media all and (max-width: 959px) {
+        width: 45rem;
+      }
 `;
 
 const DropBoxWrap= styled.div`
@@ -133,14 +136,14 @@ const DropBoxBtn = styled.div`
     position:absolute;
     top:1.5rem;
     right: 1rem;
-    background: url('assets/images/icons/polygon.png') no-repeat;
+    background: url('/assets/images/icons/polygon.png') no-repeat;
     border: none;
     width: 2.083rem; 
     height: 1.667rem;
 `;
 const OptionWrap = styled.ul`
     position:absolute;
-    bottom: -9.5rem;
+    bottom: -13rem;
     text-indent: 1rem;
     border: solid 1px #a8a8a8;
     border-radius:10px;

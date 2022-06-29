@@ -71,15 +71,15 @@ const invisiblePassword = (e) => {
                       </Btnwrap>
                   </PasswordWrap>
                   <SubTextBox>
-                    {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>문자</SubMsg> 
-                    : isEngChecked ? <PassMsg><Img src='./assets/images/icons/blueCheck.png'></Img>문자</PassMsg>
-                    : <ErrorMsg><Img src='./assets/images/icons/redCheck.svg'></Img>문자</ErrorMsg>}
-                    {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>숫자</SubMsg> 
-                    : isNumChecked ? <PassMsg><Img src='./assets/images/icons/blueCheck.png'></Img>숫자</PassMsg>
-                    : <ErrorMsg><Img src='./assets/images/icons/redCheck.svg'></Img>숫자</ErrorMsg>}
-                    {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>8글자</SubMsg> 
-                    : isLimitChecked ? <PassMsg><Img src='./assets/images/icons/blueCheck.png'></Img>8글자</PassMsg>
-                    : <ErrorMsg><Img src='./assets/images/icons/redCheck.svg'></Img>8글자</ErrorMsg>}
+                    {!password ? <SubMsg><Img src='/assets/images/icons/greyCheck.png'></Img>문자</SubMsg> 
+                    : isEngChecked ? <PassMsg><Img src='/assets/images/icons/blueCheck.png'></Img>문자</PassMsg>
+                    : <ErrorMsg><Img src='/assets/images/icons/redCheck.svg'></Img>문자</ErrorMsg>}
+                    {!password ? <SubMsg><Img src='/assets/images/icons/greyCheck.png'></Img>숫자</SubMsg> 
+                    : isNumChecked ? <PassMsg><Img src='/assets/images/icons/blueCheck.png'></Img>숫자</PassMsg>
+                    : <ErrorMsg><Img src='/assets/images/icons/redCheck.svg'></Img>숫자</ErrorMsg>}
+                    {!password ? <SubMsg><Img src='/assets/images/icons/greyCheck.png'></Img>8글자</SubMsg> 
+                    : isLimitChecked ? <PassMsg><Img src='/assets/images/icons/blueCheck.png'></Img>8글자</PassMsg>
+                    : <ErrorMsg><Img src='/assets/images/icons/redCheck.svg'></Img>8글자</ErrorMsg>}
                   </SubTextBox>
               </InputBox>
               <ModifyBtn>비밀번호 재설정</ModifyBtn>

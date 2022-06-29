@@ -10,7 +10,7 @@ export default function JoinCompletePage (){
             <CompleteWrap>
                 <CompleteTit>가입이 완료되었어요!</CompleteTit>
                 <CompleteMsg>원하는 로봇을 지금 만들어보세요!</CompleteMsg>
-                <CompleteImg src='assets/images/backGround/email_finish.png'></CompleteImg>
+                <CompleteImg src='/assets/images/backGround/email_finish.png'></CompleteImg>
                 <Link href='/login'>
                     <CompleteBtn>로그인</CompleteBtn>
                 </Link>

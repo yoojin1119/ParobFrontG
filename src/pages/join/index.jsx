@@ -9,13 +9,13 @@ import Header from "../../Component/layout/header";
 import Footer from "../../Component/layout/Footer";
 
 import helper from "../../utils/common/helper";
+import dynamic from "next/dynamic";
 
 export default function JoinPage (){
   const [data, setData] = useState({});
 
   // 이메일
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [isAutoEmailClicked, setAutoEmailClicked] = useState(false);
   const [isIsEmailAutoStarted, setIsEmailAutoStarted] = useState(false);
   const [emailError, setEmailError] = useState(false)
@@ -30,45 +30,54 @@ export default function JoinPage (){
     type:'password',
     visible: false
   })
+  const [password, setPassword] = useState('')
   const [isEngChecked, setIsEngChecked] = useState(false)
   const [isNumChecked, setIsNumChecked] = useState(false)
   const [isLimitChecked, setIsLimitChecked] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
+  const [isPasswordCorrected, setIsPasswordCorrected] = useState(false)
   
     // 닉네임
   const [nickName, setNickName] = useState('')
-
+  const  [isNicknameChanged, setIsNicknameChanged] = useState(false)
 
   // 국가 설정
+  const [ip, setIp] = useState('')
   const [country, setCountry] = useState('')
   const [countryMap, setCountryMap] = useState([])
   const [countryOpenBtn, setCountryOpenBtn] = useState(false)
   const [search, setSearch] = useState('')
-  const [ip, setIp] = useState('')
+
 
     // 유효성검사
     const onSubmit = (e) => {
       if (!!helper.emailValid(email)) {
       setEmail(email)
-      completeData()
+        if (!!isEngChecked && !!isNumChecked && !!isLimitChecked) {
+          setPassword(password)
+          completeData()
+          e.preventDefault()
+        }
+        else {
+          setEmailError(true)
+          e.preventDefault()
+        }
       }
       else {
         setEmailError(true)
         e.preventDefault()
       }
-      if ( !!isEngChecked && !!isNumChecked && !!isLimitChecked) {
-        setPassword(password)
-      }
-      else {
-        e.preventDefault()
-      }
+
     }
     const completeData = () => {
       data = {
         id: email,
         password: password,
-        nickName:nickName
+        nickName:nickName,
+        country:country
       }
         setData(data);
+        console.log(data)
     }
 
     // 임풋 유효성 검사
@@ -132,14 +141,13 @@ export default function JoinPage (){
   const API_key = 'key=Km3pTLz60yRpssZeS4f9';
   const API_endPoint = 'https://extreme-ip-lookup.com/json/?'
       useEffect (() => {
-        if(typeof window !== 'undefined'){
           getIpClient()
-        }
-        },[])
+        },[ip])
   async function getIpClient() {
     try {
       const response = await axios.get(`${API_endPoint}${API_key}`);
       setIp(response.data.country)
+      setCountry(ip.toUpperCase())
       countryCheck()
     } catch (error) {
       console.error(error);
@@ -155,13 +163,12 @@ export default function JoinPage (){
   }
   const countryOpen = (e) =>{
     e.preventDefault();
-    setCountry(ip.toUpperCase())
     setCountryOpenBtn(!countryOpenBtn)
   }
   const handleCountry = (e) => {
-  setCountry(e.target.innerHTML)
-  setCountryOpenBtn(!countryOpenBtn)
-  setSearch('')
+    setCountry(e.target.innerHTML)
+    setCountryOpenBtn(!countryOpenBtn)
+    setSearch('')
   }
 
   // 국가 검색 기능
@@ -272,7 +279,7 @@ export default function JoinPage (){
                       <ActiveLableText>국가</ActiveLableText>
                   </LabelBox>
                   <Select>
-                    <CountrySelected >{country}</CountrySelected>
+                    <CountrySelected>{country}</CountrySelected>
                    {search ?   
                    <SelectDropBox>
                       <SelectInput 
@@ -411,12 +418,13 @@ position:relative;
 `;
 const Btnwrap = styled.div`
 display: flex;
+margin:0.5rem 0 0 1.2rem;
 `;
 const VisibleBtn = styled.button`
 background: url('/assets/images/icons/visible.png') no-repeat;
 width: 2.5rem;
 heght: 1.833rem;
-margin-right: 1.083rem;
+margin-right: 1rem;
 `;
 const InvisibleBtn = styled.button`
 background: url('/assets/images/icons/invisible.png') no-repeat;
@@ -449,11 +457,11 @@ ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryRed};
 `;
 const NumError = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
 const LimitError = styled.p`
-font: ${({ theme }) => theme.fontSize.middleRegular};
+${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
 const Img = styled.img`
@@ -501,6 +509,8 @@ border: 1px solid #B7B7B7;
 const Select = styled.div`
 `;
 const CountrySelected = styled.p`
+${({ theme }) => theme.fontSize.h4};
+color: ${({ theme }) => theme.color.textGray};
 margin-top: 0.833rem;
 @media all and (max-width : 540px){
   margin-top: 0;
@@ -518,6 +528,8 @@ background: #fff;
 z-index: 100;
 `;
 const SelectDropOption = styled.li`
+${({ theme }) => theme.fontSize.h4};
+color: ${({ theme }) => theme.color.textDeepGray};
 height: 4.25rem;
 padding: 0.917rem 1.5rem;
 &:hover {
@@ -537,8 +549,8 @@ padding: 0.917rem 1.5rem;
 `;
 const SelectButton = styled.button`
 position:absolute;
-top:29px;
-right: 26px;
+top: 29px;
+right: 16px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
 width: 2.5rem;
 height: 2.083rem;

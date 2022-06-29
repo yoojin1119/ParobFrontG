@@ -1,6 +1,8 @@
 import styled from "styled-components"
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Link from "next/link";
+import axios from "axios";
+import countryList from '../../data/country.json'
 import Header from "../../Component/layout/header";
 import Footer from "../../Component/layout/Footer"
 
@@ -11,8 +13,36 @@ export default function ExpiredPasswordPage (){
     const [countryOpenBtn, setCountryOpenBtn] = useState(false)
     const [search, setSearch] = useState('')
     const [ip, setIp] = useState('')
+    const [data, setData] = useState({})
+    const [error, setError] = useState(false)
+
+    const handleInputChange = (e) =>{
+      setNickName(e.target.value)
+    }
     
-    const handleInputChange = (e) => {}
+    const API_key = 'key=Km3pTLz60yRpssZeS4f9';
+    const API_endPoint = 'https://extreme-ip-lookup.com/json/?'
+        useEffect (() => {
+            getIpClient()
+          },[ip])
+    async function getIpClient() {
+      try {
+        const response = await axios.get(`${API_endPoint}${API_key}`);
+        setIp(response.data.country)
+        setCountry(ip.toUpperCase())
+        countryCheck()
+      } catch (error) {
+        console.error(error);
+      }
+    }
+      
+    const countryCheck = () => {
+      let arr = []
+      for(const value in countryList) {
+        arr.push(countryList[value].CountryNameEN);
+      }
+      setCountryMap(arr)
+    }
 
     const countryOpen = (e) =>{
         e.preventDefault();
@@ -24,6 +54,28 @@ export default function ExpiredPasswordPage (){
       setCountryOpenBtn(!countryOpenBtn)
       setSearch('')
       }
+
+    // 국가 검색 기능
+    const onChangeSearch =(e) =>{
+      e.preventDefault();
+      setSearch(e.target.value)
+    }
+
+    const onSubmit = (e) => {
+      if(!!nickName  && !!country) {
+        data = {
+          nickName : nickName,
+          country : country,
+        }
+        setData(data)
+        console.log(data)
+      }
+      else{
+        setError(true)
+        e.preventDefault()
+        console.log('빈칸빈칸')
+      }
+    }
 
     return(
         <Container>
@@ -100,7 +152,7 @@ export default function ExpiredPasswordPage (){
               </Link>
               에 동의하고, 회원가입합니다.
           </PolicyDesc>
-          <SnsLoginBtn>가입완료</SnsLoginBtn>
+          <SnsLoginBtn type="submit" onClick={onSubmit}>가입완료</SnsLoginBtn>
             </SnsLoginWrap>
             <Footer/>
         </Container>
@@ -108,7 +160,7 @@ export default function ExpiredPasswordPage (){
 }
 
 const Container = styled.section``;
-const SnsLoginWrap = styled.div`
+const SnsLoginWrap = styled.form`
 display: flex;
 flex-direction:column;
 align-items:center;
@@ -168,6 +220,8 @@ border: 1px solid #B7B7B7;
 const Select = styled.div`
 `;
 const CountrySelected = styled.p`
+${({ theme }) => theme.fontSize.h4};
+color: ${({ theme }) => theme.color.textGray};
 margin-top: 0.833rem;
 @media all and (max-width : 540px){
   margin-top: 0;
@@ -185,6 +239,8 @@ background: #fff;
 z-index: 100;
 `;
 const SelectDropOption = styled.li`
+${({ theme }) => theme.fontSize.h4};
+color: ${({ theme }) => theme.color.textDeepGray};
 height: 4.25rem;
 padding: 0.917rem 1.5rem;
 &:hover {
@@ -205,7 +261,7 @@ padding: 0.917rem 1.5rem;
 const SelectButton = styled.button`
 position:absolute;
 top:29px;
-right: 26px;
+right: 16px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
 width: 2.5rem;
 height: 2.083rem;

@@ -11,9 +11,9 @@ const Sns = () => {
                     소셜 회원가입
                 </Title>
                 <ButtonWrap>
-                    <Google href='#'>
-                        <Img src="./assets/images/icons/googleJoin.png"></Img>
-                    </Google>
+                        <Google>
+                            <Img src="./assets/images/icons/googleJoin.png"></Img>
+                        </Google>
                     <Kakao>
                         <Img src="./assets/images/icons/kakaotalkJoin.png"></Img>
                     </Kakao>

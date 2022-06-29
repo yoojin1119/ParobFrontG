@@ -8,7 +8,7 @@ export default function FailurePage (){
         <Container>
             <Header/>
             <FailureWrap>
-                <FailureImg src='assets/images/error/email_fail.png'></FailureImg>
+                <FailureImg src='/assets/images/error/email_fail.png'></FailureImg>
                 <FailureTit>이메일 인증에 실패했어요</FailureTit>
                 <MsgWrap>
                     <Msg>요청 후 24시간이 지났거나, 시도 중 오류가 발생했어요.</Msg>

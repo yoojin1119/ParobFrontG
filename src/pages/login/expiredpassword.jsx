@@ -7,7 +7,7 @@ export default function ExpiredPasswordPage (){
         <Container>
             <Header/>
             <ExpiredWrap>
-                <ExpiredImg src='assets/images/error/password_fail.png'></ExpiredImg>
+                <ExpiredImg src='/assets/images/error/password_fail.png'></ExpiredImg>
                 <ExpiredTit>비밀번호 재설정 링크가 만료되었어요 </ExpiredTit>
                 <ExpiredCard>
                     <ExpiredMsg>요청 후 24시간이 지났거나, 시도 중 오류가 발생했어요</ExpiredMsg>
