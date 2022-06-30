@@ -44,7 +44,7 @@ top: 0;
 left: 0;
 background-color: #fff;
 width: 100%;
-height: 100vh;
+height: 100%;
 z-index: 10;
 `;
 const MenuWrap = styled.div``;

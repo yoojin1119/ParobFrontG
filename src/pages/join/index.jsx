@@ -423,12 +423,14 @@ margin:0.5rem 0 0 1.2rem;
 `;
 const VisibleBtn = styled.button`
 background: url('/assets/images/icons/visible.png') no-repeat;
+background-size: contain;
 width: 2.5rem;
 heght: 1.833rem;
 margin-right: 1rem;
 `;
 const InvisibleBtn = styled.button`
 background: url('/assets/images/icons/invisible.png') no-repeat;
+background-size: contain;
 width: 2.5rem;
 heght: 1.833rem;
 margin-top: -0.167rem;
@@ -550,13 +552,13 @@ padding: 0.917rem 1.5rem;
 `;
 const SelectButton = styled.button`
 position:absolute;
-top: 29px;
+bottom: 29px;
 right: 16px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
 width: 2.5rem;
 height: 2.083rem;
 @media all and (max-width : 540px){
-  top: 18px;
+  top: 25px;
   right: 8px;
 }
 `;
@@ -568,7 +570,7 @@ border:none;
 border-bottom: 1px solid #EDEDED;
 background-image:url(/assets/images/icons/search.png);
 background-position: 13px center;
-background-size: 32px;
+background-size: 2.667rem;
 background-repeat: no-repeat;
 padding: 5px 5px;
 text-indent: 3.75rem;

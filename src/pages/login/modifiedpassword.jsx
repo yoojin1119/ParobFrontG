@@ -141,12 +141,14 @@ display: flex;
 `;
 const VisibleBtn = styled.button`
 background: url('/assets/images/icons/visible.png') no-repeat;
+background-size:contain;
 width: 2.5rem;
 heght: 1.833rem;
 margin-right: 1.083rem;
 `;
 const InvisibleBtn = styled.button`
 background: url('/assets/images/icons/invisible.png') no-repeat;
+background-size:contain;
 width: 2.5rem;
 heght: 1.833rem;
 margin-top: -0.167rem;

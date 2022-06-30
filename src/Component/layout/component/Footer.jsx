@@ -24,10 +24,10 @@ const Footer = () => {
                     <Link href="/qna">
                         <P>고객 센터</P>
                     </Link>
-                    <Link href="policy/terms">
+                    <Link href="/policy/terms">
                         <P>이용약관</P>
                     </Link>
-                    <Link href="policy/privacy">
+                    <Link href="/policy/privacy">
                         <P>개인정보처리방침</P>
                     </Link>
                 </PolicyDes>
@@ -153,16 +153,19 @@ const GoogleTrans = styled.div`
     }
  }
  .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3){
-    border-left:none;
+    border:none !important
  }
  .goog-te-gadget-simple .goog-te-menu-value span:last-child {
     position:absolute;
-    top: 5px;
+    top: 0.6rem;
+    right:12px;
+    width: 12px;
+    height: 12px;
     @media all and (max-width: 460px) {
+        right: 9px;
+        top: 0;
         width: 8px;
         height: 8px;
-        right: 10px;
-        top: 0;
     }
  }
 `;

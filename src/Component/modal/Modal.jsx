@@ -36,7 +36,7 @@ const ModalMsg = styled.p`
     ${({ theme }) => theme.fontSize.middleRegular};
     color: ${({ theme }) => theme.color.textGray}`;
 const ModalBtn = styled.button`
-    width: 12.25rem;
+    width: 17.25rem;
     height: 4.167rem;
     border-radius:14.3px;
     ${({ theme }) => theme.fontSize.bigRegular};
