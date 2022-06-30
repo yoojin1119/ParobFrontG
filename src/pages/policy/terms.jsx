@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Header from "../../Component/layout/header";
-import Footer from "../../Component/layout/Footer"
+import Header from "../../Component/layout/component/header";
+import Footer from "../../Component/layout/component/Footer"
 
 // dinamic import
 const TermVersion0 = dynamic(

@@ -3,8 +3,8 @@ import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useState } from "react";
 import Link from "next/link";
-import Header from "../../Component/layout/header";
-import Footer from "../../Component/layout/Footer";
+import Header from "../../Component/layout/component/header";
+import Footer from "../../Component/layout/component/Footer";
 
 export default function LoginPage (){
     const [loginKeep, setLoginKeep] = useState(true)
@@ -55,7 +55,9 @@ return(
                     {loginKeep ? <LoginBtnImg src='./assets/images/icons/checked.svg'></LoginBtnImg> : <LoginBtnImg src='./assets/images/icons/unchecked.png'></LoginBtnImg>}
                     <LoginCheckText>로그인 유지</LoginCheckText>
                 </LoginCheckBox>
-                <FindPassword>비밀 번호 찾기</FindPassword>
+                <Link href='/login/findpassword'>
+                    <FindPassword >비밀 번호 찾기</FindPassword>
+                </Link>
             </LoginCheckWrap>
             <Button value='로그인'/>
             <MoveJoin>

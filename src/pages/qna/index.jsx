@@ -2,8 +2,8 @@ import { FAQPageJsonLd } from 'next-seo';
 import styled,{ keyframes } from "styled-components";
 import { useState } from 'react';
 import Image from 'next/image';
-import Header from "../../Component/layout/header";
-import Footer from '../../Component/layout/Footer'
+import Header from "../../Component/layout/component/header";
+import Footer from '../../Component/layout/component/Footer';
 
 export default function QnaPage (){
     const [faqTogglIndex, setFaqTogglIndex] = useState('');

@@ -12,15 +12,15 @@ const MenuBar = () => {
                 </UserInfo>
                 <MenuList>
                     <Menu>
-                        <MenuImg src="assets/images/menu/making.png"></MenuImg>
+                        <MenuImg src="/assets/images/menu/making.png"></MenuImg>
                         <MenuTxt>만들기</MenuTxt>
                     </Menu>
                     <Menu>
-                        <MenuImg src="assets/images/menu/gallery.png"></MenuImg>
+                        <MenuImg src="/assets/images/menu/gallery.png"></MenuImg>
                         <MenuTxt>내 갤러리</MenuTxt>
                     </Menu>
                     <Menu>
-                        <MenuImg src="assets/images/menu/notice.png"></MenuImg>
+                        <MenuImg src="/assets/images/menu/notice.png"></MenuImg>
                         <MenuTxt>공지사항</MenuTxt>
                     </Menu>
                 </MenuList>

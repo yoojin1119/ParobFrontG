@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
-import MenuBar from "../menu/MenuBar";
-import Modal from "../modal/Modal";
+import MenuBar from "../../menu/MenuBar";
+import Modal from "../../modal/Modal";
 
 const Header = () => {
     const [menu, setMenu] = useState(false);

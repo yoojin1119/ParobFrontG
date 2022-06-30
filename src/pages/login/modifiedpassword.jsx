@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { useState } from "react";
 import helper from "../../utils/common/helper";
-import Header from "../../Component/layout/header";
-import Footer from "../../Component/layout/Footer"
+import Header from "../../Component/layout/component/header";
+import Footer from "../../Component/layout/component/Footer"
 
 export default function ModifiedPasswordPage (){
     const [password, setPassword] = useState('')

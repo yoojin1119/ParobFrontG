@@ -5,8 +5,8 @@ import Button from "../../Component/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import countryList from '../../data/country.json'
-import Header from "../../Component/layout/header";
-import Footer from "../../Component/layout/Footer";
+import Header from "../../Component/layout/component/header";
+import Footer from "../../Component/layout/component/Footer";
 
 import helper from "../../utils/common/helper";
 import dynamic from "next/dynamic";
@@ -143,6 +143,7 @@ export default function JoinPage (){
       useEffect (() => {
           getIpClient()
         },[ip])
+
   async function getIpClient() {
     try {
       const response = await axios.get(`${API_endPoint}${API_key}`);
@@ -321,11 +322,11 @@ export default function JoinPage (){
               </SelectBox>
           </InputWrap>
           <PolicyDesc>
-              <Link href="/terms">
+              <Link href="policy/terms">
                   <LinkBtn>이용약관</LinkBtn>
               </Link>
               및
-              <Link href="privacy">
+              <Link href="policy/privacy">
                   <LinkBtn>개인정보 처리 방침</LinkBtn>
               </Link>
               에 동의하고, 회원가입합니다.

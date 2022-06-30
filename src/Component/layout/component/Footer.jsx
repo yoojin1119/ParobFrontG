@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { redirect } from "next/dist/server/api-utils";
 
 const Footer = () => {
     return(
@@ -24,10 +25,10 @@ const Footer = () => {
                     <Link href="/qna">
                         <P>고객 센터</P>
                     </Link>
-                    <Link href="/terms">
+                    <Link href="policy/terms">
                         <P>이용약관</P>
                     </Link>
-                    <Link href="/privacy">
+                    <Link href="policy/privacy">
                         <P>개인정보처리방침</P>
                     </Link>
                 </PolicyDes>
@@ -45,8 +46,7 @@ const Footer = () => {
                     </CompanyDes>
                 </CompanyInfo>
                 <LanSelect>
-                    <SelectTxt>한국어</SelectTxt>
-                    <SelectBtn></SelectBtn>
+                    <GoogleTrans id="google_translate_element"></GoogleTrans>
                 </LanSelect>
             </Info>
         </FooterWrap>
@@ -162,3 +162,6 @@ background: url('/assets/images/icons/smallPolygon.png') no-repeat;
     top: 4px;
     right: 4px;
 `;
+
+
+const GoogleTrans = styled.div``;

@@ -3,8 +3,8 @@ import { useState,useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
 import countryList from '../../data/country.json'
-import Header from "../../Component/layout/header";
-import Footer from "../../Component/layout/Footer"
+import Header from "../../Component/layout/component/header";
+import Footer from "../../Component/layout/component/Footer"
 
 export default function ExpiredPasswordPage (){
     const [nickName, setNickName] = useState('')

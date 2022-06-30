@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import Header from "../../Component/layout/header";
-import Footer from "../../Component/layout/Footer"
+import Header from "../../Component/layout/component/header";
+import Footer from "../../Component/layout/component/Footer"
 
 export default function ExpiredPasswordPage (){
     return(
