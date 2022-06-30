@@ -137,6 +137,7 @@ const DropBoxBtn = styled.div`
     top:1.5rem;
     right: 1rem;
     background: url('/assets/images/icons/polygon.png') no-repeat;
+    background-size: contain;
     border: none;
     width: 2.083rem; 
     height: 1.667rem;
