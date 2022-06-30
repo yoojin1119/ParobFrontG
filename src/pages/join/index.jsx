@@ -515,9 +515,7 @@ const CountrySelected = styled.p`
 ${({ theme }) => theme.fontSize.h4};
 color: ${({ theme }) => theme.color.textGray};
 margin-top: 0.833rem;
-@media all and (max-width : 540px){
-  margin-top: 0;
-}`;
+`;
 const SelectDropBox =styled.ul`
 position: absolute;
 top: 85px;
@@ -552,14 +550,15 @@ padding: 0.917rem 1.5rem;
 `;
 const SelectButton = styled.button`
 position:absolute;
-bottom: 29px;
+bottom: 26px;
 right: 16px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
+background-size: contain;
 width: 2.5rem;
 height: 2.083rem;
 @media all and (max-width : 540px){
-  top: 25px;
-  right: 8px;
+  top: 18px;
+  right: 20px;
 }
 `;
 const SelectInput = styled.input`
