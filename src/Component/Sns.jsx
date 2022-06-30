@@ -51,12 +51,12 @@ gap: 1.25rem;
 `;
 
 const Google = styled.button`
-width:35rem;
+width:100%;
 `;
 const Kakao = styled.button`
-width:35rem;
+width:100%;
 `;
 
 const Img= styled.img`
-width:35rem;
+width: 35rem;
 `;
