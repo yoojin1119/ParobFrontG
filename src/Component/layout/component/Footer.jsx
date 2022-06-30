@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { redirect } from "next/dist/server/api-utils";
 
 const Footer = () => {
     return(
@@ -45,9 +44,9 @@ const Footer = () => {
                         ©Robotry. All Rights Reserved.<br/>
                     </CompanyDes>
                 </CompanyInfo>
-                <LanSelect>
-                    <GoogleTrans id="google_translate_element"></GoogleTrans>
-                </LanSelect>
+                <GoogleTrans>
+                    <div id="google_translate_element"></div>
+                </GoogleTrans>
             </Info>
         </FooterWrap>
     </Container>)
@@ -123,45 +122,47 @@ const CompanyDes = styled.p`
 ${({ theme }) => theme.fontSize.smallRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;
-const LanSelect = styled.div`
-align-self: start;
-position: relative;
-width: 10.833rem;
-height: 2.5rem;
-border-radius: 0.813rem;
-background-color: #ffffff;
-@media all and (max-width: 460px) {
+
+const GoogleTrans = styled.div`
+    align-self:start;
+ .goog-te-gadget-simple {
+    position:relative;
+    width: 10.833rem;
+    height: 2.5rem;
+    display: flex;
+    align-items:center;
+    padding-left:1.667rem;
+    border-radius: 13px;
+    border: 1px solid #7B7B7B;
+    @media all and (max-width: 460px) {
+        width: 71px;
+        height: 17px;
+    }
+ }
+ .goog-te-gadget img {
+    display:none;
+ }
+ .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+    ${({ theme }) => theme.fontSize.smallRegular};
+    margin-right:28px;
+    border: none;
+    @media all and (max-width: 460px) {
+        ${({ theme }) => theme.fontSize.Message};
+        margin-left: -10px;
+
+    }
+ }
+ .goog-te-gadget-simple .goog-te-menu-value span:nth-child(3){
+    border-left:none;
+ }
+ .goog-te-gadget-simple .goog-te-menu-value span:last-child {
     position:absolute;
-    top:0;
-    right:0;
-    width: 71px;
-    height: 17px;
-}
+    top: 5px;
+    @media all and (max-width: 460px) {
+        width: 8px;
+        height: 8px;
+        right: 10px;
+        top: 0;
+    }
+ }
 `;
-const SelectTxt = styled.p`
-position: absolute;
-top: 0.5rem;
-left: 1.667rem;
-${({ theme }) => theme.fontSize.smallRegular};
-color: ${({ theme }) => theme.color.textGray};
-@media all and (max-width: 460px) {
-    top: 2px;
-    left:8px;
-    ${({ theme }) => theme.fontSize.Message};
-`;
-const SelectBtn = styled.button`
-position: absolute;
-top: 0.75rem;
-right: 0.75rem;
-width:1rem;
-height: 1rem;
-background: url('/assets/images/icons/smallPolygon.png') no-repeat;
-@media all and (max-width: 460px) {
-    width: 8px;
-    height: 8px;
-    top: 4px;
-    right: 4px;
-`;
-
-
-const GoogleTrans = styled.div``;
