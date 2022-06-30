@@ -557,7 +557,7 @@ background-size: contain;
 width: 2.5rem;
 height: 2.083rem;
 @media all and (max-width : 540px){
-  top: 18px;
+  top:2.167rem;
   right: 20px;
 }
 `;

@@ -8,7 +8,7 @@ export default function ErrorPage (){
         <Container>
             <Header/>
             <ErrorWrap>
-                <ErrorImg src='assets/images/error/500Tablet.png'></ErrorImg>
+                <ErrorImg src='/assets/images/error/500Tablet.png'></ErrorImg>
                 <ErrorMsg>잠시 후 다시 이용해주세요</ErrorMsg>
                 <SmallMsg>
                     일시적인 문제로 서비스에 접속할 수 없어요.

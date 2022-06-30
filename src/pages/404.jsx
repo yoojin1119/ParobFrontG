@@ -8,7 +8,7 @@ export default function ErrorPage (){
         <Container>
             <Header/>
             <ErrorWrap>
-                <ErrorImg src='assets/images/error/404Tablet.png'></ErrorImg>
+                <ErrorImg src='/assets/images/error/404Tablet.png'></ErrorImg>
                 <ErrorMsg>요청하신 페이지를 찾을 수 없어요</ErrorMsg>
                 <SmallMsg>
                     페이지가 삭제되었거나 다른 페이지로 변경되었어요.

@@ -260,14 +260,15 @@ padding: 0.917rem 1.5rem;
 `;
 const SelectButton = styled.button`
 position:absolute;
-bottom: 29px;
+bottom: 26px;
 right: 16px;
 background:url(/assets/images/icons/polygon.png) no-repeat;
+background-size: contain;
 width: 2.5rem;
 height: 2.083rem;
 @media all and (max-width : 540px){
-  top: 30px;
-  right: 8px;
+  top:2.167rem;
+  right: 20px;
 }
 `;
 const SelectInput = styled.input`
