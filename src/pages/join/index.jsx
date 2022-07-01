@@ -568,15 +568,18 @@ font: ${({ theme }) => theme.fontSize.middleRegular};
 margin-bottom: 3.083rem;
 text-align: center;
 display: flex;
+align-items:center;
+justify-content: center;
 gap: 0.5rem;
 `;
 const LinkBtn = styled.p`
 color: ${({ theme }) => theme.color.primaryBlue};
 text-decoration: underline;
-`;
+&:nth-child(2) {
+  margin-right:-4.5px;
+}
 
-// 가입하기 버튼
-const SignUpButton = styled.button``;
+`;
 
 // 로그인 
 const LoginBox = styled.div`
