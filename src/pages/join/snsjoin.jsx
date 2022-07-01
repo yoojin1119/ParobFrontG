@@ -223,9 +223,7 @@ const CountrySelected = styled.p`
 ${({ theme }) => theme.fontSize.h4};
 color: ${({ theme }) => theme.color.textGray};
 margin-top: 0.833rem;
-@media all and (max-width : 540px){
-  margin-top: 0;
-}`;
+`;
 const SelectDropBox =styled.ul`
 position: absolute;
 top: 85px;
@@ -279,7 +277,7 @@ border:none;
 border-bottom: 1px solid #EDEDED;
 background-image:url(/assets/images/icons/search.png);
 background-position: 13px center;
-background-size: 32px;
+background-size: 2.667rem;
 background-repeat: no-repeat;
 padding: 5px 5px;
 text-indent: 3.75rem;
