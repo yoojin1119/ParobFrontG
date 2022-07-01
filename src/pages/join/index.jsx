@@ -26,10 +26,7 @@ export default function JoinPage (){
     ];
 
   // 비밀번호
-  const [passwordType,setPasswordType] = useState({
-    type:'password',
-    visible: false
-  })
+  const [passwordShown,setPasswordShown] = useState(false)
   const [password, setPassword] = useState('')
   const [isEngChecked, setIsEngChecked] = useState(false)
   const [isNumChecked, setIsNumChecked] = useState(false)
@@ -123,18 +120,11 @@ export default function JoinPage (){
     setEmail(e?.target?.innerHTML);
     setAutoEmailClicked(true);
   }; 
+
   // 비밀번호 보여지기 버튼
   const visiblePassword = (e) => {
       e.preventDefault();
-      setPasswordType(()=>{
-          return{type: 'text', visible: true}
-      })
-  }
-  const invisiblePassword = (e) => {
-      e.preventDefault();
-      setPasswordType(()=>{
-          return{type: 'password', visible: false}
-      })
+      setPasswordShown(!passwordShown)
   }
   
   // 접속국가 ip 확인
@@ -236,17 +226,14 @@ export default function JoinPage (){
                       <Input 
                         autoComplete="off"
                         id="password"
+                        type={!!passwordShown ? 'text' : 'password'}
                         value={password}
                         onChange={handleInputChange}
-                        type={passwordType.type}
                       >
                       </Input>
-                      <Btnwrap>
-                          <VisibleBtn onClick={visiblePassword}>
-                          </VisibleBtn>
-                          <InvisibleBtn onClick={invisiblePassword}>
-                          </InvisibleBtn>
-                      </Btnwrap>
+                        <InvisibleBtn onClick={visiblePassword}>
+                          {passwordShown ? <BtnImg src='/assets/images/icons/visible.png'></BtnImg> : <BtnImg src='/assets/images/icons/invisible.png'></BtnImg>}
+                        </InvisibleBtn>
                   </PasswordWrap>
                   <SubTextBox>
                     {!password ? <SubMsg><Img src='./assets/images/icons/greyCheck.png'></Img>문자</SubMsg> 
@@ -267,7 +254,6 @@ export default function JoinPage (){
                   <Input 
                     autoComplete="off"
                     id="nickName"
-                    type="text"
                     value={nickName}
                     onChange={handleInputChange}
                   ></Input>
@@ -395,8 +381,12 @@ padding: 0.833rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
+&:focus-within {
+  border-color:${({ theme }) => theme.color.primaryOrange};
+}
 `;
-const LabelBox = styled.label``;
+const LabelBox = styled.label`
+`;
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
 ${({ theme }) => theme.fontSize.middleRegular};
@@ -410,6 +400,8 @@ width: 25rem;
 padding-right: 8.333rem;
 height: 3.333rem;
 border: none;
+&:focus {
+ outline:none;
 }`;
 
 
@@ -418,24 +410,15 @@ const PasswordWrap= styled.div`
 display: flex;
 position:relative;
 `;
-const Btnwrap = styled.div`
-display: flex;
-margin:0.5rem 0 0 1.2rem;
-`;
-const VisibleBtn = styled.button`
-background: url('/assets/images/icons/visible.png') no-repeat;
-background-size: contain;
-width: 2.5rem;
-heght: 1.833rem;
-margin-right: 1rem;
-`;
 const InvisibleBtn = styled.button`
-background: url('/assets/images/icons/invisible.png') no-repeat;
-background-size: contain;
 width: 2.5rem;
 heght: 1.833rem;
 margin-top: -0.167rem;
+margin-left: 4.5rem;
 `;
+const BtnImg = styled.img`
+width: 2.5rem;
+height: 2.333rem;`;
 
 
 // 오류 내용
