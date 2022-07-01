@@ -164,7 +164,8 @@ color: ${({ theme }) => theme.color.textGray};
 `;
 const FindPassword = styled.p`
 ${({ theme }) => theme.fontSize.middleRegular};
-color: ${({ theme }) => theme.color.textGray};`;
+color: ${({ theme }) => theme.color.textGray};
+cursor:pointer;`;
 const MoveJoin = styled.div`
 display: flex;
 margin: 2.167rem 0 4.417rem;

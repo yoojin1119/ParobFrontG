@@ -575,6 +575,7 @@ gap: 0.5rem;
 const LinkBtn = styled.p`
 color: ${({ theme }) => theme.color.primaryBlue};
 text-decoration: underline;
+cursor:pointer;
 &:nth-child(2) {
   margin-right:-4.5px;
 }
