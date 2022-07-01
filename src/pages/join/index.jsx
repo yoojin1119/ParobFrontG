@@ -377,6 +377,7 @@ margin-top: 4.667rem;
 `;
 const JoinTitle = styled.div`
 margin-bottom: 2.083rem;
+align-self:start;
 ${({ theme }) => theme.fontSize.bigBold};
 `;
 const InputWrap = styled.div`
