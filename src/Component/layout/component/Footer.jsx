@@ -36,7 +36,7 @@ const Footer = () => {
                 <CompanyInfo>
                     <Logo src='/assets/images/logos/bnwLogo.png'></Logo>
                     <CompanyDes>
-                        Robotry Inc.<br />
+                        <h2>Robotry Inc.</h2>
                         CEO Sang-Uk Ahn  |  Address 2F 83-13, Gaeunsa-gil, Seongbuk-gu, Seoul, South Korea <br/>
                         Business License 151-87-01050 |<br/>
                         E-Commerce Permit No 2018-Seoul Seongbuk-0011<br/>
@@ -124,7 +124,7 @@ color: ${({ theme }) => theme.color.textGray};
 `;
 
 const GoogleTrans = styled.div`
-    align-self:start;
+  align-self:start;
  .goog-te-gadget-simple {
     position:relative;
     width: 10.833rem;
@@ -139,6 +139,7 @@ const GoogleTrans = styled.div`
         height: 17px;
     }
  }
+
  .goog-te-gadget img {
     display:none;
  }

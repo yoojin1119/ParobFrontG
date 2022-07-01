@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 import Router, { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
@@ -42,8 +43,9 @@ const Layout = ({ children }) => {
           rel="shortcut icon"
           href="/assets/images/logos/favicon.ico"
         ></link>
+        </Head>
         {/* 구글번역 */}
-        <script
+        <Script
           type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
@@ -58,11 +60,12 @@ const Layout = ({ children }) => {
             }`,
           }}
         />
-        <script
+        <Script
           src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          data-nscript="lazyOnload"
         />
         {/* 구글번역 */}
-        </Head>
+
         <>
           <Main>{children}</Main>
         </>

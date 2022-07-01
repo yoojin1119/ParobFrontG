@@ -7,11 +7,11 @@ import { useEffect,useState } from 'react';
 const Layout = dynamic(() => import('../Component/layout/Layout'));
 
 function MyApp({ Component, pageProps }) {
-  const [showChild, setShowChild] = useState(false)
+  const [children, setChildren] = useState(false)
   useEffect(()=> {
-    setShowChild(true)
+    setChildren(true)
   },[])
-  if(!showChild) {
+  if(!children) {
     return null;
   }
   if(typeof window === 'undefined') {
@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
   else {
   return (
     <ThemeProvider theme={theme}>
-          <Layout>
+          <Layout children={children}>
             <Component {...pageProps} />
           </Layout>
     </ThemeProvider>
