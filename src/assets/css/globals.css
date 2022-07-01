@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 /* 새로운 버전 폰트 */
 
 /* Bold */
@@ -243,10 +242,6 @@ textarea {
 }
 
 /* 포커스 라운드 */
-input:focus {
-  outline: none;
-  border: 1.2px solid #ed6f1e;
-}
 
 div:focus,
 button:focus,
@@ -295,3 +290,6 @@ select {
   font-family: 'IBMPlexSansKR-Regular', 'Helvetica Neue', Arial, sans-serif;
 }
 
+input[type="password"] {
+  -webkit-text-security: square !important;
+}

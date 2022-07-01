@@ -17,6 +17,7 @@ export default function JoinPage (){
   // 이메일
   const [email, setEmail] = useState('')
   const [isAutoEmailClicked, setAutoEmailClicked] = useState(false);
+  const [usedMail, setUsedMail] = useState(false)
   const [isIsEmailAutoStarted, setIsEmailAutoStarted] = useState(false);
   const [emailError, setEmailError] = useState(false)
   const AutoEmailList = [
@@ -37,6 +38,7 @@ export default function JoinPage (){
     // 닉네임
   const [nickName, setNickName] = useState('')
   const  [isNicknameChanged, setIsNicknameChanged] = useState(false)
+  const [usedNickName, setUsedNickName] = useState(false)
 
   // 국가 설정
   const [ip, setIp] = useState('')
@@ -193,7 +195,7 @@ export default function JoinPage (){
                     onBlur={handleEmailFocusOut}
                   ></Input>
                   <SubTextBox>
-                      <Message>이미 가입한 이메일이에요.</Message>
+                      {usedMail ? <Message>이미 가입한 이메일이에요.</Message> : null}
                       {emailError? <Message>이메일 주소를 정확히 입력해주세요.</Message> :null}
                   </SubTextBox>
                   {!!isIsEmailAutoStarted ?                  
@@ -258,7 +260,7 @@ export default function JoinPage (){
                     onChange={handleInputChange}
                   ></Input>
                   <SubTextBox>
-                      <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message>
+                      {usedNickName ? <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message> :null}
                   </SubTextBox>
               </InputBox>
               <SelectBox>
@@ -401,8 +403,9 @@ padding-right: 8.333rem;
 height: 3.333rem;
 border: none;
 &:focus {
- outline:none;
-}`;
+  outline:none;
+}
+`;
 
 
 // 비밀번호 보이게 안보이게
