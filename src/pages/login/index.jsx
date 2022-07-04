@@ -177,6 +177,7 @@ color: ${({ theme }) => theme.color.textDeepGray};
 const LinkP = styled.p`
 ${({ theme }) => theme.fontSize.middleRegular};
 color: ${({ theme }) => theme.color.primaryOrange};
+margin-left: 6px;
 text-decoration: underline;
 cursor: pointer;
 `;
