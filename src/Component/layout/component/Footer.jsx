@@ -118,7 +118,7 @@ const CompanyInfo = styled.div``;
 const Logo = styled.img`
 margin-bottom:1.333rem;
 `;
-const CompanyDes = styled.p`
+const CompanyDes = styled.div`
 ${({ theme }) => theme.fontSize.smallRegular};
 color: ${({ theme }) => theme.color.textGray};
 `;

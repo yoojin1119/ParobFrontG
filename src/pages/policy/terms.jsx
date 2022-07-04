@@ -40,7 +40,7 @@ export default function TermsPage (){
                             name="privacyTermsVersion"
                             onClick={termsOpen}
                         >
-                            이전 개인정보처리방침
+                            이전 이용약관 보기
                         <DropBoxBtn></DropBoxBtn>
                         </AllTermsDropbox>
                         { open ? 

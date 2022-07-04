@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 /* 새로운 버전 폰트 */
 
@@ -290,6 +291,6 @@ select {
   font-family: 'IBMPlexSansKR-Regular', 'Helvetica Neue', Arial, sans-serif;
 }
 
-input[type="password"] {
+input[type="password" i]{
   -webkit-text-security: square !important;
 }
