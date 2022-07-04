@@ -1,8 +1,10 @@
 import styled from "styled-components"
+import { useState } from "react";
 import Header from "../../Component/layout/component/header";
 import Footer from "../../Component/layout/component/Footer"
 
 export default function FindPasswordPage (){
+    const [mailError, setMailError] = useState(false)
     return(
         <Container>
             <Header />
@@ -19,7 +21,7 @@ export default function FindPasswordPage (){
                       type="text"
                     ></Input>
                     <SubTextBox>
-                        <Message>가입하지 않은 이메일이에요.</Message>
+                        {mailError ? <Message>가입하지 않은 이메일이에요.</Message> : null}
                     </SubTextBox>
                 </InputBox>
                     <FindBtn>메일 요청하기</FindBtn>

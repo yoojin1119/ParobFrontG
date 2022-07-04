@@ -65,6 +65,7 @@ const onSubmit = () => {
                         value={password}
                         onChange={handleInputChange}
                         type={passwordType.type}
+                        maxLength={16}
                       >
                       </Input>
                       <Btnwrap>

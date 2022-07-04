@@ -73,7 +73,6 @@ export default function ExpiredPasswordPage (){
       else{
         setError(true)
         e.preventDefault()
-        console.log('빈칸빈칸')
       }
     }
 
@@ -92,9 +91,10 @@ export default function ExpiredPasswordPage (){
                     type="text"
                     value={nickName}
                     onChange={handleInputChange}
+                    maxLength={20}
                   ></Input>
                   <SubTextBox>
-                      <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message>
+                      {error ? <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message> : null}
                   </SubTextBox>
               </InputBox>
               <SelectBox>
