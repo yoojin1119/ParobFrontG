@@ -7,16 +7,16 @@ const Footer = () => {
         <FooterWrap>
             <Contact>
                 <SnsContact>
-                    <Sns>
+                    <Sns href='https://www.facebook.com/RobotryKR/' target='_blank'>
                         <SnsImg src='/assets/images/logos/sns/facebook-f.png'></SnsImg>
                     </Sns>
-                    <Sns>
+                    <Sns href='https://www.instagram.com/robotry_/' target='_blank'>
                         <SnsImg src='/assets/images/logos/sns/instagram.png'></SnsImg>
                     </Sns>
-                    <Sns>
+                    <Sns href='https://blog.naver.com/robotry00' target='_blank'>
                         <SnsImg src='/assets/images/logos/sns/naver.png'></SnsImg>
                     </Sns>
-                    <Sns>
+                    <Sns href='https://www.youtube.com/channel/UCf3HNigXyg7bPLpj1c-3QHw' target='_blank'>
                         <SnsImg src='/assets/images/logos/sns/youtube.png'></SnsImg>
                     </Sns>
                 </SnsContact>
@@ -90,8 +90,13 @@ border-bottom: 1px solid #D3D3D3;
 const SnsContact = styled.ul`
 display: flex;
 margin-left: -0.417rem;
+gap:2.5rem;
+@media all and (max-width: 460px) {
+    margin-bottom: 16px;
+    gap: 10px;
+}
 `;
-const Sns = styled.button``;
+const Sns = styled.a``;
 const SnsImg = styled.img``;
 const PolicyDes = styled.ul`
 display: flex;
