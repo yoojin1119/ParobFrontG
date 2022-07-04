@@ -45,6 +45,7 @@ return(
                       id="password"
                       type= 'password'
                       visible='false'
+                      maxLength={16}
                     ></Input>
                     <SubTextBox>
                         {loginFail ? <Message>가입하지 않은 이메일이거나, 비밀번호가 일치하지  않아요.</Message> :null}
