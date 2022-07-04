@@ -17,9 +17,9 @@ export default function JoinPage (){
   // 이메일
   const [email, setEmail] = useState('')
   const [isAutoEmailClicked, setAutoEmailClicked] = useState(false);
-  const [usedMail, setUsedMail] = useState(false)
   const [isIsEmailAutoStarted, setIsEmailAutoStarted] = useState(false);
   const [emailError, setEmailError] = useState(false)
+  const [usedEmail, setUsedEmail] = useState(false)
   const AutoEmailList = [
       { id: 1, address: '@gmail.com' },
       { id: 2, address: '@naver.com' },
@@ -58,7 +58,7 @@ export default function JoinPage (){
           e.preventDefault()
         }
         else {
-          setEmailError(true)
+          setPasswordError(true)
           e.preventDefault()
         }
       }
@@ -191,11 +191,12 @@ export default function JoinPage (){
                     type='text'
                     id="email"
                     value={email}
+                    maxLength={40}
                     onChange={handleInputChange}
                     onBlur={handleEmailFocusOut}
                   ></Input>
                   <SubTextBox>
-                      {usedMail ? <Message>이미 가입한 이메일이에요.</Message> : null}
+                      {usedEmail? <Message>이미 가입한 이메일이에요.</Message> : null}
                       {emailError? <Message>이메일 주소를 정확히 입력해주세요.</Message> :null}
                   </SubTextBox>
                   {!!isIsEmailAutoStarted ?                  
@@ -231,6 +232,7 @@ export default function JoinPage (){
                         type={!!passwordShown ? 'text' : 'password'}
                         value={password}
                         onChange={handleInputChange}
+                        maxLength={16}
                       >
                       </Input>
                         <InvisibleBtn onClick={visiblePassword}>
@@ -258,6 +260,7 @@ export default function JoinPage (){
                     id="nickName"
                     value={nickName}
                     onChange={handleInputChange}
+                    maxLength={20}
                   ></Input>
                   <SubTextBox>
                       {usedNickName ? <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message> :null}

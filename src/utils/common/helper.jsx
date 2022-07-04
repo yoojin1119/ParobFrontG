@@ -13,7 +13,7 @@
     }
 
     /**
-     *  email은 40자 이내 && @.포함 (완료)
+     *  email은 @.포함 (완료)
      * @param email
      * @return {boolean}
      */
