@@ -25,7 +25,7 @@ export default function PrivacyPage (){
 
   const handlePrivacyTermsClick = (e) => {
     setClickedPrivacyTerms(e.target.value);
-
+    window.scrollTo(0,0);
   };
 
     return(
@@ -47,15 +47,15 @@ export default function PrivacyPage (){
                         </AllTermsDropbox>
                         { open ? 
                          <OptionWrap>
-                            <DropBox onMouseUp={handlePrivacyTermsClick}  value="2" defaultValue="true">
+                            <DropBox onClick={handlePrivacyTermsClick}  value="2" defaultValue="true">
                                 {clickedPrivacyTerms === 2  ? <BoxCheck src='/assets/images/icons/blueCheck.png' /> : null}
                               시행일자 : 2022년 5월 30일
                             </DropBox>
-                            <DropBox   onMouseUp={handlePrivacyTermsClick} value="1">
+                            <DropBox   onClick={handlePrivacyTermsClick} value="1">
                                 {clickedPrivacyTerms === 1  ? <BoxCheck src='/assets/images/icons/blueCheck.png' />: null}
                               시행일자 : 2021년 12월 26일
                             </DropBox>
-                            <DropBox   onMouseUp={handlePrivacyTermsClick} value="0">
+                            <DropBox   onClick={handlePrivacyTermsClick} value="0">
                                 {clickedPrivacyTerms === 0  ? <BoxCheck src='/assets/images/icons/blueCheck.png' />: null}
                               시행일자 : 2021년 8월 30일
                             </DropBox>

@@ -53,7 +53,7 @@ return(
             </InputWrap>
             <LoginCheckWrap>
                 <LoginCheckBox onClick={LoginKeeping}>
-                    {loginKeep ? <LoginBtnImg src='./assets/images/icons/checked.svg'></LoginBtnImg> : <LoginBtnImg src='./assets/images/icons/unchecked.png'></LoginBtnImg>}
+                    {loginKeep ? <LoginBtnImg src='./assets/images/icons/orangeCheck.png'></LoginBtnImg> : <LoginBtnImg src='./assets/images/icons/unchecked.svg'></LoginBtnImg>}
                     <LoginCheckText>로그인 유지</LoginCheckText>
                 </LoginCheckBox>
                 <Link href='/login/findpassword'>
