@@ -8,7 +8,7 @@ export default function FindPasswordPage (){
             <Header />
             <FindWrap>
                 <FindTit>비밀번호를 잊어버렸나요?</FindTit>
-                <FindMsg>가입하신 이메일 주소로 비밀번호 재설정 메일 보내드려요</FindMsg>
+                <FindMsg>가입하신 이메일 주소로 비밀번호 재설정 메일을 보내드려요</FindMsg>
                 <InputBox>
                     <LabelBox htmlFor="email">
                         <LableText>이메일</LableText>
