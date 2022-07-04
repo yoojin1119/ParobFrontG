@@ -22,7 +22,7 @@ const Footer = () => {
                 </SnsContact>
                 <PolicyDes>
                     <Link href="/qna">
-                        <P>고객 센터</P>
+                        <P>고객센터</P>
                     </Link>
                     <Link href="/policy/terms">
                         <P>이용약관</P>
