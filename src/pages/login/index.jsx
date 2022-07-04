@@ -57,7 +57,7 @@ return(
                     <LoginCheckText>로그인 유지</LoginCheckText>
                 </LoginCheckBox>
                 <Link href='/login/findpassword'>
-                    <FindPassword >비밀 번호 찾기</FindPassword>
+                    <FindPassword >비밀번호 찾기</FindPassword>
                 </Link>
             </LoginCheckWrap>
             <Button value='로그인'/>
