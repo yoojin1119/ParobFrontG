@@ -47,6 +47,8 @@ export default function JoinPage (){
   const [countryOpenBtn, setCountryOpenBtn] = useState(false)
   const [search, setSearch] = useState('')
 
+  // 전체 검사
+  const [submitError, setSubmitError] = useState(false)
 
     // 유효성검사
     const onSubmit = (e) => {
@@ -69,14 +71,20 @@ export default function JoinPage (){
 
     }
     const completeData = () => {
-      data = {
-        id: email,
-        password: password,
-        nickName:nickName,
-        country:country
-      }
+      if(email && password && nickName && country) {
+        data = {
+          id: email,
+          password: password,
+          nickName:nickName,
+          country:country
+        }
         setData(data);
+        setSubmitError(true)
         console.log(data)
+      }
+      else {
+        setSubmitError(false)
+      }
     }
 
     // 임풋 유효성 검사
@@ -322,7 +330,7 @@ export default function JoinPage (){
               </Link>
               에 동의하고, 회원가입합니다.
           </PolicyDesc>
-          <Button type="submit" value='가입하기' onClick={onSubmit}/>
+          <Button type="submit" value='가입하기' onClick={onSubmit} disable={!submitError}/>
       </SignUpForm>
       <LoginBox>
               <LoginText>
