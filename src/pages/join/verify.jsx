@@ -103,7 +103,7 @@ color: ${({ theme }) => theme.color.textGray};
 &::before{
     content:'';
     display: block;
-    background: url('/assets/images/icons/orangeCheck.svg') no-repeat;
+    background: url('/assets/images/icons/verifyCheck.svg') no-repeat;
     width: 1.167rem;
     height:  0.833rem;
 }
