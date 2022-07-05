@@ -16,8 +16,12 @@ export default function ExpiredPasswordPage (){
     const [data, setData] = useState({})
     const [error, setError] = useState(false)
 
+    // 전체 검사
+  const [submitError, setSubmitError] = useState(true)
+
     const handleInputChange = (e) =>{
       setNickName(e.target.value)
+      setSubmitError(false)
     }
     
     const API_key = 'key=Km3pTLz60yRpssZeS4f9';
@@ -62,17 +66,19 @@ export default function ExpiredPasswordPage (){
     }
 
     const onSubmit = (e) => {
-      if(!!nickName  && !!country) {
+      if(!!nickName&&!!country) {
         data = {
           nickName : nickName,
           country : country,
         }
         setData(data)
+        e.preventDefault()
         console.log(data)
       }
-      else{
+      else {
+        setSubmitError(true)
+        console.log(submitError)
         setError(true)
-        e.preventDefault()
       }
     }
 
@@ -152,7 +158,7 @@ export default function ExpiredPasswordPage (){
               </Link>
               에 동의하고, 회원가입합니다.
           </PolicyDesc>
-          <SnsLoginBtn type="submit" onClick={onSubmit}>가입완료</SnsLoginBtn>
+          <SnsLoginBtn type="submit" onClick={onSubmit} disabled={submitError}>가입완료</SnsLoginBtn>
             </SnsLoginWrap>
             <Footer/>
         </Container>
@@ -180,6 +186,9 @@ margin-bottom: 4rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
+&:focus-within {
+  border-color:${({ theme }) => theme.color.primaryOrange};
+}
 `;
 const LabelBox = styled.label``;
 const LableText = styled.p`
@@ -195,6 +204,9 @@ width: 25rem;
 padding-right: 8.333rem;
 height: 3.333rem;
 border: none;
+&:focus {
+  outline:none;
+}
 `;
 const SubTextBox=styled.div`
 margin-top: 0.833rem;
