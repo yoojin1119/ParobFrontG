@@ -19,6 +19,7 @@ export default function FindPasswordPage (){
                       autoComplete="off"
                       id="email"
                       type="text"
+                      maxLength={40}
                     ></Input>
                     <SubTextBox>
                         {mailError ? <Message>가입하지 않은 이메일이에요.</Message> : null}
@@ -57,6 +58,9 @@ margin-bottom: 6.75rem;
 box-sizing:border-box;
 border-radius: 10px;
 border: 1px solid #B7B7B7;
+&:focus-within {
+    border-color:${({ theme }) => theme.color.primaryOrange};
+  }
 `;
 const LabelBox = styled.label``;
 const LableText = styled.p`
@@ -67,6 +71,9 @@ const Input = styled.input`
 width: 33.333rem;
 height: 3.333rem;
 border: none;
+&:focus {
+    outline:none;
+  }
 `;
 const SubTextBox=styled.div`
 margin-top: 0.833rem;
