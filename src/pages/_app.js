@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }) {
   else {
   return (
     <ThemeProvider theme={theme}>
-          <Layout children={children}>
+          <Layout>
             <Component {...pageProps} />
           </Layout>
     </ThemeProvider>
