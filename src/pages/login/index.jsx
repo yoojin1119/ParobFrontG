@@ -29,7 +29,7 @@ return(
         <Title>로그인</Title>
         <Sns/>
         <Looin>
-            <LoginTitle>이메일로 로그인</LoginTitle>
+            <LoginTitle>이메일 로그인</LoginTitle>
             <InputWrap>
                 <InputBox>
                     <LabelBox htmlFor="email">
