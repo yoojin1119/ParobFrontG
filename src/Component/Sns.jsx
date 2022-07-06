@@ -5,7 +5,7 @@ const Sns = () => {
     const url = router.pathname;
     return(
         <Container>
-            {url === '/join' ?
+            {url === '/signup' ?
             <>
                 <Title>
                     소셜 회원가입

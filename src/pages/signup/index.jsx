@@ -11,7 +11,7 @@ import Footer from "../../Component/layout/component/Footer";
 import helper from "../../utils/common/helper";
 import dynamic from "next/dynamic";
 
-export default function JoinPage (){
+export default function SignupPage (){
   const [data, setData] = useState({});
 
   // 이메일

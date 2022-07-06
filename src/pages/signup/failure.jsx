@@ -14,7 +14,7 @@ export default function FailurePage (){
                     <Msg>요청 후 24시간이 지났거나, 시도 중 오류가 발생했어요.</Msg>
                     <Msg>가입을 다시 진행해주세요.</Msg>
                 </MsgWrap>
-                <Link href='/join'>
+                <Link href='/signup'>
                     <FailureBtn>회원가입</FailureBtn>
                 </Link>
             </FailureWrap>

@@ -76,7 +76,7 @@ return(
             <Button value='로그인'/>
             <MoveJoin>
                 아직 회원이 아닌가요?
-                <Link href="/join">
+                <Link href="/signup">
                     <LinkP>회원가입</LinkP>
                 </Link>
             </MoveJoin>

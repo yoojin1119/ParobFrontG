@@ -40,7 +40,7 @@ const Header = () => {
                     <Link href='/login'>
                         <Login>로그인</Login>
                     </Link>
-                    <Link href='/join'>
+                    <Link href='/signup'>
                     <Join>회원가입</Join>
                     </Link>
                 </UserInfo>
