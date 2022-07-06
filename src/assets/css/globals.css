@@ -290,10 +290,3 @@ input:-webkit-autofill:active {
 select {
   font-family: 'IBMPlexSansKR-Regular', 'Helvetica Neue', Arial, sans-serif;
 }
-
-input[type="password"]{
-  font-size:50px;
-  letter-spacing: -5px;
-  color: #7B7B7B;
-  -webkit-text-security: circle !important;
-}
