@@ -326,7 +326,7 @@ export default function JoinPage (){
               </Link>
               및
               <Link href="policy/privacy">
-                  <LinkBtn>개인정보 처리 방침</LinkBtn>
+                  <LinkBtn>개인정보 처리방침</LinkBtn>
               </Link>
               에 동의하고, 회원가입합니다.
           </PolicyDesc>
