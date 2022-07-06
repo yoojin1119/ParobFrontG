@@ -194,7 +194,7 @@ export default function JoinPage (){
                     {email? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>}
                   </LabelBox>
                   <Input 
-                    placeholder="example@gmail.com"
+                    placeholder="example@email.com"
                     autoComplete="off"
                     type='text'
                     id="email"
