@@ -7,10 +7,20 @@ import Header from "../../Component/layout/component/header";
 import Footer from "../../Component/layout/component/Footer";
 
 export default function LoginPage (){
+    const [email, setEmail]= useState('')
+    const [password,setPassword] = useState('')
     const [loginFail, setLoginFail] = useState(false)
     const [loginKeep, setLoginKeep] = useState(true)
     const LoginKeeping = () => {
         setLoginKeep(!loginKeep)
+    }
+    const handleInput = (e) =>{
+        if(e.target.id === 'email') {
+            setEmail(e.target.value)
+        }
+        if(e.target.id === 'password') {
+            setPassword(e.target.value)
+        }
     }
 return(
     <Container>
@@ -23,7 +33,7 @@ return(
             <InputWrap>
                 <InputBox>
                     <LabelBox htmlFor="email">
-                        <LableText>이메일</LableText>
+                        {email ? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>} 
                     </LabelBox>
                     <Input 
                       placeholder="example@gmail.com"
@@ -31,6 +41,7 @@ return(
                       id="email"
                       type="text"
                       maxLength={40}
+                      onChange={handleInput}
                     ></Input>
                     <SubTextBox>
                         <Message></Message>
@@ -38,7 +49,7 @@ return(
                 </InputBox>
                 <InputBox>
                     <LabelBox htmlFor="password">
-                        <LableText>비밀번호</LableText>
+                    {password ? <ActiveLableText>비밀번호</ActiveLableText> : <LableText>비밀번호</LableText>} 
                     </LabelBox>
                     <Input 
                       autoComplete="off"
@@ -46,6 +57,7 @@ return(
                       type= 'password'
                       visible='false'
                       maxLength={16}
+                      onChange={handleInput}
                     ></Input>
                     <SubTextBox>
                         {loginFail ? <Message>가입하지 않은 이메일이거나, 비밀번호가 일치하지  않아요.</Message> :null}
@@ -124,6 +136,13 @@ border: 1px solid #B7B7B7;
 const LabelBox = styled.label``;
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
+${({ theme }) => theme.fontSize.middleRegular};
+&:focus {
+  border-color:${({ theme }) => theme.color.primaryOrange};
+}
+`;
+const ActiveLableText = styled.p`
+color: ${({ theme }) => theme.color.primaryOrange};
 ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`

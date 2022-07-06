@@ -403,6 +403,9 @@ const LabelBox = styled.label`
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
 ${({ theme }) => theme.fontSize.middleRegular};
+&:focus {
+  border-color:${({ theme }) => theme.color.primaryOrange};
+}
 `;
 const ActiveLableText = styled.p`
 color: ${({ theme }) => theme.color.primaryOrange};

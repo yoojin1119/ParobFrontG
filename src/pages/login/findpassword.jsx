@@ -4,7 +4,11 @@ import Header from "../../Component/layout/component/header";
 import Footer from "../../Component/layout/component/Footer"
 
 export default function FindPasswordPage (){
+    const [email, setEmail] = useState('')
     const [mailError, setMailError] = useState(false)
+    const handleInput = (e) =>{
+        setEmail(e.target.value)
+    }
     return(
         <Container>
             <Header />
@@ -13,13 +17,14 @@ export default function FindPasswordPage (){
                 <FindMsg>가입하신 이메일 주소로 비밀번호 재설정 메일을 보내드려요</FindMsg>
                 <InputBox>
                     <LabelBox htmlFor="email">
-                        <LableText>이메일</LableText>
+                    {email ? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>} 
                     </LabelBox>
                     <Input 
                       autoComplete="off"
                       id="email"
                       type="text"
                       maxLength={40}
+                      onChange={handleInput}
                     ></Input>
                     <SubTextBox>
                         {mailError ? <Message>가입하지 않은 이메일이에요.</Message> : null}
@@ -65,6 +70,13 @@ border: 1px solid #B7B7B7;
 const LabelBox = styled.label``;
 const LableText = styled.p`
 color: ${({ theme }) => theme.color.textDeepGray};
+${({ theme }) => theme.fontSize.middleRegular};
+&:focus {
+  border-color:${({ theme }) => theme.color.primaryOrange};
+}
+`;
+const ActiveLableText = styled.p`
+color: ${({ theme }) => theme.color.primaryOrange};
 ${({ theme }) => theme.fontSize.middleRegular};
 `;
 const Input = styled.input`
