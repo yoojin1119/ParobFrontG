@@ -104,7 +104,7 @@ const PrivacyBox = styled.div`
     color: ${({ theme }) => theme.color.textGray};
 `;
 const AllTermsDropboxWrapper = styled.div`
-    margin-top: 50px;
+    margin-top: 25px;
     width: 80rem;
     display: flex;
     flex-direction:column;
