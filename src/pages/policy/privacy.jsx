@@ -26,6 +26,7 @@ export default function PrivacyPage (){
   const handlePrivacyTermsClick = (e) => {
     setClickedPrivacyTerms(e.target.value);
     window.scrollTo(0,0);
+    setOpen(!open)
   };
 
     return(
