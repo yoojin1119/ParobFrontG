@@ -5,14 +5,12 @@ export const apiCall = (url, method, payload = {}, options) => {
   const { timeout, withCredentials, responseType, authorization } =
     options || {};
   const headers = {};
-
   if (authorization) {
     // headers['Authorization'] = `Bearer ${authorization}`;
     headers['Authorization'] = authorization;
     headers['Access-Control-Allow-Origin'] = '*';
     headers['Content-Type'] = 'application/json';
   }
-
   return axios({
     url,
     method,

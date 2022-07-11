@@ -11,8 +11,10 @@ import Footer from "../../Component/layout/component/Footer";
 import helper from "../../utils/common/helper";
 import dynamic from "next/dynamic";
 
+// api
+import{ postSignupApi } from '../apis/signupApi'
+
 export default function SignupPage (){
-  const [data, setData] = useState({});
 
   // 이메일
   const [email, setEmail] = useState('')
@@ -36,9 +38,9 @@ export default function SignupPage (){
   const [isPasswordCorrected, setIsPasswordCorrected] = useState(false)
   
     // 닉네임
-  const [nickName, setNickName] = useState('')
+  const [nickname, setNickname] = useState('')
   const  [isNicknameChanged, setIsNicknameChanged] = useState(false)
-  const [usedNickName, setUsedNickName] = useState(false)
+  const [usedNickname, setUsedNickname] = useState(false)
 
   // 국가 설정
   const [ip, setIp] = useState('')
@@ -52,35 +54,44 @@ export default function SignupPage (){
 
     // 유효성검사
     const onSubmit = (e) => {
+      e.preventDefault();
       if (!!helper.emailValid(email)) {
       setEmail(email)
         if (!!isEngChecked && !!isNumChecked && !!isLimitChecked) {
           setPassword(password)
           completeData()
-          e.preventDefault()
         }
         else {
           setPasswordError(true)
-          e.preventDefault()
         }
       }
       else {
         setEmailError(true)
-        e.preventDefault()
       }
 
     }
-    const completeData = () => {
-      if(email && password && nickName && country) {
-        data = {
-          id: email,
-          password: password,
-          nickName:nickName,
-          country:country
-        }
-        setData(data);
-        setSubmitError(false)
-        console.log(data)
+    const completeData = (e) => {
+      if(email && password && nickname && country) {
+        postSignupApi(
+          nickname,
+          password,
+          email,
+          country
+        )
+        // setSubmitError(false)
+        .then((res) => {
+          if(res?.data?.verified === false) {
+            // Router.push({
+            //   pathname: 'signup/verify',
+            // });
+            console.log(res)
+          } else {
+            setUsedEmail(true)
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
       }
       else {
         setSubmitError(true)
@@ -116,9 +127,9 @@ export default function SignupPage (){
             !!isLimitChecked &&
             setIsPasswordCorrected(true);
           break;
-        case 'nickName':
+        case 'nickname':
           setIsNicknameChanged(true);
-          setNickName(value);
+          setNickname(value);
       }
   };
 
@@ -260,18 +271,18 @@ export default function SignupPage (){
                   </SubTextBox>
               </InputBox>
               <InputBox>
-                  <LabelBox htmlFor="nickName">
-                      {nickName? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
+                  <LabelBox htmlFor="nickname">
+                      {nickname? <ActiveLableText>별명</ActiveLableText> : <LableText>별명</LableText>} 
                   </LabelBox>
                   <Input 
                     autoComplete="off"
-                    id="nickName"
-                    value={nickName}
+                    id="nickname"
+                    value={nickname}
                     onChange={handleInputChange}
                     maxLength={20}
                   ></Input>
                   <SubTextBox>
-                      {usedNickName ? <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message> :null}
+                      {usedNickname ? <Message>이미 존재하거나,사용할 수 없는 별명이에요.</Message> :null}
                   </SubTextBox>
               </InputBox>
               <SelectBox>
