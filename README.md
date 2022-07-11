@@ -11,6 +11,15 @@
 
 `npx create-next-app probfrontg`
 
+### redux
+
+````
+npm i redux
+npm i react-redux
+npm i next-redux-wrapper
+npm i react-redux@next 
+npm i redux-persist 
+````
 
 ### 데이터 패칭
 `npm install axios`

@@ -2,9 +2,11 @@ import '../assets/css/globals.css';
 import theme from '../assets/css/theme'
 import dynamic from 'next/dynamic';
 import { ThemeProvider } from 'styled-components'
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import { useEffect,useState } from 'react';
 const Layout = dynamic(() => import('../Component/layout/Layout'));
+
+import { store, persistor } from '../utils/reducers/configureStore';
 
 function MyApp({ Component, pageProps }) {
   const [children, setChildren] = useState(false)
@@ -20,9 +22,11 @@ function MyApp({ Component, pageProps }) {
   else {
   return (
     <ThemeProvider theme={theme}>
+      <Provider store={store}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
+      </Provider>
     </ThemeProvider>
     );
   }

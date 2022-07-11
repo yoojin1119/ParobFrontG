@@ -2,17 +2,26 @@ import styled from "styled-components";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Header from "../../Component/layout/component/header";
 import Footer from "../../Component/layout/component/Footer";
+import helper from '../../utils/common/helper'
+
+
+// apiss
+import { postLoginApi } from "../apis/loginApi";
 
 export default function LoginPage (){
+    const router = useRouter();
+    const dispatch = useDispatch();
     const [email, setEmail]= useState('')
     const [password,setPassword] = useState('')
     const [loginFail, setLoginFail] = useState(false)
-    const [loginKeep, setLoginKeep] = useState(true)
-    const LoginKeeping = () => {
-        setLoginKeep(!loginKeep)
+    const [isLoginSaved, setIsLoginSaved] = useState(true)
+    const handleLoginSave = () => {
+        setIsLoginSaved(!isLoginSaved)
     }
     const handleInput = (e) =>{
         if(e.target.id === 'email') {
@@ -22,6 +31,34 @@ export default function LoginPage (){
             setPassword(e.target.value)
         }
     }
+    const handleLogin = (e) => {
+        e.preventDefault();
+        postLoginApi(email, password)
+        .then((res) => {
+            if(res?.data?.accessToken) {
+                if(isLoginSaved === true) {
+                    helper.setAuthenticateToken(res?.data?.accessToken)
+                } else if (isLoginSaved === false) {
+                    helper.setSessionAuthenticateToken(res?.data?.accessToken);
+                }
+                dispatch({
+                    type:'AUTH_TOKEN',
+                    data: res?.data?.accessToken,
+                }),
+                dispatch({
+                    type: 'LOGIN_STATUS',
+                    data: true,
+                });
+                router.replace('/');
+            } else {
+                setLoginFail(true)
+            }
+        })
+        .catch((err) => {
+            setLoginFail(true)
+            console.log(err?.response?.data?.message)
+        })
+    }
 return(
     <Container>
         <LoginWrap>
@@ -30,7 +67,7 @@ return(
         <Sns/>
         <Looin>
             <LoginTitle>이메일 로그인</LoginTitle>
-            <InputWrap>
+            <InputForm onSubmit={handleLogin}>
                 <InputBox>
                     <LabelBox htmlFor="email">
                         {email ? <ActiveLableText>이메일</ActiveLableText> : <LableText>이메일</LableText>} 
@@ -63,17 +100,18 @@ return(
                         {loginFail ? <Message>가입하지 않은 이메일이거나, 비밀번호가 일치하지  않아요.</Message> :null}
                     </SubTextBox>
                 </InputBox>
-            </InputWrap>
+
             <LoginCheckWrap>
-                <LoginCheckBox onClick={LoginKeeping}>
-                    {loginKeep ? <LoginBtnImg src='./assets/images/icons/orangeCheck.png'></LoginBtnImg> : <LoginBtnImg src='./assets/images/icons/unchecked.svg'></LoginBtnImg>}
+                <LoginCheckBox onClick={handleLoginSave}>
+                    {isLoginSaved ? <LoginBtnImg props={'save'} src='./assets/images/icons/orangeCheck.png'></LoginBtnImg> : <LoginBtnImg props={'unsave'} src='./assets/images/icons/unchecked.svg'></LoginBtnImg>}
                     <LoginCheckText>로그인 유지</LoginCheckText>
                 </LoginCheckBox>
                 <Link href='/login/findpassword'>
                     <FindPassword >비밀번호 찾기</FindPassword>
                 </Link>
             </LoginCheckWrap>
-            <Button value='로그인'/>
+            <Button value='로그인' type="submit"/>
+            </InputForm>
             <MoveJoin>
                 아직 회원이 아닌가요?
                 <Link href="/signup">
@@ -115,7 +153,7 @@ const LoginTitle = styled.p`
 margin: 5.083rem 0 3.417rem;
 ${({ theme }) => theme.fontSize.bigBold};
 `;
-const InputWrap = styled.div`
+const InputForm = styled.form`
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -168,11 +206,13 @@ const LoginCheckWrap = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-margin:4.25rem 0 2.75rem;`;
+margin:30px 0;
+`;
 const LoginCheckBox = styled.button`
 display: flex;
 align-items: center;
-justify-contenr:space-between`;
+justify-contenr:space-between;
+`;
 const LoginBtnImg = styled.img`
 width: 2.5rem;
 height: 2.5rem;
