@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //apiCall 공통처리
-export const apiCall = (url, method, payload = {}, options) => {
+const apiCall = (url, method, payload = {}, options) => {
   const { timeout, withCredentials, responseType, authorization } =
     options || {};
   const headers = {};
@@ -23,3 +23,5 @@ export const apiCall = (url, method, payload = {}, options) => {
     headers,
   });
 };
+
+export default apiCall;

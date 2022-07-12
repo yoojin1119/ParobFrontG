@@ -3,6 +3,7 @@ import Link from "next/link";
 import Sns from "../../Component/Sns";
 import Button from "../../Component/Button";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import axios from "axios";
 import countryList from '../../data/country.json'
 import Header from "../../Component/layout/component/header";
@@ -15,6 +16,7 @@ import dynamic from "next/dynamic";
 import{ postSignupApi } from '../apis/signupApi'
 
 export default function SignupPage (){
+  const Router = useRouter();
 
   // 이메일
   const [email, setEmail] = useState('')
@@ -73,11 +75,6 @@ export default function SignupPage (){
 
     }
     const completeData = (e) => {
-      if(country === "SOUTH KOREA") {
-              setCountry("KOR")
-      } else if( country === "UNITED STATES") {
-        setCountry("USA")
-      }
         postSignupApi(
           email,
           password,
@@ -85,11 +82,12 @@ export default function SignupPage (){
           country
         )
         .then((res) => {
+          console.log(res)
           if(res?.data?.verified === false) {
-            // Router.push({
-            //   pathname: 'signup/verify',
-            // });
-            console.log(res)
+            Router.push({
+              pathname: 'signup/verify',
+              query:{email:email}
+            });
           } else {
             setUsedEmail(true)
           }

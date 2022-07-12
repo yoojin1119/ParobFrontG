@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:dev": "env-cmd -f .env.development next dev -p 3000",
+    "build:dev": "env-cmd -f .env.development next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

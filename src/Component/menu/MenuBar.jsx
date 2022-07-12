@@ -28,7 +28,7 @@ const MenuBar = () => {
                     <Link href='/login'>
                         <LoginBtn>로그인</LoginBtn>
                     </Link>
-                    <Link href='/singup'>
+                    <Link href='/signup'>
                         <JoinBtn>회원가입</JoinBtn>
                     </Link>
                 </JoinWrap>

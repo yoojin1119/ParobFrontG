@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 import Header from "../../Component/layout/component/header";
 import Footer from "../../Component/layout/component/Footer";
 
 export default function VerifiyPage (){
-    const email = 'yurina@gmail.com'
+
     return(
         <Container>
             <Header />

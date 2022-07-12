@@ -2,7 +2,7 @@ import { apiCall } from './apiCall';
 import { SERVER_API_HOST } from '../../utils/common/environment';
 
 // 회원가입
-export const postSignupApi = (email,password,nickname,country) => {
+const postSignupApi = (email,password,nickname,country) => {
   return apiCall(
     `${SERVER_API_HOST}/user`,
     'post',
@@ -10,8 +10,10 @@ export const postSignupApi = (email,password,nickname,country) => {
       email,
       password,
       nickname,
-      country:'KOR'
+      country:"KOR",
     },
     { ContentType: 'application/json' }
   );
 };
+
+export default postSignupApi;
