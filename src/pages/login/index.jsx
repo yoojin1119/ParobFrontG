@@ -56,7 +56,7 @@ export default function LoginPage (){
         })
         .catch((err) => {
             setLoginFail(true)
-            console.log(err?.response?.data?.message)
+            console.log(err)
         })
     }
 return(

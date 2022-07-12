@@ -59,7 +59,9 @@ export default function SignupPage (){
       setEmail(email)
         if (!!isEngChecked && !!isNumChecked && !!isLimitChecked) {
           setPassword(password)
-          completeData()
+          if(email && password && nickname && country) {
+            completeData()
+          }
         }
         else {
           setPasswordError(true)
@@ -71,14 +73,17 @@ export default function SignupPage (){
 
     }
     const completeData = (e) => {
-      if(email && password && nickname && country) {
+      if(country === "SOUTH KOREA") {
+              setCountry("KOR")
+      } else if( country === "UNITED STATES") {
+        setCountry("USA")
+      }
         postSignupApi(
-          nickname,
-          password,
           email,
+          password,
+          nickname,
           country
         )
-        // setSubmitError(false)
         .then((res) => {
           if(res?.data?.verified === false) {
             // Router.push({
@@ -93,10 +98,6 @@ export default function SignupPage (){
           console.log(err)
         })
       }
-      else {
-        setSubmitError(true)
-      }
-    }
 
     // 임풋 유효성 검사
     const handleInputChange = (e) => {
