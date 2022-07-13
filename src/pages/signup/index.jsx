@@ -104,6 +104,8 @@ export default function SignupPage (){
         case 'email':
           setEmail(value);
           setAutoEmailClicked(false);
+          setNickname(value.slice(0, -1))
+
           //@입력시 자동완성 이메일 생성
           value?.includes('@')
             ? setIsEmailAutoStarted(true)
